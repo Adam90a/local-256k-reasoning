@@ -2,6 +2,8 @@
 
 Which open-weight model gives the best **reasoning with ≥256K tokens of reliable context** on one 24 GB GPU plus 128 GB of RAM? A measured answer, from November 2026.
 
+Also on Hugging Face: [datasets/timmyGPT/local-256k-reasoning](https://huggingface.co/datasets/timmyGPT/local-256k-reasoning).
+
 **Hardware:** RTX PRO 4000 Blackwell (24 GB, the only GPU used) · Threadripper 7970X · 128 GB DDR5-4800 · llama.cpp `29c720e`.
 
 ## Result
