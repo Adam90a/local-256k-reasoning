@@ -1,0 +1,138 @@
+{
+ "label": "STABILITY-strata-gptq-288k",
+ "engine": "strata",
+ "suite": "both",
+ "seed": 107,
+ "target_tokens": 262144,
+ "prompt_tokens_server": 262327,
+ "prompt_tokens_counted": 262327,
+ "meets_target": true,
+ "output_tokens": 4555,
+ "finish": "stop",
+ "truncated": false,
+ "prefill_s": 91.8,
+ "prefill_tps": 2859,
+ "gen_tps": 105.0,
+ "wall_s": 135,
+ "reasoning_chars": 12555,
+ "expected": {
+  "needle_start": "28063-18",
+  "needle_mid": "96448-RU",
+  "needle_end": "80071-IP",
+  "distractor": "23030",
+  "multihop": "SEC-9393",
+  "contradiction": [
+   20,
+   21
+  ],
+  "count": 3,
+  "var_chain": 6336,
+  "billing_fee": 8945,
+  "migration_date": "2026-03-12",
+  "capacity": 92000000,
+  "callers": [
+   "llama.cpp-lrr/src/models/openai-moe.cpp",
+   "llama.cpp-lrr/tests/test_conversion_fp8.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/router/dsv4_topk.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/funasr.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/models/deepseek_v4/amd/dspark.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py"
+  ],
+  "ack": "6VQAOZ8S"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "28063-18",
+   "got": "28063-18",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "96448-RU",
+   "got": "96448-RU",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "80071-IP",
+   "got": "80071-IP",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "23030",
+   "got": 23030,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-9393",
+   "got": "SEC-9393",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    20,
+    21
+   ],
+   "got": [
+    20,
+    21
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 3,
+   "got": 3,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 6336,
+   "got": 6336,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 8945,
+   "got": 8945,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-12",
+   "got": "2026-03-12",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 92000000,
+   "got": 92000000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/src/models/openai-moe.cpp",
+    "llama.cpp-lrr/tests/test_conversion_fp8.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/router/dsv4_topk.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/funasr.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/models/deepseek_v4/amd/dspark.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py"
+   ],
+   "got": [
+    "llama.cpp-lrr/tests/test_conversion_fp8.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/router/dsv4_topk.py",
+    "llama.cpp-lrr/src/models/openai-moe.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/models/deepseek_v4/amd/dspark.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/funasr.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py"
+   ],
+   "ok": true,
+   "f1": 0.923
+  },
+  "ack": {
+   "expected": "6VQAOZ8S",
+   "got": "6VQAOZ8S",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": "{\n  \"ack\": \"6VQAOZ8S\",\n  \"needle_start\": \"28063-18\",\n  \"needle_mid\": \"96448-RU\",\n  \"needle_end\": \"80071-IP\",\n  \"distractor\": 23030,\n  \"multihop\": \"SEC-9393\",\n  \"contradiction\": [\n    20,\n    21\n  ],\n  \"count\": 3,\n  \"var_chain\": 6336,\n  \"billing_fee\": 8945,\n  \"migration_date\": \"2026-03-12\",\n  \"capacity\": 92000000,\n  \"callers\": [\n    \"llama.cpp-lrr/tests/test_conversion_fp8.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/router/dsv4_topk.py\",\n    \"llama.cpp-lrr/src/models/openai-moe.cpp\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/models/deepseek_v4/amd/dspark.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/funasr.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py\"\n  ]\n}"
+}

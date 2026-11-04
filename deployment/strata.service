@@ -1,0 +1,16 @@
+# Installed 2026-11-04 (on demand, not enabled at boot). Strata NVFP4 engine serving Qwen3.8-Flash-Next (NVFP4 GPTQ)
+# on the RTX PRO 4000; 256K qualification PASS 10/10 (~/local-reasoning-research/research/strata-trial.md).
+# OpenAI + Anthropic API on 127.0.0.1:8091. Fallback: qwen38fn.service (llama.cpp, :8090) - don't run both.
+[Unit]
+Description=Strata NVFP4: Qwen3.8-Flash-Next local model (RTX PRO 4000, 288K window) on :8091
+After=network.target
+Conflicts=qwen38fn.service
+
+[Service]
+ExecStart=/home/adam/local-reasoning-research/scripts/serve_strata.sh /home/adam/local-reasoning-research/configs/strata-gptq-288k.json
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=600
+
+[Install]
+WantedBy=default.target

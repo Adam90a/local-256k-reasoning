@@ -1,6 +1,6 @@
 # local-256k-reasoning
 
-Which open-weight model gives the best **reasoning with ≥256K tokens of reliable context** on one 24 GB GPU plus 128 GB of RAM? A measured answer, from November 2026.
+Which open-weight model gives the best **reasoning with ≥256K tokens of reliable context** on one 24 GB GPU plus 128 GB of RAM, and which engine should run it? A measured answer, from November 2026.
 
 Also on Hugging Face: [datasets/timmyGPT/local-256k-reasoning](https://huggingface.co/datasets/timmyGPT/local-256k-reasoning).
 
@@ -8,15 +8,27 @@ Also on Hugging Face: [datasets/timmyGPT/local-256k-reasoning](https://huggingfa
 
 ## Result
 
-**Qwen3.8-Flash-Next** (Unsloth `UD-Q4_K_XL` GGUF, routed experts in system RAM, YaRN ×2, 294,912-token window):
+**Qwen3.8-Flash-Next**, run on the **[Strata NVFP4](https://github.com/sergqwer/strata-nvfp4) engine** with the [NVFP4 GPTQ](https://huggingface.co/Maximilian228/Qwen3.8-Flash-Next-NVFP4-GPTQ-Strata) weights (routed experts in system RAM, int8 KV, 294,912-token window). llama.cpp with Unsloth's `UD-Q4_K_XL` GGUF also passes, about 3.5× slower.
 
-- **256K qualification: PASS.** 10 consecutive runs at 262,169–262,376 input tokens (counted with the chat template), no truncation or errors, **13/13** on every run: 7 retrieval/aggregation checks, 5 cross-context reasoning tasks, and a standing instruction.
-- **Same prompts as Claude Opus 5.5:** on three byte-identical 262K prompts, Qwen Q4, Opus 5.5 and MiniMax-M3 all scored 13/13.
-- **512K:** 13/13 on 2/2 runs (YaRN ×4, q8_0 KV, 23 GB VRAM). About 1M does not fit.
-- **AIME 2026 (15 problems):** 14/15 (Opus 5.5: 15/15).
-- **Claude Code driving the local model** (via llama-server's `/v1/messages`): 6/6 bug-fix tasks, tests untouched.
-- **Speed:** 19.4 GB VRAM. At 262K: 5.7 min to read the prompt, then 29.7 tok/s.
+- **256K qualification: PASS on both engines.** 10 consecutive runs at ≥262,144 input tokens (counted with the chat template), no truncation or errors, **13/13** on every run: 7 retrieval/aggregation checks, 5 cross-context reasoning tasks, and a standing instruction.
+
+| At ~262K input tokens | llama.cpp (UD-Q4_K_XL) | **Strata (NVFP4 GPTQ)** |
+|---|---|---|
+| 10-run qualification | 13/13 ×10 | **13/13 ×10** |
+| Prompt reading | 5.7 min (~765 tok/s) | **1.5 min (~2,857 tok/s)** |
+| Generation | 29.7 tok/s | **102.6 tok/s** |
+| Short-prompt generation | 33.7 tok/s | **110.7 tok/s** |
+| Peak VRAM / engine RAM | 19.4 GB / 91 GB | 23.4 GB / 76 GB |
+| Claude Code, 3-bug fix task | 2.4–3.4 min | **32 s** |
+
+- **Same prompts as Claude Opus 5.5:** on three byte-identical 262K prompts, Qwen (both 4-bit builds), Opus 5.5 and MiniMax-M3 all scored 13/13. *On this benchmark* the local model matches Opus. The benchmark doesn't separate the top models, so this is not a claim of overall parity.
+- **512K:** 13/13 on 2/2 runs (llama.cpp, YaRN ×4, q8_0 KV). About 1M does not fit.
+- **AIME 2026 (15 problems):** 14/15 (Opus 5.5: 15/15). Measured on llama.cpp.
+- **Claude Code / Hermes driving the local model:** all bug-fix tasks solved, tests untouched.
 - **Weakest area:** hard contest coding (LiveCodeBench v6 hard: 3/10 local vs 6/10 Opus).
+- **Caveat on Strata:** a young, single-maintainer project (Windows-first; built from source here). AIME and coding were not re-run on it.
+
+### All candidates (llama.cpp unless noted)
 
 | Model (all on the same machine) | 256K | 512K | ~1M | AIME 2026 | LCB hard |
 |---|---|---|---|---|---|
@@ -29,7 +41,7 @@ Also on Hugging Face: [datasets/timmyGPT/local-256k-reasoning](https://huggingfa
 
 \* needed a GGUF context-length override (experimental).
 
-Full write-up: **[research/final-report.md](research/final-report.md)**. Also: [256K qualification](research/qualification-256k.md) · [quantization study](research/quantization-study.md) · [architecture notes, including HGA](research/architecture-research.md) · [fine-tuning assessment](research/fine-tuning-assessment.md) · [deployment](deployment/README.md).
+Full write-up: **[research/final-report.md](research/final-report.md)** and **[research/strata-trial.md](research/strata-trial.md)**. Also: [256K qualification](research/qualification-256k.md) · [quantization study](research/quantization-study.md) · [architecture notes, including HGA](research/architecture-research.md) · [fine-tuning assessment](research/fine-tuning-assessment.md) · [deployment](deployment/README.md).
 
 ## Practical findings
 
@@ -42,6 +54,10 @@ Full write-up: **[research/final-report.md](research/final-report.md)**. Also: [
 ## Reproduce
 
 ```bash
+# Strata (recommended): build sergqwer/strata-nvfp4 for your GPU, then
+scripts/serve_strata.sh configs/strata-gptq-288k.json      # paths inside the JSON point at this machine; edit them
+benchmarks/context/longctx_openai.py --url http://127.0.0.1:8091 --tokens 262144 --seed 101 --out strata.json
+# llama.cpp
 scripts/serve.sh configs/qwen38fn-q4-yarn2-288k.env        # edit the GPU UUID in serve.sh for your card
 benchmarks/context/longctx.py --tokens 262144 --seed 101 --out out.json
 benchmarks/context/longctx.py --prompt-file results/prompts/v2/262144_s21.json --tokens 262144 --out same_prompt.json

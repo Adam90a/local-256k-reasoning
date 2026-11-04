@@ -3,6 +3,7 @@
 [Unit]
 Description=Qwen3.8-Flash-Next llama-server (RTX PRO 4000, 288K window, YaRN x2) — local-reasoning-research
 After=network.target
+Conflicts=strata.service
 
 [Service]
 Environment=CUDA_DEVICE_ORDER=PCI_BUS_ID

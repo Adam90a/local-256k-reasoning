@@ -1,0 +1,130 @@
+{
+ "label": "STABILITY-strata-gptq-288k",
+ "engine": "strata",
+ "suite": "both",
+ "seed": 109,
+ "target_tokens": 262144,
+ "prompt_tokens_server": 262350,
+ "prompt_tokens_counted": 262350,
+ "meets_target": true,
+ "output_tokens": 8028,
+ "finish": "stop",
+ "truncated": false,
+ "prefill_s": 92.0,
+ "prefill_tps": 2852,
+ "gen_tps": 102.8,
+ "wall_s": 170,
+ "reasoning_chars": 23742,
+ "expected": {
+  "needle_start": "81726-DG",
+  "needle_mid": "83751-7F",
+  "needle_end": "66102-KT",
+  "distractor": "27949",
+  "multihop": "SEC-8878",
+  "contradiction": [
+   11,
+   17
+  ],
+  "count": 4,
+  "var_chain": 4593,
+  "billing_fee": 13377,
+  "migration_date": "2026-03-10",
+  "capacity": 25500000,
+  "callers": [
+   "vllm-env/lib/python3.12/site-packages/vllm/entrypoints/openai/responses/harmony.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/granite_speech.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/models/common/ops/fused_allreduce_rms_norm.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/reasoning/kimi_k3_reasoning_parser.py"
+  ],
+  "ack": "Q5B560TM"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "81726-DG",
+   "got": "81726-DG",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "83751-7F",
+   "got": "83751-7F",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "66102-KT",
+   "got": "66102-KT",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "27949",
+   "got": 27949,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-8878",
+   "got": "SEC-8878",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    11,
+    17
+   ],
+   "got": [
+    11,
+    17
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 4,
+   "got": 4,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 4593,
+   "got": 4593,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 13377,
+   "got": 13377,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-10",
+   "got": "2026-03-10",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 25500000,
+   "got": 25500000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "vllm-env/lib/python3.12/site-packages/vllm/entrypoints/openai/responses/harmony.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/granite_speech.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/models/common/ops/fused_allreduce_rms_norm.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/reasoning/kimi_k3_reasoning_parser.py"
+   ],
+   "got": [
+    "vllm-env/lib/python3.12/site-packages/vllm/entrypoints/openai/responses/harmony.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/models/common/ops/fused_allreduce_rms_norm.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/reasoning/kimi_k3_reasoning_parser.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/granite_speech.py"
+   ],
+   "ok": true,
+   "f1": 1.0
+  },
+  "ack": {
+   "expected": "Q5B560TM",
+   "got": "Q5B560TM",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": "{\n  \"ack\": \"Q5B560TM\",\n  \"needle_start\": \"81726-DG\",\n  \"needle_mid\": \"83751-7F\",\n  \"needle_end\": \"66102-KT\",\n  \"distractor\": 27949,\n  \"multihop\": \"SEC-8878\",\n  \"contradiction\": [\n    11,\n    17\n  ],\n  \"count\": 4,\n  \"var_chain\": 4593,\n  \"billing_fee\": 13377,\n  \"migration_date\": \"2026-03-10\",\n  \"capacity\": 25500000,\n  \"callers\": [\n    \"vllm-env/lib/python3.12/site-packages/vllm/entrypoints/openai/responses/harmony.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/models/common/ops/fused_allreduce_rms_norm.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/reasoning/kimi_k3_reasoning_parser.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/granite_speech.py\"\n  ]\n}"
+}

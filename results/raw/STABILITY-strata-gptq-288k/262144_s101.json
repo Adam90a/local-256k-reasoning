@@ -1,0 +1,133 @@
+{
+ "label": "STABILITY-strata-gptq-288k",
+ "engine": "strata",
+ "suite": "both",
+ "seed": 101,
+ "target_tokens": 262144,
+ "prompt_tokens_server": 262490,
+ "prompt_tokens_counted": 262490,
+ "meets_target": true,
+ "output_tokens": 9516,
+ "finish": "stop",
+ "truncated": false,
+ "prefill_s": 91.9,
+ "prefill_tps": 2857,
+ "gen_tps": 101.3,
+ "wall_s": 186,
+ "reasoning_chars": 29419,
+ "expected": {
+  "needle_start": "16359-6N",
+  "needle_mid": "53127-2E",
+  "needle_end": "68354-8X",
+  "distractor": "46512",
+  "multihop": "SEC-1566",
+  "contradiction": [
+   6,
+   26
+  ],
+  "count": 4,
+  "var_chain": 6225,
+  "billing_fee": 29536,
+  "migration_date": "2026-03-10",
+  "capacity": 317250000,
+  "callers": [
+   "llama.cpp-lrr/ggml/src/ggml-cpu/spacemit/rvv_kernels.cpp",
+   "llama.cpp-lrr/tests/test_conversion_fp8.py",
+   "llama.cpp-lrr/tools/server/server-stream.cpp",
+   "vllm-env/lib/python3.12/site-packages/vllm/lora/punica_wrapper/punica_xpu.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/transformers_utils/processors/cosmos3_edge.py"
+  ],
+  "ack": "56TL7AFE"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "16359-6N",
+   "got": "16359-6N",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "53127-2E",
+   "got": "53127-2E",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "68354-8X",
+   "got": "68354-8X",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "46512",
+   "got": 46512,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-1566",
+   "got": "SEC-1566",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    6,
+    26
+   ],
+   "got": [
+    6,
+    26
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 4,
+   "got": 4,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 6225,
+   "got": 6225,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 29536,
+   "got": 29536,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-10",
+   "got": "2026-03-10",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 317250000,
+   "got": 317250000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/ggml/src/ggml-cpu/spacemit/rvv_kernels.cpp",
+    "llama.cpp-lrr/tests/test_conversion_fp8.py",
+    "llama.cpp-lrr/tools/server/server-stream.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/lora/punica_wrapper/punica_xpu.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/transformers_utils/processors/cosmos3_edge.py"
+   ],
+   "got": [
+    "vllm-env/lib/python3.12/site-packages/vllm/lora/punica_wrapper/punica_xpu.py",
+    "llama.cpp-lrr/tools/server/server-stream.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/transformers_utils/processors/cosmos3_edge.py",
+    "llama.cpp-lrr/tests/test_conversion_fp8.py",
+    "llama.cpp-lrr/ggml/src/ggml-cpu/spacemit/rvv_kernels.cpp"
+   ],
+   "ok": true,
+   "f1": 1.0
+  },
+  "ack": {
+   "expected": "56TL7AFE",
+   "got": "56TL7AFE",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": "{\n  \"ack\": \"56TL7AFE\",\n  \"needle_start\": \"16359-6N\",\n  \"needle_mid\": \"53127-2E\",\n  \"needle_end\": \"68354-8X\",\n  \"distractor\": 46512,\n  \"multihop\": \"SEC-1566\",\n  \"contradiction\": [6, 26],\n  \"count\": 4,\n  \"var_chain\": 6225,\n  \"billing_fee\": 29536,\n  \"migration_date\": \"2026-03-10\",\n  \"capacity\": 317250000,\n  \"callers\": [\n    \"vllm-env/lib/python3.12/site-packages/vllm/lora/punica_wrapper/punica_xpu.py\",\n    \"llama.cpp-lrr/tools/server/server-stream.cpp\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/transformers_utils/processors/cosmos3_edge.py\",\n    \"llama.cpp-lrr/tests/test_conversion_fp8.py\",\n    \"llama.cpp-lrr/ggml/src/ggml-cpu/spacemit/rvv_kernels.cpp\"\n  ]\n}"
+}

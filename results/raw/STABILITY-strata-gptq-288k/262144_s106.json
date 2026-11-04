@@ -1,0 +1,129 @@
+{
+ "label": "STABILITY-strata-gptq-288k",
+ "engine": "strata",
+ "suite": "both",
+ "seed": 106,
+ "target_tokens": 262144,
+ "prompt_tokens_server": 262357,
+ "prompt_tokens_counted": 262357,
+ "meets_target": true,
+ "output_tokens": 9751,
+ "finish": "stop",
+ "truncated": false,
+ "prefill_s": 91.8,
+ "prefill_tps": 2858,
+ "gen_tps": 100.6,
+ "wall_s": 189,
+ "reasoning_chars": 29446,
+ "expected": {
+  "needle_start": "72403-DQ",
+  "needle_mid": "67247-2S",
+  "needle_end": "94984-IL",
+  "distractor": "59924",
+  "multihop": "SEC-4498",
+  "contradiction": [
+   20,
+   28
+  ],
+  "count": 7,
+  "var_chain": 7370,
+  "billing_fee": 12953,
+  "migration_date": "2026-03-17",
+  "capacity": 127500000,
+  "callers": [
+   "llama.cpp-lrr/examples/llama-eval/llama-server-simulator.py",
+   "llama.cpp-lrr/ggml/src/ggml-cuda/gated-delta-net-mma.cu",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/triton_kernels/matmul_ogs_details/_reduce_grouped.py"
+  ],
+  "ack": "YN0P7XYY"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "72403-DQ",
+   "got": "72403-DQ",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "67247-2S",
+   "got": "67247-2S",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "94984-IL",
+   "got": "94984-IL",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "59924",
+   "got": 59924,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-4498",
+   "got": "SEC-4498",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    20,
+    28
+   ],
+   "got": [
+    20,
+    28
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 7,
+   "got": 7,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 7370,
+   "got": 7370,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 12953,
+   "got": 12953,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-17",
+   "got": "2026-03-17",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 127500000,
+   "got": 127500000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/examples/llama-eval/llama-server-simulator.py",
+    "llama.cpp-lrr/ggml/src/ggml-cuda/gated-delta-net-mma.cu",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/triton_kernels/matmul_ogs_details/_reduce_grouped.py"
+   ],
+   "got": [
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/triton_kernels/matmul_ogs_details/_reduce_grouped.py",
+    "llama.cpp-lrr/ggml/src/ggml-cuda/gated-delta-net-mma.cu",
+    "llama.cpp-lrr/examples/llama-eval/llama-server-simulator.py"
+   ],
+   "ok": true,
+   "f1": 0.857
+  },
+  "ack": {
+   "expected": "YN0P7XYY",
+   "got": "YN0P7XYY",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": "{\n  \"ack\": \"YN0P7XYY\",\n  \"needle_start\": \"72403-DQ\",\n  \"needle_mid\": \"67247-2S\",\n  \"needle_end\": \"94984-IL\",\n  \"distractor\": 59924,\n  \"multihop\": \"SEC-4498\",\n  \"contradiction\": [\n    20,\n    28\n  ],\n  \"count\": 7,\n  \"var_chain\": 7370,\n  \"billing_fee\": 12953,\n  \"migration_date\": \"2026-03-17\",\n  \"capacity\": 127500000,\n  \"callers\": [\n    \"vllm-env/lib/python3.12/site-packages/vllm/third_party/triton_kernels/matmul_ogs_details/_reduce_grouped.py\",\n    \"llama.cpp-lrr/ggml/src/ggml-cuda/gated-delta-net-mma.cu\",\n    \"llama.cpp-lrr/examples/llama-eval/llama-server-simulator.py\"\n  ]\n}"
+}

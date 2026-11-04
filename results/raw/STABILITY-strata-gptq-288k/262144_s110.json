@@ -1,0 +1,139 @@
+{
+ "label": "STABILITY-strata-gptq-288k",
+ "engine": "strata",
+ "suite": "both",
+ "seed": 110,
+ "target_tokens": 262144,
+ "prompt_tokens_server": 262392,
+ "prompt_tokens_counted": 262392,
+ "meets_target": true,
+ "output_tokens": 11061,
+ "finish": "stop",
+ "truncated": false,
+ "prefill_s": 91.8,
+ "prefill_tps": 2859,
+ "gen_tps": 104.4,
+ "wall_s": 198,
+ "reasoning_chars": 31674,
+ "expected": {
+  "needle_start": "45864-8E",
+  "needle_mid": "15252-H6",
+  "needle_end": "79291-1O",
+  "distractor": "41714",
+  "multihop": "SEC-7578",
+  "contradiction": [
+   12,
+   16
+  ],
+  "count": 3,
+  "var_chain": 4983,
+  "billing_fee": 67977,
+  "migration_date": "2026-03-17",
+  "capacity": 121500000,
+  "callers": [
+   "llama.cpp-lrr/common/arg.cpp",
+   "llama.cpp-lrr/tools/mtmd/clip.cpp",
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/experts/gpt_oss_triton_kernels_moe.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/threadblock/conv2d_fprop_activation_tile_access_iterator_fixed_channels.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/default_gemm_with_reduction.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/logit_bias.py"
+  ],
+  "ack": "TZ17CU1F"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "45864-8E",
+   "got": "45864-8E",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "15252-H6",
+   "got": "15252-H6",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "79291-1O",
+   "got": "79291-1O",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "41714",
+   "got": 41714,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-7578",
+   "got": "SEC-7578",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    12,
+    16
+   ],
+   "got": [
+    12,
+    16
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 3,
+   "got": 3,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 4983,
+   "got": 4983,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 67977,
+   "got": 67977,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-17",
+   "got": "2026-03-17",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 121500000,
+   "got": 121500000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/common/arg.cpp",
+    "llama.cpp-lrr/tools/mtmd/clip.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/experts/gpt_oss_triton_kernels_moe.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/threadblock/conv2d_fprop_activation_tile_access_iterator_fixed_channels.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/default_gemm_with_reduction.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/logit_bias.py"
+   ],
+   "got": [
+    "llama.cpp-lrr/tools/mtmd/clip.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/default_gemm_with_reduction.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/threadblock/conv2d_fprop_activation_tile_access_iterator_fixed_channels.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py",
+    "llama.cpp-lrr/common/arg.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/experts/gpt_oss_triton_kernels_moe.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/logit_bias.py"
+   ],
+   "ok": true,
+   "f1": 1.0
+  },
+  "ack": {
+   "expected": "TZ17CU1F",
+   "got": "TZ17CU1F",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": "{\n  \"ack\": \"TZ17CU1F\",\n  \"needle_start\": \"45864-8E\",\n  \"needle_mid\": \"15252-H6\",\n  \"needle_end\": \"79291-1O\",\n  \"distractor\": 41714,\n  \"multihop\": \"SEC-7578\",\n  \"contradiction\": [\n    12,\n    16\n  ],\n  \"count\": 3,\n  \"var_chain\": 4983,\n  \"billing_fee\": 67977,\n  \"migration_date\": \"2026-03-17\",\n  \"capacity\": 121500000,\n  \"callers\": [\n    \"llama.cpp-lrr/tools/mtmd/clip.cpp\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/default_gemm_with_reduction.h\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/threadblock/conv2d_fprop_activation_tile_access_iterator_fixed_channels.h\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py\",\n    \"llama.cpp-lrr/common/arg.cpp\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/experts/gpt_oss_triton_kernels_moe.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/logit_bias.py\"\n  ]\n}"
+}

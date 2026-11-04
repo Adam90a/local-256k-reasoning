@@ -1,0 +1,130 @@
+{
+ "label": "STABILITY-strata-gptq-288k",
+ "engine": "strata",
+ "suite": "both",
+ "seed": 108,
+ "target_tokens": 262144,
+ "prompt_tokens_server": 262390,
+ "prompt_tokens_counted": 262390,
+ "meets_target": true,
+ "output_tokens": 8263,
+ "finish": "stop",
+ "truncated": false,
+ "prefill_s": 91.6,
+ "prefill_tps": 2865,
+ "gen_tps": 102.2,
+ "wall_s": 172,
+ "reasoning_chars": 24041,
+ "expected": {
+  "needle_start": "59562-MF",
+  "needle_mid": "51648-MH",
+  "needle_end": "23389-8U",
+  "distractor": "31954",
+  "multihop": "SEC-9703",
+  "contradiction": [
+   10,
+   12
+  ],
+  "count": 4,
+  "var_chain": 2809,
+  "billing_fee": 13439,
+  "migration_date": "2026-03-09",
+  "capacity": 57000000,
+  "callers": [
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/oracle/int_wna16.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/models/hy_v4/nvidia/mtp.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/arch/mma_sparse_sm80.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/vllm_flash_attn/cute/sm100_hd256_2cta_fmha_backward_dkdvkernel.py"
+  ],
+  "ack": "ZC2ZUR85"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "59562-MF",
+   "got": "59562-MF",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "51648-MH",
+   "got": "51648-MH",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "23389-8U",
+   "got": "23389-8U",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "31954",
+   "got": 31954,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-9703",
+   "got": "SEC-9703",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    10,
+    12
+   ],
+   "got": [
+    10,
+    12
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 4,
+   "got": 4,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 2809,
+   "got": 2809,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 13439,
+   "got": 13439,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-09",
+   "got": "2026-03-09",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 57000000,
+   "got": 57000000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/oracle/int_wna16.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/models/hy_v4/nvidia/mtp.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/arch/mma_sparse_sm80.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/vllm_flash_attn/cute/sm100_hd256_2cta_fmha_backward_dkdvkernel.py"
+   ],
+   "got": [
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/arch/mma_sparse_sm80.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/vllm_flash_attn/cute/sm100_hd256_2cta_fmha_backward_dkdvkernel.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/models/hy_v4/nvidia/mtp.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/oracle/int_wna16.py"
+   ],
+   "ok": true,
+   "f1": 1.0
+  },
+  "ack": {
+   "expected": "ZC2ZUR85",
+   "got": "ZC2ZUR85",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": "{\n  \"ack\": \"ZC2ZUR85\",\n  \"needle_start\": \"59562-MF\",\n  \"needle_mid\": \"51648-MH\",\n  \"needle_end\": \"23389-8U\",\n  \"distractor\": 31954,\n  \"multihop\": \"SEC-9703\",\n  \"contradiction\": [\n    10,\n    12\n  ],\n  \"count\": 4,\n  \"var_chain\": 2809,\n  \"billing_fee\": 13439,\n  \"migration_date\": \"2026-03-09\",\n  \"capacity\": 57000000,\n  \"callers\": [\n    \"vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/arch/mma_sparse_sm80.h\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/vllm_flash_attn/cute/sm100_hd256_2cta_fmha_backward_dkdvkernel.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/models/hy_v4/nvidia/mtp.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/oracle/int_wna16.py\"\n  ]\n}"
+}

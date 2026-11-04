@@ -1,0 +1,132 @@
+{
+ "label": "strata-gptq-288k",
+ "engine": "strata",
+ "suite": "both",
+ "seed": 1,
+ "target_tokens": 65536,
+ "prompt_tokens_server": 65834,
+ "prompt_tokens_counted": 65834,
+ "meets_target": true,
+ "output_tokens": 10364,
+ "finish": "stop",
+ "truncated": false,
+ "prefill_s": 21.6,
+ "prefill_tps": 3047,
+ "gen_tps": 105.7,
+ "wall_s": 120,
+ "reasoning_chars": 33087,
+ "expected": {
+  "needle_start": "74937-24",
+  "needle_mid": "13715-Y1",
+  "needle_end": "87483-GU",
+  "distractor": "38991",
+  "multihop": "SEC-9181",
+  "contradiction": [
+   9,
+   25
+  ],
+  "count": 5,
+  "var_chain": 3467,
+  "billing_fee": 108777,
+  "migration_date": "2026-03-11",
+  "capacity": 60000000,
+  "callers": [
+   "llama.cpp-lrr/ggml/src/ggml-cann/common.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/utils/marlin_utils_fp4.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/openpangu_vl.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/epilogue/threadblock/predicated_tile_iterator_affine.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/functional.h"
+  ],
+  "ack": "9XF26GK7"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "74937-24",
+   "got": "74937-24",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "13715-Y1",
+   "got": "13715-Y1",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "87483-GU",
+   "got": "87483-GU",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "38991",
+   "got": 38991,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-9181",
+   "got": "SEC-9181",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    9,
+    25
+   ],
+   "got": [
+    9,
+    25
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 5,
+   "got": 5,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 3467,
+   "got": 3467,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 108777,
+   "got": 108777,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-11",
+   "got": "2026-03-11",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 60000000,
+   "got": 60000000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/ggml/src/ggml-cann/common.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/utils/marlin_utils_fp4.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/openpangu_vl.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/epilogue/threadblock/predicated_tile_iterator_affine.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/functional.h"
+   ],
+   "got": [
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/functional.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/openpangu_vl.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/utils/marlin_utils_fp4.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/epilogue/threadblock/predicated_tile_iterator_affine.h"
+   ],
+   "ok": true,
+   "f1": 0.889
+  },
+  "ack": {
+   "expected": "9XF26GK7",
+   "got": "9XF26GK7",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": "{\n  \"ack\": \"9XF26GK7\",\n  \"needle_start\": \"74937-24\",\n  \"needle_mid\": \"13715-Y1\",\n  \"needle_end\": \"87483-GU\",\n  \"distractor\": 38991,\n  \"multihop\": \"SEC-9181\",\n  \"contradiction\": [\n    9,\n    25\n  ],\n  \"count\": 5,\n  \"var_chain\": 3467,\n  \"billing_fee\": 108777,\n  \"migration_date\": \"2026-03-11\",\n  \"capacity\": 60000000,\n  \"callers\": [\n    \"vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/functional.h\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/openpangu_vl.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/utils/marlin_utils_fp4.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/epilogue/threadblock/predicated_tile_iterator_affine.h\"\n  ]\n}"
+}

@@ -1,0 +1,22 @@
+== strata stability 12:36:12 engine pid=108127
+[done] score=1.00 hard=1.0 json=True prompt_n=262490 meets_target=True finish=stop prefill=91.9s (2857 tok/s) gen=9516 tok @ 101.3
+peaks s101: {"vram_mib":23408.0,"gpu_util":100.0,"power_w":148.81,"temp_c":90.0,"sm_mhz":2625.0,"ram_used_gb":96.46,"swap_used_gb":20.39,"cpu_pct":58.9,"proc_rss_gb":75.63,"swap_in_mbps":65.9,"swap_out_mbps":0.0,"swap_in_total_mb":137.7}
+[done] score=1.00 hard=1.0 json=True prompt_n=262410 meets_target=True finish=stop prefill=92.0s (2854 tok/s) gen=7079 tok @ 104.5
+peaks s102: {"vram_mib":23408.0,"gpu_util":100.0,"power_w":148.49,"temp_c":89.0,"sm_mhz":2610.0,"ram_used_gb":96.66,"swap_used_gb":20.3,"cpu_pct":61.4,"proc_rss_gb":75.68,"swap_in_mbps":3.5,"swap_out_mbps":0.0,"swap_in_total_mb":20.6}
+[done] score=1.00 hard=1.0 json=True prompt_n=262488 meets_target=True finish=stop prefill=91.9s (2857 tok/s) gen=10653 tok @ 98.5
+peaks s103: {"vram_mib":23408.0,"gpu_util":100.0,"power_w":147.97,"temp_c":89.0,"sm_mhz":2610.0,"ram_used_gb":96.53,"swap_used_gb":20.29,"cpu_pct":61.4,"proc_rss_gb":75.64,"swap_in_mbps":8.9,"swap_out_mbps":0.0,"swap_in_total_mb":46.2}
+[done] score=1.00 hard=1.0 json=True prompt_n=262389 meets_target=True finish=stop prefill=92.0s (2854 tok/s) gen=9534 tok @ 103.0
+peaks s104: {"vram_mib":23408.0,"gpu_util":100.0,"power_w":147.54,"temp_c":89.0,"sm_mhz":2610.0,"ram_used_gb":96.79,"swap_used_gb":20.27,"cpu_pct":58.8,"proc_rss_gb":75.68,"swap_in_mbps":0.9,"swap_out_mbps":0.0,"swap_in_total_mb":9.7}
+[done] score=1.00 hard=1.0 json=True prompt_n=262321 meets_target=True finish=stop prefill=91.9s (2854 tok/s) gen=5890 tok @ 103.5
+peaks s105: {"vram_mib":23408.0,"gpu_util":100.0,"power_w":146.74,"temp_c":89.0,"sm_mhz":2610.0,"ram_used_gb":96.59,"swap_used_gb":20.27,"cpu_pct":58.6,"proc_rss_gb":75.65,"swap_in_mbps":3.0,"swap_out_mbps":0.0,"swap_in_total_mb":8.9}
+[done] score=1.00 hard=1.0 json=True prompt_n=262357 meets_target=True finish=stop prefill=91.8s (2858 tok/s) gen=9751 tok @ 100.6
+peaks s106: {"vram_mib":23408.0,"gpu_util":100.0,"power_w":146.42,"temp_c":89.0,"sm_mhz":2610.0,"ram_used_gb":96.8,"swap_used_gb":20.26,"cpu_pct":59.5,"proc_rss_gb":75.68,"swap_in_mbps":0.8,"swap_out_mbps":0.0,"swap_in_total_mb":8.9}
+[done] score=1.00 hard=1.0 json=True prompt_n=262327 meets_target=True finish=stop prefill=91.8s (2859 tok/s) gen=4555 tok @ 105.0
+peaks s107: {"vram_mib":23408.0,"gpu_util":100.0,"power_w":145.86,"temp_c":89.0,"sm_mhz":2610.0,"ram_used_gb":96.72,"swap_used_gb":20.26,"cpu_pct":59.2,"proc_rss_gb":75.65,"swap_in_mbps":2.7,"swap_out_mbps":0.0,"swap_in_total_mb":9.2}
+[done] score=1.00 hard=1.0 json=True prompt_n=262390 meets_target=True finish=stop prefill=91.6s (2865 tok/s) gen=8263 tok @ 102.2
+peaks s108: {"vram_mib":23408.0,"gpu_util":100.0,"power_w":148.74,"temp_c":89.0,"sm_mhz":2610.0,"ram_used_gb":96.9,"swap_used_gb":20.25,"cpu_pct":60.7,"proc_rss_gb":75.61,"swap_in_mbps":86.8,"swap_out_mbps":0.0,"swap_in_total_mb":172.0}
+[done] score=1.00 hard=1.0 json=True prompt_n=262350 meets_target=True finish=stop prefill=92.0s (2852 tok/s) gen=8028 tok @ 102.8
+peaks s109: {"vram_mib":23408.0,"gpu_util":100.0,"power_w":145.72,"temp_c":89.0,"sm_mhz":2610.0,"ram_used_gb":97.0,"swap_used_gb":20.22,"cpu_pct":59.2,"proc_rss_gb":75.65,"swap_in_mbps":3.4,"swap_out_mbps":0.0,"swap_in_total_mb":10.3}
+[done] score=1.00 hard=1.0 json=True prompt_n=262392 meets_target=True finish=stop prefill=91.8s (2859 tok/s) gen=11061 tok @ 104.4
+peaks s110: {"vram_mib":23408.0,"gpu_util":100.0,"power_w":148.67,"temp_c":89.0,"sm_mhz":2610.0,"ram_used_gb":96.92,"swap_used_gb":20.21,"cpu_pct":60.9,"proc_rss_gb":75.68,"swap_in_mbps":2.4,"swap_out_mbps":0.0,"swap_in_total_mb":8.6}
+STRATA_STABILITY_DONE 13:05:41

@@ -9,8 +9,8 @@ rm -rf $W; cp -r $R/benchmarks/agentic/$TASK-template $W; cd $W
 TESTHASH=$(cat tests/*.py run_tests.py | sha256sum | cut -d" " -f1)
 PROMPT='The tests in this repository fail. Run `python3 run_tests.py` to see the failures, find and fix the bugs in the package (read README.md first if present), and re-run the tests until they all pass. Do not modify anything under tests/ or run_tests.py. When done, reply with a one-paragraph summary of each bug and its fix.'
 T0=$(date +%s)
-env -u ANTHROPIC_API_KEY ANTHROPIC_BASE_URL=http://127.0.0.1:8090 ANTHROPIC_AUTH_TOKEN=local-llama \
-    ANTHROPIC_MODEL=qwen38fn ANTHROPIC_SMALL_FAST_MODEL=qwen38fn ENABLE_CLAUDEAI_MCP_SERVERS=false \
+env -u ANTHROPIC_API_KEY ANTHROPIC_BASE_URL=http://127.0.0.1:${PORT:-8090} ANTHROPIC_AUTH_TOKEN=local-llama \
+    ANTHROPIC_MODEL=${MODEL:-qwen38fn} ANTHROPIC_SMALL_FAST_MODEL=${MODEL:-qwen38fn} ENABLE_CLAUDEAI_MCP_SERVERS=false \
     CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 \
   timeout 3600 claude -p "$PROMPT" --strict-mcp-config --mcp-config '{"mcpServers":{}}' --no-session-persistence \
     --permission-mode acceptEdits --allowedTools "Read" "Edit" "Write" "Glob" "Grep" "Bash(python3 run_tests.py)" \

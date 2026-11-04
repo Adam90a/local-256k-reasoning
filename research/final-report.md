@@ -116,3 +116,26 @@ Incidents (all reported in the per-topic docs): CUDA 12/13 runtime mix in the fi
 1. `qwen38fn.service` installed as a user unit, **on demand** (not enabled at boot). Verified start (19.2 GB VRAM) and stop. Listed on the rig dashboard (:7999) under AI / GPU with start/stop/logs.
 2. Ollama **permanently on the RTX 5050** (`ollama.service.d/gpu-5050.conf`; the old GPU-0 pin is commented out).
 3. Nemotron Super, Nemotron Bolt and Qwen IQ3_S weights **deleted**; only Qwen Q4 (108 GiB) kept. Re-download commands are in `scripts/download_phase1.sh` and `quantization-study.md` if needed.
+
+## Published (2026-11-04)
+
+- GitHub (public): https://github.com/Adam90a/local-256k-reasoning
+- Hugging Face dataset (public): https://huggingface.co/datasets/timmyGPT/local-256k-reasoning
+
+Published from a clean copy (no LiveCodeBench data, fresh history). Code MIT, report/measurements CC BY 4.0, third-party excerpts noted in NOTICE.md.
+
+## Hermes as a harness (2026-11-04)
+
+Provider `qwen38fn-local` added to `~/.hermes/config.yaml` (custom provider → `http://127.0.0.1:8090/v1`, model `qwen38fn`, context 262,144; MiniMax-M3 stays the default). Backup: `config.yaml.bak-20261104-qwen38fn`.
+
+| Check | Result |
+|---|---|
+| Sanity question | correct |
+| 150K-token long-document task (same scorer) | 13/13, 4.4 min |
+| 3-bug fix task (same as Claude Code test), normal approvals, no `--yolo` | all tests pass, tests untouched, 2.4 min; same fixes as Claude Code |
+
+Caveat: Hermes sends ~78K tokens of system prompt + tool definitions per new conversation → ~100 s before the first reply (follow-ups reuse the cached prefix) and ~184K of the 262K window left for content. Good fit for long-document / research work in Hermes; not a replacement for MiniMax in everyday chat.
+
+## Engine switch to Strata (2026-11-04)
+
+Strata NVFP4 (sergqwer fork, source-built for Linux/CUDA 13) with `Maximilian228/Qwen3.8-Flash-Next-NVFP4-GPTQ-Strata` passed the same 10-run strict-256K qualification (13/13 every run, 262,321–262,490 input tokens) at **92 s prompt reading and 102.6 tok/s** at 262K, versus 343 s and 29.7 tok/s on llama.cpp. Casual chat replies ~1 s; Hermes cold start 28 s (was 104 s); Claude Code solved the 3-bug task in 32 s (was 143–206 s) without the template patch. Now primary; llama.cpp is the fallback. Details: `strata-trial.md`.

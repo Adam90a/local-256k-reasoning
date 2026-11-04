@@ -1,0 +1,29 @@
+{
+ "label": "strata-gptq",
+ "runs": [
+  {
+   "prompt_tokens": 3804,
+   "ttft_s": 1.79,
+   "tg_n": 1024,
+   "tg_tps": 109.6,
+   "pp_tps": 2131
+  },
+  {
+   "prompt_tokens": 3804,
+   "ttft_s": 0.08,
+   "tg_n": 1024,
+   "tg_tps": 114.2,
+   "pp_tps": 45595
+  },
+  {
+   "prompt_tokens": 3804,
+   "ttft_s": 0.08,
+   "tg_n": 1024,
+   "tg_tps": 110.7,
+   "pp_tps": 45473
+  }
+ ],
+ "pp_tps_median": 45473,
+ "tg_tps_median": 110.7,
+ "ttft_median": 0.08
+}

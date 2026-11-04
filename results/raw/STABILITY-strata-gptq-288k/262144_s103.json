@@ -1,0 +1,138 @@
+{
+ "label": "STABILITY-strata-gptq-288k",
+ "engine": "strata",
+ "suite": "both",
+ "seed": 103,
+ "target_tokens": 262144,
+ "prompt_tokens_server": 262488,
+ "prompt_tokens_counted": 262488,
+ "meets_target": true,
+ "output_tokens": 10653,
+ "finish": "stop",
+ "truncated": false,
+ "prefill_s": 91.9,
+ "prefill_tps": 2857,
+ "gen_tps": 98.5,
+ "wall_s": 200,
+ "reasoning_chars": 35215,
+ "expected": {
+  "needle_start": "95764-Y3",
+  "needle_mid": "27318-OB",
+  "needle_end": "89585-7S",
+  "distractor": "22714",
+  "multihop": "SEC-2561",
+  "contradiction": [
+   17,
+   21
+  ],
+  "count": 5,
+  "var_chain": 2416,
+  "billing_fee": 58550,
+  "migration_date": "2026-03-17",
+  "capacity": 297000000,
+  "callers": [
+   "llama.cpp-lrr/tests/test-tokenizer-0.py",
+   "llama.cpp-lrr/tools/cli/cli-ui.h",
+   "llama.cpp-lrr/tools/mtmd/mtmd-helper.cpp",
+   "llama.cpp-lrr/tools/tuning/main.cpp",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/kernel/default_conv2d_dgrad.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/epilogue/threadblock/interleaved_epilogue.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/transformers_utils/configs/extract_hidden_states.py"
+  ],
+  "ack": "EL2CUSA8"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "95764-Y3",
+   "got": "95764-Y3",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "27318-OB",
+   "got": "27318-OB",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "89585-7S",
+   "got": "89585-7S",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "22714",
+   "got": 22714,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-2561",
+   "got": "SEC-2561",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    17,
+    21
+   ],
+   "got": [
+    17,
+    21
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 5,
+   "got": 5,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 2416,
+   "got": 2416,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 58550,
+   "got": 58550,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-17",
+   "got": "2026-03-17",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 297000000,
+   "got": 297000000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/tests/test-tokenizer-0.py",
+    "llama.cpp-lrr/tools/cli/cli-ui.h",
+    "llama.cpp-lrr/tools/mtmd/mtmd-helper.cpp",
+    "llama.cpp-lrr/tools/tuning/main.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/kernel/default_conv2d_dgrad.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/epilogue/threadblock/interleaved_epilogue.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/transformers_utils/configs/extract_hidden_states.py"
+   ],
+   "got": [
+    "llama.cpp-lrr/tests/test-tokenizer-0.py",
+    "llama.cpp-lrr/tools/cli/cli-ui.h",
+    "llama.cpp-lrr/tools/mtmd/mtmd-helper.cpp",
+    "llama.cpp-lrr/tools/tuning/main.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/kernel/default_conv2d_dgrad.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/transformers_utils/configs/extract_hidden_states.py"
+   ],
+   "ok": true,
+   "f1": 0.923
+  },
+  "ack": {
+   "expected": "EL2CUSA8",
+   "got": "EL2CUSA8",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": "{\n  \"ack\": \"EL2CUSA8\",\n  \"needle_start\": \"95764-Y3\",\n  \"needle_mid\": \"27318-OB\",\n  \"needle_end\": \"89585-7S\",\n  \"distractor\": 22714,\n  \"multihop\": \"SEC-2561\",\n  \"contradiction\": [17, 21],\n  \"count\": 5,\n  \"var_chain\": 2416,\n  \"billing_fee\": 58550,\n  \"migration_date\": \"2026-03-17\",\n  \"capacity\": 297000000,\n  \"callers\": [\n    \"llama.cpp-lrr/tests/test-tokenizer-0.py\",\n    \"llama.cpp-lrr/tools/cli/cli-ui.h\",\n    \"llama.cpp-lrr/tools/mtmd/mtmd-helper.cpp\",\n    \"llama.cpp-lrr/tools/tuning/main.cpp\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/kernel/default_conv2d_dgrad.h\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/transformers_utils/configs/extract_hidden_states.py\"\n  ]\n}"
+}

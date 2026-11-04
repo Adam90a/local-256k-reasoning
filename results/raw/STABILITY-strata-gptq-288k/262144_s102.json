@@ -1,0 +1,139 @@
+{
+ "label": "STABILITY-strata-gptq-288k",
+ "engine": "strata",
+ "suite": "both",
+ "seed": 102,
+ "target_tokens": 262144,
+ "prompt_tokens_server": 262410,
+ "prompt_tokens_counted": 262410,
+ "meets_target": true,
+ "output_tokens": 7079,
+ "finish": "stop",
+ "truncated": false,
+ "prefill_s": 92.0,
+ "prefill_tps": 2854,
+ "gen_tps": 104.5,
+ "wall_s": 160,
+ "reasoning_chars": 20743,
+ "expected": {
+  "needle_start": "96627-LY",
+  "needle_mid": "81170-7L",
+  "needle_end": "26783-FD",
+  "distractor": "43819",
+  "multihop": "SEC-8702",
+  "contradiction": [
+   9,
+   14
+  ],
+  "count": 7,
+  "var_chain": 1148,
+  "billing_fee": 136525,
+  "migration_date": "2026-03-23",
+  "capacity": 24750000,
+  "callers": [
+   "llama.cpp-lrr/ggml/src/ggml-metal/ggml-metal.cpp",
+   "llama.cpp-lrr/src/models/ernie4-5.cpp",
+   "llama.cpp-lrr/tools/server/server-models.cpp",
+   "llama.cpp-lrr/tools/server/server-task.cpp",
+   "vllm-env/lib/python3.12/site-packages/vllm/compilation/passes/fusion/qk_norm_rope_fusion.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/distributed/kv_transfer/kv_connector/v1/lmcache_integration/multi_process_adapter.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/threadblock/mma_planar_complex_multistage.h"
+  ],
+  "ack": "X7DZH4LT"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "96627-LY",
+   "got": "96627-LY",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "81170-7L",
+   "got": "81170-7L",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "26783-FD",
+   "got": "26783-FD",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "43819",
+   "got": 43819,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-8702",
+   "got": "SEC-8702",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    9,
+    14
+   ],
+   "got": [
+    9,
+    14
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 7,
+   "got": 7,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 1148,
+   "got": 1148,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 136525,
+   "got": 136525,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-23",
+   "got": "2026-03-23",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 24750000,
+   "got": 24750000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/ggml/src/ggml-metal/ggml-metal.cpp",
+    "llama.cpp-lrr/src/models/ernie4-5.cpp",
+    "llama.cpp-lrr/tools/server/server-models.cpp",
+    "llama.cpp-lrr/tools/server/server-task.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/compilation/passes/fusion/qk_norm_rope_fusion.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/distributed/kv_transfer/kv_connector/v1/lmcache_integration/multi_process_adapter.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/threadblock/mma_planar_complex_multistage.h"
+   ],
+   "got": [
+    "llama.cpp-lrr/src/models/ernie4-5.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/threadblock/mma_planar_complex_multistage.h",
+    "llama.cpp-lrr/ggml/src/ggml-metal/ggml-metal.cpp",
+    "llama.cpp-lrr/tools/server/server-models.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/distributed/kv_transfer/kv_connector/v1/lmcache_integration/multi_process_adapter.py",
+    "llama.cpp-lrr/tools/server/server-task.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/compilation/passes/fusion/qk_norm_rope_fusion.py"
+   ],
+   "ok": true,
+   "f1": 1.0
+  },
+  "ack": {
+   "expected": "X7DZH4LT",
+   "got": "X7DZH4LT",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": "{\n  \"ack\": \"X7DZH4LT\",\n  \"needle_start\": \"96627-LY\",\n  \"needle_mid\": \"81170-7L\",\n  \"needle_end\": \"26783-FD\",\n  \"distractor\": 43819,\n  \"multihop\": \"SEC-8702\",\n  \"contradiction\": [\n    9,\n    14\n  ],\n  \"count\": 7,\n  \"var_chain\": 1148,\n  \"billing_fee\": 136525,\n  \"migration_date\": \"2026-03-23\",\n  \"capacity\": 24750000,\n  \"callers\": [\n    \"llama.cpp-lrr/src/models/ernie4-5.cpp\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/threadblock/mma_planar_complex_multistage.h\",\n    \"llama.cpp-lrr/ggml/src/ggml-metal/ggml-metal.cpp\",\n    \"llama.cpp-lrr/tools/server/server-models.cpp\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/distributed/kv_transfer/kv_connector/v1/lmcache_integration/multi_process_adapter.py\",\n    \"llama.cpp-lrr/tools/server/server-task.cpp\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/compilation/passes/fusion/qk_norm_rope_fusion.py\"\n  ]\n}"
+}

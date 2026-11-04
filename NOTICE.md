@@ -7,4 +7,5 @@
   - [vLLM](https://github.com/vllm-project/vllm), Apache License 2.0, Copyright the vLLM contributors (includes vendored components under their own licenses, e.g. CUTLASS, BSD-3-Clause)
   These excerpts remain under their original licenses and are included unmodified, apart from the planted test lines, solely as benchmark input.
 - `configs/qwen38fn-chat-template.*.jinja` is derived from the Qwen3.8-Flash-Next chat template (Qwen community license 1.0).
+- Engine and weights referenced (not redistributed): [Strata NVFP4](https://github.com/sergqwer/strata-nvfp4) (MIT, fork of Niko1221/Strata) and [Maximilian228/Qwen3.8-Flash-Next-NVFP4-GPTQ-Strata](https://huggingface.co/Maximilian228/Qwen3.8-Flash-Next-NVFP4-GPTQ-Strata) (Qwen community license 1.0).
 - Benchmarks referenced but not redistributed: AIME 2026 (MathArena), LiveCodeBench v6.

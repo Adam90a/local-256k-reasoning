@@ -202,7 +202,8 @@ def make_aggregation(hay, rng):
                                 f"Answer with a JSON list of strings."))
 
 
-def build_prompt(url, target_tokens, seed, suite="both"):
+def build_prompt(url, target_tokens, seed, suite="both", counter=None):
+    """counter: optional fn(messages)->tokens for engines without /apply-template + /tokenize (e.g. Strata)."""
     rng = random.Random(seed)
     facts = make_facts(rng) if suite in ("easy", "both") else {}
     if suite in ("hard", "both"):
@@ -280,8 +281,13 @@ def build_prompt(url, target_tokens, seed, suite="both"):
         if lo > hi:
             break
         mid = (lo + hi) // 2
-        msgs, prompt = render(assemble(mid))
-        n = ntok(prompt)
+        if counter is not None:
+            body = assemble(mid)
+            msgs = [{"role": "system", "content": system}, {"role": "user", "content": body + q_text}]
+            prompt, n = None, counter(msgs)
+        else:
+            msgs, prompt = render(assemble(mid))
+            n = ntok(prompt)
         if n >= target_tokens:
             if best is None or n < best[1]:
                 best = (mid, n, msgs, prompt)
