@@ -1,0 +1,12 @@
+{
+ "label": "qwen38fn-q4-run2",
+ "claude_exit": 0,
+ "tests_pass": true,
+ "tests_untouched": true,
+ "wall_s": 116,
+ "num_turns": 12,
+ "is_error": false,
+ "result": "All 6 tests pass (`0 failed`, exit code 0). Two bugs were in the `inventory` package:\n\n1. **`inventory/pricing.py` \u2014 `discounted_unit_price` treated the percent as a fraction.** The `CATEGORY_DISCOUNT_PCT` table stores discounts as percents (e.g. 40 = 40% off), but the function computed `round(unit_price_cents * (1 - pct))`, so a 40% discount became `\u00d7 (1 - 40)` and zeroed out or negated the price for any discounted category. This caused the `test_seasonal_discount`, `test_clearance_line_total`, and `test_inventory_value` failures. Fix: compute `round(unit_price_cents * (100 - pct) / 100)` (multiplying by 100 before dividing also avoids floating-point artifacts, keeping everything exact in integer cents).\n\n2. **`inventory/report.py` \u2014 `top_lines` sorted ascending instead of descending.** The docstring promises \"the n items with the highest line total, highest first\", but `sorted(items, key=line_total)[:n]` returns the *cheapest* lines. This bug was masked in the original run \u2014 it only passed by coincidence because bug #1 made discounted totals negative, flipping the order so the ascending sort happened to yield the expected `[\"C3\", \"B2\"]`; fixing pricing alone would have broken this test. Fix: add `reverse=True` to the sort.\n\nNo files under `tests/` or `run_tests.py` were modified.",
+ "final_tests": "PASS test_clearance_line_total\nPASS test_inventory_value\nPASS test_no_discount\nPASS test_seasonal_discount\nPASS test_top_lines\nPASS test_top_lines_default_n\n0 failed\n",
+ "workdir": "/tmp/claude-1000/-home-adam/aee8f88e-e0a7-4d76-9aed-0c7c432b0b53/scratchpad/agentic-qwen38fn-q4-run2-190444"
+}

@@ -1,0 +1,1 @@
+{"id": "arc196_d", "reasoning_chars": 255441, "finish": "length", "usage": {"completion_tokens": 65536, "prompt_tokens": 963, "total_tokens": 66499, "prompt_tokens_details": {"cached_tokens": 0}}, "tps": 33.613654904652556, "wall_s": 1978.0651376247406, "answer_tail": "", "title": "Roadway", "date": "2025-04-06T00:00:00", "has_code": false, "passed": 0, "total": 42, "ok": false}

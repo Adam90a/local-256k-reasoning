@@ -1,0 +1,15 @@
+[build] prompt_tokens=262366 target=262144 (3s)
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262366 prefill=343s (764.1472944981256) gen=9867 tok @ 29.682344667914418
+   OK  needle_start: expected=95764-Y3 got=95764-Y3
+   OK  needle_mid: expected=27318-OB got=27318-OB
+   OK  needle_end: expected=89585-7S got=89585-7S
+   OK  distractor: expected=22714 got=22714
+   OK  multihop: expected=SEC-2561 got=SEC-2561
+   OK  contradiction: expected=[17, 21] got=[17, 21]
+   OK  count: expected=5 got=5
+   OK  var_chain: expected=2416 got=2416
+   OK  billing_fee: expected=58550 got=58550
+   OK  migration_date: expected=2026-03-17 got=2026-03-17
+   OK  capacity: expected=297000000 got=297000000
+   OK  callers: expected=['llama.cpp-lrr/tests/test-tokenizer-0.py', 'llama.cpp-lrr/tools/cli/cli-ui.h', 'llama.cpp-lrr/tools/mtmd/mtmd-helper.cpp', 'llama.cpp-lrr/tools/tuning/main.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/kernel/default_conv2d_dgrad.h', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/epilogue/threadblock/interleaved_epilogue.h', 'vllm-env/lib/python3.12/site-packages/vllm/transformers_utils/configs/extract_hidden_states.py'] got=['llama.cpp-lrr/tools/mtmd/mtmd-helper.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/epilogue/threadblock/interleaved_epilogue.h', 'vllm-env/lib/python3.12/site-packages/vllm/transformers_utils/configs/extract_hidden_states.py', 'llama.cpp-lrr/tools/cli/cli-ui.h', 'llama.cpp-lrr/tests/test-tokenizer-0.py', 'llama.cpp-lrr/tools/tuning/main.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/kernel/default_conv2d_dgrad.h']
+   OK  ack: expected=EL2CUSA8 got=EL2CUSA8

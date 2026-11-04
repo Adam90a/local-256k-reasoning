@@ -1,0 +1,15 @@
+[build] prompt_tokens=262284 target=262144 (3s)
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262284 prefill=343s (764.3714964375696) gen=8433 tok @ 29.63666607273832
+   OK  needle_start: expected=78686-VS got=78686-VS
+   OK  needle_mid: expected=23106-ZW got=23106-ZW
+   OK  needle_end: expected=75112-OL got=75112-OL
+   OK  distractor: expected=28326 got=28326
+   OK  multihop: expected=SEC-4041 got=SEC-4041
+   OK  contradiction: expected=[7, 29] got=[7, 29]
+   OK  count: expected=5 got=5
+   OK  var_chain: expected=4211 got=4211
+   OK  billing_fee: expected=13717 got=13717
+   OK  migration_date: expected=2026-03-23 got=2026-03-23
+   OK  capacity: expected=36000000 got=36000000
+   OK  callers: expected=['llama.cpp-lrr/common/common.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/collect_env.py', 'vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/moss_transcribe_diarize.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/tml_fa4/sm100_hd256_2cta_fmha_forward.py'] got=['llama.cpp-lrr/common/common.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/moss_transcribe_diarize.py', 'vllm-env/lib/python3.12/site-packages/vllm/collect_env.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/tml_fa4/sm100_hd256_2cta_fmha_forward.py']
+   OK  ack: expected=TRPX0TFH got=TRPX0TFH

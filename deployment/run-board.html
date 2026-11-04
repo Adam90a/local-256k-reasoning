@@ -1,0 +1,182 @@
+<title>Big n Slow Run Board</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@500;700;800&family=Chivo+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one column instrument board — totals strip, queue lanes, phase ladder, long-context ledger */
+:root{
+  --bg:#EDF0F3; --panel:#F8FAFB; --ink:#16212B; --muted:#5B6976; --line:#D3DAE1;
+  --accent:#2D58C8; --done:#2E8A57; --warn:#B7791F; --bad:#B4413B; --track:#DFE5EB;
+  --display:"Chivo",ui-sans-serif,system-ui,sans-serif; --mono:"Chivo Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10161C; --panel:#161E26; --ink:#DCE4EB; --muted:#8C9AA7; --line:#26313C;
+  --accent:#7FA2FF; --done:#5CC28A; --warn:#E0A84B; --bad:#E57A72; --track:#222C36; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10161C; --panel:#161E26; --ink:#DCE4EB; --muted:#8C9AA7; --line:#26313C;
+  --accent:#7FA2FF; --done:#5CC28A; --warn:#E0A84B; --bad:#E57A72; --track:#222C36; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--display);line-height:1.45;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px}
+.wrap{max-width:980px;margin:0 auto;display:grid;gap:28px}
+h1{font-size:clamp(1.6rem,4vw,2.3rem);font-weight:800;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h2{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 10px}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+.mono,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+header{display:grid;gap:14px}
+.strip{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:baseline;font-size:.9rem;color:var(--muted)}
+.strip b{color:var(--ink);font-weight:500}
+.overall{display:grid;gap:8px}
+.bigbar{height:14px;background:var(--track);border-radius:7px;overflow:hidden}
+.bigbar i{display:block;height:100%;background:var(--accent);transition:width .6s ease}
+.overall .row{display:flex;justify-content:space-between;gap:12px;font-size:.92rem}
+.note{border:1px solid var(--warn);color:var(--ink);background:color-mix(in srgb,var(--warn) 12%,var(--panel));padding:10px 14px;border-radius:8px;font-size:.9rem}
+.stale{border-color:var(--line);background:var(--panel);color:var(--muted)}
+.group{display:grid;gap:2px}
+.lane{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1.3fr) minmax(120px,2fr) auto;gap:6px 16px;align-items:center;
+  padding:10px 0;border-bottom:1px solid var(--line)}
+.lane .model{font-weight:700;min-width:0}
+.lane .task{color:var(--muted);font-size:.92rem;min-width:0}
+.bar{height:8px;background:var(--track);border-radius:4px;overflow:hidden}
+.bar i{display:block;height:100%;transition:width .6s ease}
+.bar i.running{background:var(--accent)} .bar i.done{background:var(--done)} .bar i.queued{background:var(--muted)} .bar i.stopped{background:var(--warn)}
+.figs{display:flex;gap:10px;align-items:center;justify-content:flex-end;font-size:.86rem;white-space:nowrap}
+.pill{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;padding:2px 8px;border-radius:999px;border:1px solid currentColor}
+.pill.running{color:var(--accent)} .pill.done{color:var(--done)} .pill.queued{color:var(--muted)} .pill.stopped{color:var(--warn)}
+.pill.running::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:6px;vertical-align:1px;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.pill.running::before{animation:none}.bar i,.bigbar i{transition:none}}
+.phases{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px 18px}
+.phases li{display:flex;gap:10px;align-items:center;font-size:.93rem;padding:4px 0}
+.dot{width:10px;height:10px;border-radius:50%;flex:none;border:2px solid var(--muted)}
+.dot.done{background:var(--done);border-color:var(--done)} .dot.running{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 35%,transparent)}
+.phases li.next{color:var(--muted)}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:.86rem;min-width:620px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+td.num,th.num{text-align:right}
+tr:last-child td{border-bottom:none}
+.ok{color:var(--done)} .miss{color:var(--warn)}
+.empty{padding:28px;border:1px dashed var(--line);border-radius:8px;color:var(--muted);text-align:center}
+@media (max-width:640px){.lane{grid-template-columns:minmax(0,1fr) auto}.lane .bar{grid-column:1/-1}.lane .task{grid-column:1/2}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Big n Slow Run Board</h1>
+      <p class="sub">256K local reasoning model project on the RTX PRO 4000 · live from <span class="mono">~/local-reasoning-research</span></p>
+    </div>
+    <div class="strip" id="strip"><span>Waiting for the first progress snapshot…</span></div>
+    <div class="overall" id="overall" hidden>
+      <div class="row"><span><b id="ov-done" class="num">0</b> of <b id="ov-total" class="num">0</b> work items finished</span><span id="ov-pct" class="num"></span></div>
+      <div class="bigbar"><i id="ov-bar" style="width:0%"></i></div>
+    </div>
+    <div class="note" id="waiting" hidden></div>
+    <div class="note stale" id="stale" hidden></div>
+  </header>
+
+  <section>
+    <h2>Queues</h2>
+    <div id="queues"><div class="empty">Queue progress appears here once Claude pushes the first snapshot (every ~10 minutes while runs are active).</div></div>
+  </section>
+
+  <section>
+    <h2>Project phases</h2>
+    <ul class="phases" id="phases"></ul>
+  </section>
+
+  <section>
+    <h2>Long-context runs</h2>
+    <div class="tablebox"><table>
+      <thead><tr><th>Model / config</th><th class="num">Input tokens</th><th>Suite</th><th class="num">Seed</th><th class="num">Score</th><th class="num">Prefill</th><th class="num">Gen tok/s</th></tr></thead>
+      <tbody id="longctx"><tr><td colspan="7" class="empty">No runs yet.</td></tr></tbody>
+    </table></div>
+  </section>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+function el(tag, cls, text){ const e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=String(text); return e; }
+let lastUpdated = null;
+
+function ago(iso){
+  const s = Math.max(0, (Date.now() - new Date(iso).getTime())/1000);
+  if (s < 90) return Math.round(s) + " s ago";
+  if (s < 5400) return Math.round(s/60) + " min ago";
+  return (s/3600).toFixed(1) + " h ago";
+}
+
+function render(d){
+  lastUpdated = d.updated_at;
+  const strip = $("strip"); strip.replaceChildren();
+  const g = String(d.gpu||"").split(",").map(x=>x.trim());
+  const add = (label, val) => { const s=el("span"); s.append(label+" "); s.append(el("b","num",val)); strip.append(s); };
+  add("Updated", ago(d.updated_at));
+  if (g.length===4){ add("VRAM", (Number(g[0])/1024).toFixed(1)+" GB"); add("GPU", g[1]+"%"); add("Temp", g[2]+" °C"); add("Power", Math.round(Number(g[3]))+" W"); }
+
+  const qs = Array.isArray(d.queues) ? d.queues : [];
+  const done = qs.reduce((a,q)=>a+Math.min(q.done,q.total),0), total = qs.reduce((a,q)=>a+q.total,0);
+  $("overall").hidden = !total;
+  $("ov-done").textContent = done; $("ov-total").textContent = total;
+  const pct = total ? Math.round(100*done/total) : 0;
+  $("ov-pct").textContent = pct + "%"; $("ov-bar").style.width = pct + "%";
+
+  $("waiting").hidden = !d.waiting;
+  if (d.waiting) $("waiting").textContent = "Opus is paused for a Claude usage-limit reset and will resume on its own. " + d.waiting;
+
+  const box = $("queues"); box.replaceChildren();
+  const groups = {};
+  qs.forEach(q => (groups[q.group] = groups[q.group] || []).push(q));
+  Object.entries(groups).forEach(([name, list]) => {
+    const sec = el("div","group"); sec.append(el("h2",null,name)); sec.lastChild.style.marginTop="14px";
+    list.forEach(q => {
+      const lane = el("div","lane");
+      lane.append(el("div","model",q.model), el("div","task",q.task));
+      const bar = el("div","bar"), fill = el("i", q.status); fill.style.width = (q.total? Math.min(100,100*q.done/q.total):0)+"%"; bar.append(fill);
+      const figs = el("div","figs");
+      figs.append(el("span","num",`${q.done}/${q.total}`));
+      if (q.done) figs.append(el("span","num ok",`${q.correct} correct`));
+      if (q.length_capped) figs.append(el("span","num miss",`${q.length_capped} hit length cap`));
+      figs.append(el("span","pill "+q.status,q.status));
+      lane.append(bar, figs); sec.append(lane);
+    });
+    box.append(sec);
+  });
+  if (!qs.length) box.append(el("div","empty","No queues reported."));
+
+  const ph = $("phases"); ph.replaceChildren();
+  (d.phases||[]).forEach(p => { const li=el("li",p.status); li.append(el("span","dot "+p.status), el("span",null,p.name)); ph.append(li); });
+
+  const tb = $("longctx"); tb.replaceChildren();
+  (d.longctx||[]).forEach(r => {
+    const tr = el("tr");
+    const full = r.score === r.of;
+    tr.append(el("td",null,r.model), el("td","num",r.tokens!=null? Number(r.tokens).toLocaleString():"–"), el("td",null,r.suite||"–"),
+              el("td","num",r.seed), el("td","num "+(full?"ok":"miss"),`${r.score}/${r.of}`),
+              el("td","num",r.prefill_min!=null? r.prefill_min+" min":"–"), el("td","num",r.gen_tps!=null? r.gen_tps:"–"));
+    tb.append(tr);
+  });
+  if (!tb.children.length){ const tr=el("tr"), td=el("td","empty","No runs yet."); td.colSpan=7; tr.append(td); tb.append(tr); }
+  staleCheck();
+}
+
+function staleCheck(){
+  if (!lastUpdated) return;
+  const mins = (Date.now() - new Date(lastUpdated).getTime())/60000;
+  $("stale").hidden = mins < 25;
+  if (mins >= 25) $("stale").textContent = "No snapshot for " + Math.round(mins) + " minutes. Runs may have finished, or Claude is between turns.";
+  const u = $("strip").querySelector("b"); if (u) u.textContent = ago(lastUpdated);
+}
+setInterval(staleCheck, 30000);
+
+(async () => {
+  const db = await claude.use("db");
+  if (!db){ $("strip").replaceChildren(el("span",null,"Live data isn't available in this view. Open the artifact on claude.ai while signed in.")); return; }
+  const timer = setTimeout(() => { if (!lastUpdated) $("strip").replaceChildren(el("span",null,"Can't reach the progress store yet. It will fill in when it answers.")); }, 10000);
+  db.doc("progress/current").onSnapshot(snap => {
+    if (!snap.fromCache) clearTimeout(timer);
+    if (snap.exists) render(snap.data());
+  }, err => { clearTimeout(timer); $("strip").replaceChildren(el("span",null,"The progress store stopped answering ("+err.code+"). Reload to reconnect.")); });
+})();
+</script>

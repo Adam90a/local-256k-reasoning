@@ -1,0 +1,15 @@
+[build] prompt_tokens=262313 target=262144 (3s)
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262313 prefill=343s (763.890638798374) gen=6841 tok @ 29.66954129965231
+   OK  needle_start: expected=96627-LY got=96627-LY
+   OK  needle_mid: expected=81170-7L got=81170-7L
+   OK  needle_end: expected=26783-FD got=26783-FD
+   OK  distractor: expected=43819 got=43819
+   OK  multihop: expected=SEC-8702 got=SEC-8702
+   OK  contradiction: expected=[9, 14] got=[9, 14]
+   OK  count: expected=7 got=7
+   OK  var_chain: expected=1148 got=1148
+   OK  billing_fee: expected=136525 got=136525
+   OK  migration_date: expected=2026-03-23 got=2026-03-23
+   OK  capacity: expected=24750000 got=24750000
+   OK  callers: expected=['llama.cpp-lrr/ggml/src/ggml-metal/ggml-metal.cpp', 'llama.cpp-lrr/src/models/ernie4-5.cpp', 'llama.cpp-lrr/tools/server/server-models.cpp', 'llama.cpp-lrr/tools/server/server-task.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/compilation/passes/fusion/qk_norm_rope_fusion.py', 'vllm-env/lib/python3.12/site-packages/vllm/distributed/kv_transfer/kv_connector/v1/lmcache_integration/multi_process_adapter.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/threadblock/mma_planar_complex_multistage.h'] got=['llama.cpp-lrr/src/models/ernie4-5.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/threadblock/mma_planar_complex_multistage.h', 'vllm-env/lib/python3.12/site-packages/vllm/compilation/passes/fusion/qk_norm_rope_fusion.py', 'llama.cpp-lrr/tools/server/server-models.cpp', 'llama.cpp-lrr/ggml/src/ggml-metal/ggml-metal.cpp', 'llama.cpp-lrr/tools/server/server-task.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/distributed/kv_transfer/kv_connector/v1/lmcache_integration/multi_process_adapter.py']
+   OK  ack: expected=X7DZH4LT got=X7DZH4LT

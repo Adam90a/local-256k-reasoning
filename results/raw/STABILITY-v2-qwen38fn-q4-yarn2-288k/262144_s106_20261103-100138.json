@@ -1,0 +1,131 @@
+{
+ "label": "STABILITY-v2-qwen38fn-q4-yarn2-288k",
+ "suite": "both",
+ "seed": 106,
+ "prompt_file": null,
+ "target_tokens": 262144,
+ "prompt_tokens_counted": 262346,
+ "prompt_tokens_server": 262346,
+ "tokens_evaluated": 262346,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 10188,
+ "prefill_s": 342.569813,
+ "prefill_tps": 765.8176232825277,
+ "gen_s": 344.040818,
+ "gen_tps": 29.609858676710854,
+ "wall_s": 686.9008147716522,
+ "build_s": 2.960742473602295,
+ "expected": {
+  "needle_start": "72403-DQ",
+  "needle_mid": "67247-2S",
+  "needle_end": "94984-IL",
+  "distractor": "59924",
+  "multihop": "SEC-4498",
+  "contradiction": [
+   20,
+   28
+  ],
+  "count": 7,
+  "var_chain": 7370,
+  "billing_fee": 12953,
+  "migration_date": "2026-03-17",
+  "capacity": 127500000,
+  "callers": [
+   "llama.cpp-lrr/examples/llama-eval/llama-server-simulator.py",
+   "llama.cpp-lrr/ggml/src/ggml-cuda/gated-delta-net-mma.cu",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/triton_kernels/matmul_ogs_details/_reduce_grouped.py"
+  ],
+  "ack": "YN0P7XYY"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "72403-DQ",
+   "got": "72403-DQ",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "67247-2S",
+   "got": "67247-2S",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "94984-IL",
+   "got": "94984-IL",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "59924",
+   "got": 59924,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-4498",
+   "got": "SEC-4498",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    20,
+    28
+   ],
+   "got": [
+    20,
+    28
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 7,
+   "got": 7,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 7370,
+   "got": 7370,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 12953,
+   "got": 12953,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-17",
+   "got": "2026-03-17",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 127500000,
+   "got": 127500000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/examples/llama-eval/llama-server-simulator.py",
+    "llama.cpp-lrr/ggml/src/ggml-cuda/gated-delta-net-mma.cu",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/triton_kernels/matmul_ogs_details/_reduce_grouped.py"
+   ],
+   "got": [
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/triton_kernels/matmul_ogs_details/_reduce_grouped.py",
+    "llama.cpp-lrr/ggml/src/ggml-cuda/gated-delta-net-mma.cu",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h",
+    "llama.cpp-lrr/examples/llama-eval/llama-server-simulator.py"
+   ],
+   "ok": true,
+   "f1": 1.0
+  },
+  "ack": {
+   "expected": "YN0P7XYY",
+   "got": "YN0P7XYY",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": " here until the queue is drained` This contains `lrr_7gn7z_dispatch(` but in comment. They likely included as distractor. Good.\n\nNeed maybe `lrr_7gn7z_dispatch` definition file itself also contains call? It defines `return _route(payload, retries)` not call to itself. Exclude.\n\nPotential issue: The file `llama.cpp-lrr/ggml/src/ggml-vulkan/ggml-vulkan-buffers.cpp` also contains `def lrr_7gn7z_dispatch(payload, *, retries=3):` maybe not a definition in C++ but inserted Python. It is the only definition. Exclude.\n\nNeed ensure JSON single object. final only JSON.\n\nLet's consider if \"var_chain\" could resolve through a different chain if aliases are read as \"knob_zib = knob_qfp\" means qfp alias to zib? Usually \"ALIAS: X = Y\" means X is alias for Y. We used that. If reversed, knob_7ok = knob_m38? No. If reversed, knob_7ok alias? Let's test: If `# ALIAS: knob_7ok = knob_m38` could mean knob_m38 is alias for knob_7ok? But then to resolve knob_7ok maybe need SET? No. The natural is left resolves to right. Good.\n\nNeed maybe there is `# SET: knob_5gx = 7370` after alias `knob_piy = knob_5gx`. Good.\n\nLet's maybe include all caller paths sorted? The prompt doesn't require order. Use order of appearance: default_conv2d_dgrad? Actually first caller in dump is _reduce_grouped.py, then gated-delta-net-mma.cu, then default_conv2d_dgrad.h, then llama-server-simulator.py. Definition earlier. Good.\n\nNeed maybe there is a caller in `vllm-env/lib/python3.12/site-packages/vllm/third_party/triton_kernels/matmul_ogs_details/_reduce_grouped.py` and `llama.cpp-lrr/ggml/src/ggml-cuda/gated-delta-net-mma.cu` order: In dump, _reduce_grouped after granitemoehybrid, before rpc api_router? Actually file order: ... _reduce_grouped.py, then api_router, etc. Later gated-delta-net-mma.cu, later default_conv2d_dgrad.h, later llama-server-simulator.py. Good.\n\nDouble-check default_conv2d_dgrad.h call appears twice? It may have multiple inserted calls? I recall only one near end. Let's scan default_conv2d_dgrad in dump: There is a large file with many specializations. At near bottom:\n```\nstruct DefaultConv2dDgrad <\n...\n> {\n\n  // Define the core components from GEMM\n  using MmaCore = typename cutlass::gemm::threadblock::DefaultMmaCore<\n      ThreadblockShape, WarpShape, InstructionShape, ElementA, layout::RowMajor,\n    _res = lrr_7gn7z_dispatch(job.payload, retries=2)\n      ElementB, layout::RowMajor, ElementAccumulator, layout::RowMajor, arch::OpClassSimt,\n      2, MathOperatorTag>;\n...\n```\nOnly one? There are many MmaCore lines but only one call. Good.\n\nNeed maybe file `llama.cpp-lrr/ggml/src/ggml-cuda/gated-delta-net-mma.cu` call appears at top of gdn_single kernel after `static __global__ ... {` and before `#if defined...`. yes.\n\nNeed maybe file `llama.cpp-lrr/examples/llama-eval/llama-server-simulator.py` call appears in _generate_response dict. yes.\n\nPotential issue: The call in `_reduce_grouped.py` is inside function signature: \n```\n                    XMxScale, stride_mxb: tl.uint64,\n    _res = lrr_7gn7z_dispatch(job.payload, retries=2)\n                    stride_mxs: tl.uint64,  # optional...\n```\nIt's syntactically invalid but call. Good.\n\nNeed maybe final answer's JSON key order doesn't matter. But include ack. Ensure no trailing commas.\n\nLet's produce final.\n</think>\n\n{\n  \"ack\": \"YN0P7XYY\",\n  \"needle_start\": \"72403-DQ\",\n  \"needle_mid\": \"67247-2S\",\n  \"needle_end\": \"94984-IL\",\n  \"distractor\": 59924,\n  \"multihop\": \"SEC-4498\",\n  \"contradiction\": [\n    20,\n    28\n  ],\n  \"count\": 7,\n  \"var_chain\": 7370,\n  \"billing_fee\": 12953,\n  \"migration_date\": \"2026-03-17\",\n  \"capacity\": 127500000,\n  \"callers\": [\n    \"vllm-env/lib/python3.12/site-packages/vllm/third_party/triton_kernels/matmul_ogs_details/_reduce_grouped.py\",\n    \"llama.cpp-lrr/ggml/src/ggml-cuda/gated-delta-net-mma.cu\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h\",\n    \"llama.cpp-lrr/examples/llama-eval/llama-server-simulator.py\"\n  ]\n}"
+}

@@ -1,0 +1,105 @@
+{
+ "backend": "opus",
+ "prompt_file": "results/prompts/262144_s21.json",
+ "seed": 21,
+ "suite": "both",
+ "prompt_tokens_builder": 262146,
+ "expected": {
+  "needle_start": "72796-N4",
+  "needle_mid": "40940-AA",
+  "needle_end": "40441-OC",
+  "distractor": "22433",
+  "multihop": "SEC-3394",
+  "contradiction": [
+   16,
+   18
+  ],
+  "count": 6,
+  "var_chain": 3837,
+  "billing_fee": 105627,
+  "migration_date": "2026-03-17",
+  "capacity": 78750000,
+  "ack": "RBFK5A5E"
+ },
+ "wall_s": 14.973749876022339,
+ "model": "claude-opus-5-5",
+ "usage": {
+  "input": 414521,
+  "output": 827,
+  "thinking": 655
+ },
+ "list_price_usd_not_billed": 3.3327,
+ "answer_tail": "```json\n{\n  \"ack\": \"RBFK5A5E\",\n  \"needle_start\": \"72796-N4\",\n  \"needle_mid\": \"40940-AA\",\n  \"needle_end\": \"40441-OC\",\n  \"distractor\": 22433,\n  \"multihop\": \"SEC-3394\",\n  \"contradiction\": [16, 18],\n  \"count\": 6,\n  \"var_chain\": 3837,\n  \"billing_fee\": 105627,\n  \"migration_date\": \"2026-03-17\",\n  \"capacity\": 78750000\n}\n```",
+ "scores": {
+  "needle_start": {
+   "expected": "72796-N4",
+   "got": "72796-N4",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "40940-AA",
+   "got": "40940-AA",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "40441-OC",
+   "got": "40441-OC",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "22433",
+   "got": 22433,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-3394",
+   "got": "SEC-3394",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    16,
+    18
+   ],
+   "got": [
+    16,
+    18
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 6,
+   "got": 6,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 3837,
+   "got": 3837,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 105627,
+   "got": 105627,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-17",
+   "got": "2026-03-17",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 78750000,
+   "got": 78750000,
+   "ok": true
+  },
+  "ack": {
+   "expected": "RBFK5A5E",
+   "got": "RBFK5A5E",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ }
+}

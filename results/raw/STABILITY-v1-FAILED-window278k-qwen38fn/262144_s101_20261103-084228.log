@@ -1,0 +1,15 @@
+[build] prompt_tokens=262169 target=262144 (3s)
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262169 prefill=340s (770.1854773634377) gen=10753 tok @ 29.84021331756065
+   OK  needle_start: expected=16359-6N got=16359-6N
+   OK  needle_mid: expected=53127-2E got=53127-2E
+   OK  needle_end: expected=68354-8X got=68354-8X
+   OK  distractor: expected=46512 got=46512
+   OK  multihop: expected=SEC-1566 got=SEC-1566
+   OK  contradiction: expected=[6, 26] got=[6, 26]
+   OK  count: expected=4 got=4
+   OK  var_chain: expected=6225 got=6225
+   OK  billing_fee: expected=29536 got=29536
+   OK  migration_date: expected=2026-03-10 got=2026-03-10
+   OK  capacity: expected=317250000 got=317250000
+   OK  callers: expected=['llama.cpp-lrr/ggml/src/ggml-cpu/spacemit/rvv_kernels.cpp', 'llama.cpp-lrr/tests/test_conversion_fp8.py', 'llama.cpp-lrr/tools/server/server-stream.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/lora/punica_wrapper/punica_xpu.py', 'vllm-env/lib/python3.12/site-packages/vllm/transformers_utils/processors/cosmos3_edge.py'] got=['vllm-env/lib/python3.12/site-packages/vllm/lora/punica_wrapper/punica_xpu.py', 'llama.cpp-lrr/tools/server/server-stream.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/transformers_utils/processors/cosmos3_edge.py', 'llama.cpp-lrr/tests/test_conversion_fp8.py', 'llama.cpp-lrr/ggml/src/ggml-cpu/spacemit/rvv_kernels.cpp']
+   OK  ack: expected=56TL7AFE got=56TL7AFE

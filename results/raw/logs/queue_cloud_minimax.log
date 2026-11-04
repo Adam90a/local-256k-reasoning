@@ -1,0 +1,17 @@
+SUMMARY minimax aime: 13/15
+arc196_d: ok=False out=32768 wall=540s
+arc196_c: o[minimax] request failed (ReadTimeout); retry 2/5
+[minimax] request failed (ReadTimeout); retry 3/5
+[minimax] request failed (ReadTimeout); retry 4/5
+[minimax] request failed (ReadTimeout); retry 5/5
+Traceback (most recent call last):
+  File "/home/adam/local-reasoning-research/benchmarks/cloud/cloud_run.py", line 158, in <module>
+    continue
+^^
+  File "/home/adam/local-reasoning-research/benchmarks/cloud/cloud_run.py", line 142, in main
+    **{k: v for k, v in r.items() if k != "content"}, answer_tail=r["content"][-4000:])
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/local-reasoning-research/benchmarks/cloud/cloud_run.py", line 98, in call
+    for line in r.iter_lines(decode_unicode=True):
+
+UnboundLocalError: cannot access local variable 'r' where it is not associated with a value

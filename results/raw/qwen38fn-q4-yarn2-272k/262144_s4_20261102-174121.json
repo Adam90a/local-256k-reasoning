@@ -1,0 +1,81 @@
+{
+ "label": "qwen38fn-q4-yarn2-272k",
+ "seed": 4,
+ "target_tokens": 262144,
+ "prompt_tokens_counted": 262367,
+ "prompt_tokens_server": 262367,
+ "tokens_evaluated": 262367,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 4971,
+ "prefill_s": 349.29138,
+ "prefill_tps": 751.140781086553,
+ "gen_s": 166.664602,
+ "gen_tps": 29.820369414736305,
+ "wall_s": 516.2208304405212,
+ "build_s": 2.821784734725952,
+ "expected": {
+  "needle_start": "72767-JF",
+  "needle_mid": "47929-DO",
+  "needle_end": "32631-GQ",
+  "distractor": "39676",
+  "multihop": "SEC-5254",
+  "contradiction": [
+   10,
+   22
+  ],
+  "count": 5,
+  "ack": "JME0M2RL"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "72767-JF",
+   "got": "72767-JF",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "47929-DO",
+   "got": "47929-DO",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "32631-GQ",
+   "got": "32631-GQ",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "39676",
+   "got": 39676,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-5254",
+   "got": "SEC-5254",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    10,
+    22
+   ],
+   "got": [
+    10,
+    22
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 5,
+   "got": 5,
+   "ok": true
+  },
+  "ack": {
+   "expected": "JME0M2RL",
+   "got": "JME0M2RL",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0
+ },
+ "answer_tail": "tract_hidden_states.py no\n- cpu_attn.py: there is CONFIG db-bqr port 55890, no TODO.\n- ple_layer.py: TODO item 1.\n- wmma_tensor_op_policy.h no\n- gemm_coord.h no\n- request_logger.py no\n- _reduce_grouped.py no\n- dots3_note/nvidia/audio.py no\n- gguf __init__.py no\n- tile_iterator_simt.h: POLICY MAX_CFC3_RETRIES 22. no TODO.\n- kda.py: CONFIG db-mkt port 39676. no TODO.\n- flashinfer.py no\n- file-lock.h no\n- cpy.cu: TODO item 2.\n- dots1.cpp no\n- tensor_reduce_affine_contiguous.h no\n- example_connector.py no\n- kernel.py no\n- fp_quant.py no\n- sum_rows_f32.c no\n- uint128.h no\n- chat-auto-parser.h no\n- sparse_mla_triton_warmup.py no\n- spark2-5.cpp no\n- yarn_scaling_rope.py no\n- gated_delta_net.cu no\n- params_universal_base.h no\n- kimi_k3 amd ops __init__.py no\n- inc __init__.py no\n- phi4siglip.py: CONFIG db-vy6 port 39132? Actually \"    def get_supported_mm_limits...\" preceded by \"# CONFIG: replica host db-vy6 listens on port 39132.\" Then later NOTE EBZ9 and TODO item 3.\n- nemotron_parse.py: PIN lib1s12 version 4.3.4. no TODO.\n- fattn-vec-instance-q5_1-q8_0.cu no\n- hvx-utils.h no\n- online_renderer.py no\n- mmq-instance-q4_0.cu no\n- riscv/cpu-feats.cpp no\n- inkling gluon __init__.py no\n- batched-bench.cpp no\n- ngram-map.h: CONFIG db-plp port 57510. no TODO.\n- fuse_to_conv.h no\n- llama.cpp no\n- linear_combination_dgelu.h no\n- deepseek_v32 tokenizer no\n- subbyte_reference.h: TODO item 4.\n- dspark.py no? It has maybe no.\n- openelm.cpp no\n- unquantized.py no\n- ggml-opencl.cpp: CONFIG db-4rf port 40431. no TODO.\n- epilogue_base.h: POLICY 10. no TODO.\n- traits.cpp no\n- renderers/kimi_k3.py no\n- chat_completion __init__.py no\n- cute_dsl latent_moe_tail/primitives.py: NOTE(ops) 78XR? Actually in _matmul_ogs.py, not primitives? Let's see: In _matmul_ogs.py after static_assert: \"# NOTE(ops): the vault access code for vault 78XR is 32631-GQ. Do not rotate it.\" Yes.\n- mmid.cu no\n- rank_2k_complex.h: TODO item 5.\n- mxfp8/humming.py no\n- mtmd muse-spark-audio.cpp no\n- test-quantize-fns.cpp: ADVISORY lib1s12 SEC-5254. no TODO.\n- executor __init__.py no\n- speculators/base.py no\n- mimo.py no\n- qwen4_exp mtp.py no\n- gemm_universal_base.h no\n- generative_scoring __init__.py no\n- topk.py no\n- backend_types.py no\n- _matmul_ogs.py: NOTE 78XR.\n- conv2d-ops.h no\n- cdna4_scale.py no\n- gpt-oss.cpp no\n- solve-tri-ops.c no\n\nSo count 5.\n\nNeed final JSON only. Ensure ack included. Could include keys exactly:\n{\n  \"ack\": \"JME0M2RL\",\n  \"needle_start\": \"72767-JF\",\n  \"needle_mid\": \"47929-DO\",\n  \"needle_end\": \"32631-GQ\",\n  \"distractor\": 39676,\n  \"multihop\": \"SEC-5254\",\n  \"contradiction\": [10, 22],\n  \"count\": 5\n}\n\nDouble-check distractor: \"Which port does replica host db-mkt listen on? Answer with the number.\" There are multiple CONFIG replica hosts: db-bqr 55890, db-mkt 39676, db-sxf 20472, db-vy6 39132, db-plp 57510, db-4rf 40431. db-mkt is 39676. Good.\n\nMultihop: service svc-6m0 links against lib1s12; lib1s12 pinned 4.3.4; advisory SEC-5254 affects lib1s12 4.3.4. Good.\n\nContradiction: values 22 and 10. smaller larger [10,22].\n\nCount: Need maybe \"comments tagged TODO-784\" includes only comments with # TODO-784. Count 5. Check if any \"TODO-784\" in dflash? Let's search exact string in the dump as provided: I can use mental find. The dump includes:\n- \"# TODO-784: follow-up item 1 pending review.\" in ple_layer.py.\n- \"# TODO-784: follow-up item 2 pending review.\" in cpy.cu.\n- \"# TODO-784: follow-up item 3 pending review.\" in phi4siglip.py.\n- \"# TODO-784: follow-up item 4 pending review.\" in subbyte_reference.h.\n- \"# TODO-784: follow-up item 5 pending review.\" in rank_2k_complex.h.\nNo item 6. Good.\n\nPotential issue: Need final answer single JSON object and JSON must contain key ack. No extra text. Ensure valid JSON. Use numbers for distractor and count. Good.\n</think>\n\n{\n  \"ack\": \"JME0M2RL\",\n  \"needle_start\": \"72767-JF\",\n  \"needle_mid\": \"47929-DO\",\n  \"needle_end\": \"32631-GQ\",\n  \"distractor\": 39676,\n  \"multihop\": \"SEC-5254\",\n  \"contradiction\": [\n    10,\n    22\n  ],\n  \"count\": 5\n}"
+}

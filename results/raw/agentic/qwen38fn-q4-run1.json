@@ -1,0 +1,12 @@
+{
+ "label": "qwen38fn-q4-run1",
+ "claude_exit": 0,
+ "tests_pass": true,
+ "tests_untouched": true,
+ "wall_s": 134,
+ "num_turns": 15,
+ "is_error": false,
+ "result": "All 6 tests pass (exit code 0). There were two bugs in the `inventory` package. The first was in `inventory/pricing.py:10` (`discounted_unit_price`): the category discounts are stored as percents (e.g. 15 means 15% off), but the code computed `unit_price_cents * (1 - pct)`, treating the percent as a fraction of 1 \u2014 so any nonzero discount flipped the price negative (seasonal 15 \u2192 \u00d7\u221214, clearance 40 \u2192 \u00d7\u221239), which broke `test_seasonal_discount`, `test_clearance_line_total`, and `test_inventory_value`. I fixed it to `unit_price_cents * (1 - pct / 100)`. The second bug was in `inventory/report.py:8` (`top_lines`): it sorted by `line_total` ascending and took the first `n`, returning the *cheapest* lines instead of the highest, contrary to its docstring. Notably, `test_top_lines` was passing before only by coincidence \u2014 the negative prices from the first bug made the ascending sort happen to yield `[\"C3\", \"B2\"]`, so fixing pricing alone would have broken that test. I fixed it by adding `reverse=True` so the list comes back highest-first; no files under `tests/` or `run_tests.py` were touched.",
+ "final_tests": "PASS test_clearance_line_total\nPASS test_inventory_value\nPASS test_no_discount\nPASS test_seasonal_discount\nPASS test_top_lines\nPASS test_top_lines_default_n\n0 failed\n",
+ "workdir": "/tmp/claude-1000/-home-adam/aee8f88e-e0a7-4d76-9aed-0c7c432b0b53/scratchpad/agentic-qwen38fn-q4-run1-190230"
+}

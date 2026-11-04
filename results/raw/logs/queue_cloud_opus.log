@@ -1,0 +1,17 @@
+aime26-27: ok=True out=1630 wall=15s
+aime26-29: ok=True out=3199 wall=30s
+SUMMARY opus aime: 15/15
+arc196_d: ok=True out=16686 wall=160s
+arc196_c: ok=False out=21361 wall=210s
+arc196_b: ok=True out=3684 wall=32s
+arc196_a: ok=True out=1975 wall=20s
+abc400_g: ok=False out=10504 wall=110s
+abc400_e: ok=False out=1572 wall=15s
+abc399_f: ok=False out=1582 wall=14s
+abc399_e: ok=True out=1716 wall=18s
+arc195_e: ok=True out=3824 wall=36s
+arc195_d: ok=True out=16473 wall=171s
+SUMMARY opus lcb: 6/10
+[opus] score=1.00 easy=1.0 hard=1.0 in=410869 out=1520 wall=15s
+[opus] score=1.00 easy=1.0 hard=1.0 in=424507 out=1606 wall=15s
+CLOUD_DONE opus 20:25:18

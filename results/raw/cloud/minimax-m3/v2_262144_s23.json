@@ -1,0 +1,127 @@
+{
+ "backend": "minimax",
+ "prompt_file": "results/prompts/v2/262144_s23.json",
+ "seed": 23,
+ "suite": "both",
+ "prompt_tokens_builder": 262291,
+ "expected": {
+  "needle_start": "65541-Y7",
+  "needle_mid": "68271-AO",
+  "needle_end": "75305-0B",
+  "distractor": "54083",
+  "multihop": "SEC-5726",
+  "contradiction": [
+   8,
+   10
+  ],
+  "count": 6,
+  "var_chain": 1499,
+  "billing_fee": 56927,
+  "migration_date": "2026-03-24",
+  "capacity": 44000000,
+  "callers": [
+   "llama.cpp-lrr/ggml/src/ggml-openvino/openvino/translate_session.h",
+   "llama.cpp-lrr/vendor/hash/xxhash/xxhash.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/epilogue/warp/tile_iterator_tensor_op.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/tensor_ref.h"
+  ],
+  "ack": "PV8JGYK2"
+ },
+ "wall_s": 58.33363342285156,
+ "model": "MiniMax-M3",
+ "usage": {
+  "input": 247584,
+  "output": 4483
+ },
+ "stop": "end_turn",
+ "thinking_chars": 15214,
+ "answer_tail": "{\"ack\":\"PV8JGYK2\",\"needle_start\":\"65541-Y7\",\"needle_mid\":\"68271-AO\",\"needle_end\":\"75305-0B\",\"distractor\":54083,\"multihop\":\"SEC-5726\",\"contradiction\":[8,10],\"count\":6,\"var_chain\":1499,\"billing_fee\":56927,\"migration_date\":\"2026-03-24\",\"capacity\":44000000,\"callers\":[\"llama.cpp-lrr/ggml/src/ggml-openvino/openvino/translate_session.h\",\"llama.cpp-lrr/vendor/hash/xxhash/xxhash.h\",\"vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/tensor_ref.h\",\"vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/epilogue/warp/tile_iterator_tensor_op.h\"]}",
+ "scores": {
+  "needle_start": {
+   "expected": "65541-Y7",
+   "got": "65541-Y7",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "68271-AO",
+   "got": "68271-AO",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "75305-0B",
+   "got": "75305-0B",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "54083",
+   "got": 54083,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-5726",
+   "got": "SEC-5726",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    8,
+    10
+   ],
+   "got": [
+    8,
+    10
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 6,
+   "got": 6,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 1499,
+   "got": 1499,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 56927,
+   "got": 56927,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-24",
+   "got": "2026-03-24",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 44000000,
+   "got": 44000000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/ggml/src/ggml-openvino/openvino/translate_session.h",
+    "llama.cpp-lrr/vendor/hash/xxhash/xxhash.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/epilogue/warp/tile_iterator_tensor_op.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/tensor_ref.h"
+   ],
+   "got": [
+    "llama.cpp-lrr/ggml/src/ggml-openvino/openvino/translate_session.h",
+    "llama.cpp-lrr/vendor/hash/xxhash/xxhash.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/tensor_ref.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/epilogue/warp/tile_iterator_tensor_op.h"
+   ],
+   "ok": true,
+   "f1": 1.0
+  },
+  "ack": {
+   "expected": "PV8JGYK2",
+   "got": "PV8JGYK2",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ }
+}

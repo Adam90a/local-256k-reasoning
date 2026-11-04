@@ -1,0 +1,15 @@
+[build] prompt_tokens=524427 target=524288 (6s)
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=524427 prefill=742s (706.5696350933032) gen=28092 tok @ 9.529738206038097
+   OK  needle_start: expected=47066-U4 got=47066-U4
+   OK  needle_mid: expected=89956-4I got=89956-4I
+   OK  needle_end: expected=38190-MA got=38190-MA
+   OK  distractor: expected=32290 got=32290
+   OK  multihop: expected=SEC-5124 got=SEC-5124
+   OK  contradiction: expected=[8, 11] got=[8, 11]
+   OK  count: expected=6 got=6
+   OK  var_chain: expected=4054 got=4054
+   OK  billing_fee: expected=22335 got=22335
+   OK  migration_date: expected=2026-03-17 got=2026-03-17
+   OK  capacity: expected=164500000 got=164500000
+   OK  callers: expected=['llama.cpp-lrr/src/unicode.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe_w4a4_mxfp4.py', 'vllm-env/lib/python3.12/site-packages/vllm/models/kimi_k3/nvidia/ops/cute_dsl/latent_moe_tail/primitives.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/gemm_planar_complex.h', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/gemm/threadblock/mma_sparse_multistage.h'] got=['llama.cpp-lrr/src/unicode.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/models/kimi_k3/nvidia/ops/cute_dsl/latent_moe_tail/primitives.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/gemm/kernel/gemm_planar_complex.h', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/gemm/threadblock/mma_sparse_multistage.h', 'vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe_w4a4_mxfp4.py']
+   OK  ack: expected=S7AEX66L got=S7AEX66L

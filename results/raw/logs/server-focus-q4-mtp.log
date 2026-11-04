@@ -1,0 +1,21 @@
+0.00.036.221 W DEPRECATED: argument '-ot' specified multiple times, use comma-separated values instead (only last value will be used)
+0.00.037.088 I srv  llama_server: initializing ...
+0.00.037.096 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.037.200 I srv  init_listene: The UI is disabled
+0.00.037.202 I srv  init_listene: Use --ui/--no-ui (or deprecated --webui/--no-webui) to enable/disable
+0.00.037.256 W srv  server_setup: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.043.006 I srv    load_model: loading model '/home/adam/.cache/huggingface/hub/models--unsloth--Qwen3.8-Flash-Next-GGUF/snapshots/766911a6b7369840a91dbcd95f9f997acaab6cd6/UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf'
+0.00.588.316 W common_fit_params: failed to fit params to free device memory: n_gpu_layers already set by user to 999, abort
+0.00.701.291 W llama_model_loader: tensor overrides to CPU are used with mmap enabled - consider using --load-mode none for better performance
+0.03.457.309 W llama_context: n_ctx_seq (294912) > n_ctx_train (262144) -- possible training context overflow
+0.03.875.398 I cmn          init: llama threadpool init, n_threads = 24
+0.04.054.638 I common_speculative_init_result: loading draft model '/home/adam/.cache/huggingface/hub/models--unsloth--Qwen3.8-Flash-Next-GGUF/snapshots/766911a6b7369840a91dbcd95f9f997acaab6cd6/mtp-Qwen3.8-Flash-Next-Q8_0.gguf'
+0.08.064.239 W llama_context: n_ctx_seq (294912) > n_ctx_train (262144) -- possible training context overflow
+0.08.112.235 E ggml_backend_cuda_buffer_type_alloc_buffer: allocating 4724.58 MiB on device 0: cudaMalloc failed: out of memory
+0.08.112.242 E ggml_gallocr_reserve_n_impl: failed to allocate CUDA0 buffer of size 4954080512
+0.08.112.243 E graph_reserve: failed to allocate compute buffers
+0.08.124.224 E llama_init_from_model: failed to initialize the context: failed to allocate compute pp buffers
+0.08.124.230 E common_speculative_init_result: failed to create MTP context
+0.08.124.255 E srv    load_model: failed to create MTP context
+0.08.124.412 I srv    operator(): operator(): cleaning up before exit...
+0.08.127.926 E srv  server_run_i: exiting due to model loading error

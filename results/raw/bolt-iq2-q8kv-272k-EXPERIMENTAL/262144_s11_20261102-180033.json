@@ -1,0 +1,108 @@
+{
+ "label": "bolt-iq2-q8kv-272k-EXPERIMENTAL",
+ "suite": "both",
+ "seed": 11,
+ "target_tokens": 262144,
+ "prompt_tokens_counted": 262312,
+ "prompt_tokens_server": 262312,
+ "tokens_evaluated": 262312,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 11970,
+ "prefill_s": 200.5633,
+ "prefill_tps": 1307.8763662145568,
+ "gen_s": 370.054959,
+ "gen_tps": 32.34384436393947,
+ "wall_s": 570.9340252876282,
+ "build_s": 3.3189475536346436,
+ "expected": {
+  "needle_start": "76563-ML",
+  "needle_mid": "68535-TJ",
+  "needle_end": "69374-KA",
+  "distractor": "40662",
+  "multihop": "SEC-1276",
+  "contradiction": [
+   14,
+   17
+  ],
+  "count": 7,
+  "var_chain": 7027,
+  "billing_fee": 49595,
+  "migration_date": "2026-03-12",
+  "capacity": 276000000,
+  "ack": "MRVFTVA0"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "76563-ML",
+   "got": "76563-ML",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "68535-TJ",
+   "got": "68535-TJ",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "69374-KA",
+   "got": "69374-KA",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "40662",
+   "got": 40662,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-1276",
+   "got": "SEC-1276",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    14,
+    17
+   ],
+   "got": [
+    14,
+    17
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 7,
+   "got": 5,
+   "ok": false
+  },
+  "var_chain": {
+   "expected": 7027,
+   "got": 7027,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 49595,
+   "got": 49595,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-12",
+   "got": "2026-03-12",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 276000000,
+   "got": 92000000,
+   "ok": false
+  },
+  "ack": {
+   "expected": "MRVFTVA0",
+   "got": "MRVFTVA0",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 0.8333333333333334,
+  "_score_easy": 0.875,
+  "_score_hard": 0.75
+ },
+ "answer_tail": "nk the answer is 92,000,000 (46 shards * 2,000,000 rows * 1 replica).\n\nActually, wait. Let me look at the xpumem.py file more carefully. The comment is:\n```\n# CAPACITY: each shard of events_o8y holds 2,000,000 rows.\n```\n\nAnd in constants.h:\n```\n# PLAN: events_o8y is split into 46 shards.\n```\n\nIf there are no replicas mentioned, maybe the answer is just 46 * 2,000,000 = 92,000,000.\n\nI'll go with 92000000.\n\nLet me finalize all answers:\n\n```json\n{\n  \"ack\": \"MRVFTVA0\",\n  \"needle_start\": \"76563-ML\",\n  \"needle_mid\": \"68535-TJ\",\n  \"needle_end\": \"69374-KA\",\n  \"distractor\": 40662,\n  \"multihop\": \"SEC-1276\",\n  \"contradiction\": [14, 17],\n  \"count\": 5,\n  \"var_chain\": 7027,\n  \"billing_fee\": 49595,\n  \"migration_date\": \"2026-03-12\",\n  \"capacity\": 92000000\n}\n```\n\nWait, I need to make sure the JSON has exactly these keys plus \"ack\". The user said: 'Return one JSON object with exactly these keys (plus \"ack\")'.\n\nSo the keys are:\n- ack\n- needle_start\n- needle_mid\n- needle_end\n- distractor\n- multihop\n- contradiction\n- count\n- var_chain\n- billing_fee\n- migration_date\n- capacity\n\nLet me double-check the billing_fee calculation.\namount_cents = 8265850\ntier = silver = 60 bps\nbps means basis points, 1 bp = 0.01% = 1/10000\nSo fee = amount_cents * 60 / 10000 = 8265850 * 60 / 10000 = 495951000 / 10000 = 49595.1\nRounded to nearest = 49595.\n\nYes.\n\nOne more check on the contradiction values:\n- deepseek_v32.py: \"MAX_ANND_RETRIES must be exactly 17\"\n- xpumem.py: \"MAX_ANND_RETRIES must be exactly 14\"\nSorted: [14, 17]. Correct.\n\nOne more check on TODO-Z0E count:\nI found 5. Let me verify once more by searching the text for \"TODO-Z0E\".\n\n1. w4a8_int8.py: \"# TODO-Z0E: follow-up item 1 pending review.\"\n2. tensor_op_policy.h: \"# TODO-Z0E: follow-up item 3 pending review.\"\n3. structured_output/utils.py: \"# TODO-Z0E: follow-up item 4 pending review.\"\n4. turboquant_attn.py: \"# TODO-Z0E: follow-up item 5 pending review.\"\n5. default_gemm_planar_complex_universal.h: \"# TODO-Z0E: follow-up item 7 pending review.\"\n\nYes, 5.\n\nOne more check on var_chain:\n- knob_8d8 = knob_142 (constants.h)\n- knob_142 = knob_tb4 (turboquant/config.py)\n- knob_tb4 = knob_3gt (prefill_prefix_lm_attention.py)\n- knob_3gt = knob_ujj (structured_output/utils.py)\n- knob_ujj = knob_dje (minimax_m3/amd/model.py)\n- knob_dje = 7027 (minimax_m3/amd/model.py)\n\nYes, 7027.\n\nOne more check on migration_date:\n2026-03-09 is Monday. Let me verify.\n2026-01-01 is Thursday.\nJanuary has 31 days. 31 % 7 = 3. So Feb 1 is Sunday (Thu + 3 = Sun).\nFebruary has 28 days. 28 % 7 = 0. So Mar 1 is Sunday.\nMar 1 = Sunday.\nMar 2 = Monday.\nMar 9 = Monday.\nMar 10 = Tuesday.\nMar 11 = Wednesday.\nMar 12 = Thursday.\n\nAna is on call week starting Mar 9. So Mar 9-15.\nChange freeze through Mar 10.\nMar 11 is maintenance day.\nMar 12 is Thursday, Ana is on call, not weekend.\n\nSo 2026-03-12. Correct.\n\nOne more check on capacity:\n46 shards * 2,000,000 rows = 92,000,000.\nIf replicas = 1, then 92,000,000.\n\nActually, I just realized I should check if there's any mention of replicas for events_o8y. Let me look at the xpumem.py file context. The comment is in the XpuMemAllocator class. Is there any replica info?\n\nNo, I don't see any. I'll assume 1 replica.\n\nWait, I just noticed something. In the `vllm-env/lib/python3.12/site-packages/vllm/device_allocator/xpumem.py` file, there's a comment:\n```\n# POLICY: MAX_ANND_RETRIES must be exactly 14 in all environments.\n```\n\nAnd in `vllm-env/lib/python3.12/site-packages/vllm/renderers/deepseek_v32.py`:\n```\n# POLICY: MAX_ANND_RETRIES must be exactly 17 in all environments.\n```\n\nThese are the two POLICY comments. The values are 14 and 17. Sorted: [14, 17].\n\nEverything looks correct. Let me format the JSON.</think>{\n  \"ack\": \"MRVFTVA0\",\n  \"needle_start\": \"76563-ML\",\n  \"needle_mid\": \"68535-TJ\",\n  \"needle_end\": \"69374-KA\",\n  \"distractor\": 40662,\n  \"multihop\": \"SEC-1276\",\n  \"contradiction\": [14, 17],\n  \"count\": 5,\n  \"var_chain\": 7027,\n  \"billing_fee\": 49595,\n  \"migration_date\": \"2026-03-12\",\n  \"capacity\": 92000000\n}"
+}

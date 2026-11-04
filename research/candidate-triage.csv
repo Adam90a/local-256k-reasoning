@@ -1,0 +1,21 @@
+model,revision_checked,total_params,active_params,architecture,native_ctx,max_ctx_official,ctx_class,license,llama_cpp,vllm,hw_class,kv_per_token_bf16,kv_256k_bf16_gb,score_prelim,decision,reason
+Qwen/Qwen3.8-Flash-Next,2026-08-27,125B+51B ngram+4B MTP,6B,MoE 512e/10+1; 36 GatedDeltaNet + 12 QSA sparse-attn (2 KV heads),262144,1000000 (YaRN x4),1 native (256K) / 2 official ext (1M),qwen-community-1.0,yes (qwen4exp upstream),yes (recipe),B,24.6 KB,6.4,8.6,ADVANCE,Top vendor coding/agentic scores at 6B active; tiny KV; n-gram table can live on disk
+nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B,2026-10-23,120B,12B,Mamba2 + 9 attn layers (2 KV) LatentMoE 512e/22,1048576,1048576,1 native,OpenMDW-1.1,yes (#30520),yes,B,9.2 KB,2.4,8.1,ADVANCE,Native 1M; smallest KV of all candidates; strong parent of Bolt
+nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB-GGUF,2026-10-15,74B,9B,Mamba2 hybrid LatentMoE (QAT IQ2),262144,262144,1 native,OpenMDW-1.1,yes (#30520),n/a (GGUF),A,~9 KB (ESTIMATED; same attn shape as Super),~2.4,7.6,ADVANCE,Built for 24 GB; mostly GPU-resident; fast baseline
+Qwen/Qwen3.8-27B,2026-08-14,27.8B,27.8B,Dense; 48 GatedDeltaNet + 16 gated full-attn (4 KV head_dim 256),262144,262144,1 native,Apache-2.0,yes (qwen35),yes (local NVFP4 + INT4 cached),A/B,64 KB,16.8,7.7,ADVANCE,Already on disk; dense reasoning baseline; SWE-bench Pro 61.7 (vendor)
+inclusionAI/Ling-3.0-flash,2026-10,124B,5.1B,MoE 512e/8; KDA linear + gated MLA (1 in 6),262144,262144,1 native,MIT,yes (BailingMoE3),SGLang image,B,~8 KB (ESTIMATED; 7 MLA layers x 576 x 2B),~2.0,6.9,HOLD,Eligible and feasible; weaker public coding evidence than Qwen3.8-Flash-Next; test if a finalist fails
+zai-org/GLM-5.3-Flash,2026-10-15,321B,UNKNOWN,MoE 288e/8; 34 KDA + 11 DeepSeek sparse attn (MLA),1048576,1048576,1 native,MIT,yes (glm5-next),yes,C,MLA small (ESTIMATED),~1-2,6.8,EXPERIMENT,Only fits at ~2.5 bpw (~100 GB); limited PoC only if time allows
+MiniMaxAI/MiniMax-M3.1-Flash,2026-10-30,220B,UNKNOWN,MoE 128e/4; block-sparse attn on all 60 layers (4 KV),1048576,1048576,1 native,other,yes (minimax-m3),yes,C/D,123 KB,31.5,5.5,HOLD,Weights ~90 GB at Q3 plus 16-31 GB KV at 256K exceeds RAM budget
+Qwen/Qwen3.6-35B-A3B,2026-06,35B,3B,Hybrid GDN + gated attn MoE,262144,262144,1 native,Apache-2.0,yes,yes (vllm-qwen36 service exists),A,~20 KB,~5,6.5,HOLD (control),Superseded by Qwen3.8; usable as known-good control
+Qwen/Qwen3-Coder-Next,2026-02-03,80B,3B,Hybrid GDN + attn MoE,262144,262144,1 native,Apache-2.0,yes,yes,B,24.6 KB,6.4,6.3,HOLD,Superseded by Qwen3.8-Flash-Next
+google/gemma-4-31B-it,2026-07-20,31B,31B,Dense; 1024 sliding window + global layers,262144,262144,1 native,Apache-2.0,yes,yes,A/B,global layers only,UNKNOWN,5.9,HOLD,Weaker coding evidence; sliding-window design weaker at long-range retrieval
+google/gemma-4-26B-A4B-it,2026-07-20,26B,4B,MoE + sliding window/global,262144,262144,1 native,Apache-2.0,yes,yes (NVFP4 cached),A,global layers only,UNKNOWN,5.6,HOLD,Weaker than Qwen3.6-35B on Nemotron table
+moonshotai/Kimi-Linear-48B-A3B-Instruct,2025-12-16,49B,3B,KDA + MLA,1048576,1048576,1 native,MIT,yes,yes,A,small,~1,5.0,REJECT,Older generation; superseded on coding
+mistralai/Mistral-Medium-3.5-128B,2026-07-15,128B,128B,Dense GQA,UNKNOWN,UNKNOWN,-,other,yes,yes,D,~360 KB (ESTIMATED),~92,-,REJECT,Dense 128B + ~46-92 GB KV at 256K exceeds RAM
+openai/gpt-oss-120b,2025-08,117B,5B,MoE,131072,131072,-,Apache-2.0,yes,yes,B,-,-,-,REJECT,Context below 256K (hard gate)
+deepseek-ai/DeepSeek-V4.1-Flash,2026-10-16,763B,UNKNOWN,MoE sparse attn,1048576,1048576,1,MIT,-,-,D,-,-,-,REJECT,Weights >250 GB even at 2.5 bpw
+moonshotai/Kimi-K3 / Kimi-K2.6,2026-09,1T-2.8T,32B+,MoE,262144+,-,1,modified MIT,-,-,D,-,-,-,REJECT,Too large for 125 GB RAM + 24 GB VRAM
+MiniMaxAI/MiniMax-M3,2026-10-26,427B,UNKNOWN,MoE,-,-,-,other,yes,yes,D,-,-,-,REJECT,Too large
+zai-org/GLM-5.3 / GLM-5.2,2026-10,>700B,-,MoE,1048576,-,-,MIT,-,-,D,-,-,-,REJECT,Too large
+Muse-Spark-Open-816B / Mistral-Large-4-1T / Nemotron-3-Ultra-550B / Ling-3.1-flash-560B / Qwen3.8-2.4T,2026-08..10,550B-2.4T,-,MoE,-,-,-,various,-,-,D,-,-,-,REJECT,Too large
+HyGA (arXiv 2608.11805),2026-08,<=5B research,-,Gated attention variant,-,-,4 research,-,no,no,-,-,-,-,REJECT,Research paper only; no weights; no KV savings; no long-context tests

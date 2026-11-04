@@ -1,0 +1,17 @@
+0.00.041.575 I srv  llama_server: initializing ...
+0.00.041.586 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.041.694 I srv  init_listene: The UI is disabled
+0.00.041.696 I srv  init_listene: Use --ui/--no-ui (or deprecated --webui/--no-webui) to enable/disable
+0.00.041.756 W srv  server_setup: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.048.110 I srv    load_model: loading model '/home/adam/.cache/huggingface/hub/models--ggml-org--NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-GGUF/snapshots/99144d1d7a318f045f1412a85bbb807f3c8a17a0/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4.gguf'
+0.00.335.414 W common_fit_params: failed to fit params to free device memory: n_gpu_layers already set by user to 999, abort
+0.00.420.210 W llama_model_loader: tensor overrides to CPU are used with mmap enabled - consider using --load-mode none for better performance
+0.40.811.991 E ggml_backend_cuda_buffer_type_alloc_buffer: allocating 11640.03 MiB on device 0: cudaMalloc failed: out of memory
+0.40.811.996 E ggml_gallocr_reserve_n_impl: failed to allocate CUDA0 buffer of size 12205458176
+0.40.811.997 E graph_reserve: failed to allocate compute buffers
+0.40.818.674 E llama_init_from_model: failed to initialize the context: failed to allocate compute pp buffers
+0.40.818.679 E cmn  common_init_: failed to create context with model '/home/adam/.cache/huggingface/hub/models--ggml-org--NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-GGUF/snapshots/99144d1d7a318f045f1412a85bbb807f3c8a17a0/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4.gguf'
+0.40.818.684 E cmn  common_init_: failed to create context with model '/home/adam/.cache/huggingface/hub/models--ggml-org--NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-GGUF/snapshots/99144d1d7a318f045f1412a85bbb807f3c8a17a0/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4.gguf'
+0.40.819.618 E srv    load_model: failed to create_context with model '/home/adam/.cache/huggingface/hub/models--ggml-org--NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-GGUF/snapshots/99144d1d7a318f045f1412a85bbb807f3c8a17a0/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4.gguf'
+0.40.819.625 I srv    operator(): operator(): cleaning up before exit...
+0.40.823.589 E srv  server_run_i: exiting due to model loading error

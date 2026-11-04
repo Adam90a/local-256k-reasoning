@@ -1,0 +1,134 @@
+{
+ "label": "CANON-qwen38fn-iq3s-288k",
+ "suite": "both",
+ "seed": 22,
+ "prompt_file": "results/prompts/v2/262144_s22.json",
+ "target_tokens": 262144,
+ "prompt_tokens_counted": 262537,
+ "prompt_tokens_server": 262537,
+ "tokens_evaluated": 262537,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 12213,
+ "prefill_s": 286.520842,
+ "prefill_tps": 916.292853837139,
+ "gen_s": 362.842755,
+ "gen_tps": 33.65645264158575,
+ "wall_s": 649.621452331543,
+ "build_s": 0.3201303482055664,
+ "expected": {
+  "needle_start": "34150-HW",
+  "needle_mid": "51871-L9",
+  "needle_end": "50721-0M",
+  "distractor": "47484",
+  "multihop": "SEC-9898",
+  "contradiction": [
+   4,
+   16
+  ],
+  "count": 6,
+  "var_chain": 9040,
+  "billing_fee": 63007,
+  "migration_date": "2026-03-11",
+  "capacity": 110250000,
+  "callers": [
+   "llama.cpp-lrr/examples/lookahead/lookahead.cpp",
+   "llama.cpp-lrr/ggml/src/ggml-cpu/arch/arm/quants.c",
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/prepare_finalize/deepep_ht.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/parser/glm47_moe.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/mla/indexer.py"
+  ],
+  "ack": "DM6PZAG3"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "34150-HW",
+   "got": "34150-HW",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "51871-L9",
+   "got": "51871-L9",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "50721-0M",
+   "got": "50721-0M",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "47484",
+   "got": 47484,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-9898",
+   "got": "SEC-9898",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    4,
+    16
+   ],
+   "got": [
+    4,
+    16
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 6,
+   "got": 6,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 9040,
+   "got": 9040,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 63007,
+   "got": 63007,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-11",
+   "got": "2026-03-11",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 110250000,
+   "got": 110250000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/examples/lookahead/lookahead.cpp",
+    "llama.cpp-lrr/ggml/src/ggml-cpu/arch/arm/quants.c",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/prepare_finalize/deepep_ht.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/parser/glm47_moe.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/mla/indexer.py"
+   ],
+   "got": [
+    "llama.cpp-lrr/examples/lookahead/lookahead.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/parser/glm47_moe.py",
+    "llama.cpp-lrr/ggml/src/ggml-cpu/arch/arm/quants.c",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/mla/indexer.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/prepare_finalize/deepep_ht.py"
+   ],
+   "ok": true,
+   "f1": 1.0
+  },
+  "ack": {
+   "expected": "DM6PZAG3",
+   "got": "DM6PZAG3",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": "le_end` vault 1DBQ is in flashinfer.py: `# NOTE(ops): the vault access code for vault 1DBQ is 50721-0M. Do not rotate it.` Yes.\n\nPotential issue: `multihop`: Service svc-0zl links against libtxzb; libtxzb pinned 6.9.9; advisory SEC-9898. Yes.\n\nPotential issue: `distractor`: There are multiple replica host configs: db-h7d 22114, db-uvq 47484, db-lzt 36487, db-6jr 53179, db-rl1 38630, db-dv8 53902. Asked db-uvq. 47484.\n\nPotential issue: `migration_date`: Could there be another RULE: \"database migrations never run on Fridays, Saturdays or Sundays.\" and \"change freeze lasts through 2026-03-09 inclusive\". \"2026-03-10 is maintenance\". \"migration may only run on day when on-call engineer is Chen\". If on-call week starting Monday 2026-03-09, but Chen only DBA-certified. Could migration run on 2026-03-11? yes. If \"week starting Monday\" includes Monday to Sunday, yes. If \"on-call engineer is Chen\" maybe only for that week, and the week after freeze starts 03-09. Earliest day after freeze and maintenance is 03-11. Good.\n\nNeed maybe output `distractor` as number not string. JSON number.\n\nLet's craft final JSON:\n{\n  \"ack\": \"DM6PZAG3\",\n  \"needle_start\": \"34150-HW\",\n  \"needle_mid\": \"51871-L9\",\n  \"needle_end\": \"50721-0M\",\n  \"distractor\": 47484,\n  \"multihop\": \"SEC-9898\",\n  \"contradiction\": [4, 16],\n  \"count\": 6,\n  \"var_chain\": 9040,\n  \"billing_fee\": 63007,\n  \"migration_date\": \"2026-03-11\",\n  \"capacity\": 110250000,\n  \"callers\": [\n    \"llama.cpp-lrr/examples/lookahead/lookahead.cpp\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/parser/glm47_moe.py\",\n    \"llama.cpp-lrr/ggml/src/ggml-cpu/arch/arm/quants.c\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/mla/indexer.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/prepare_finalize/deepep_ht.py\"\n  ]\n}\n\nDouble-check order of callers maybe dump order: lookahead, glm47_moe, quants.c, indexer, deepep_ht. yes.\n\nCould include `vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/kernel/default_deconv2d_with_broadcast.h`? Need decide final. Let's reason puzzle likely generated with injected calls. They ask \"callers\" maybe they want every file that has `_res = lrr_ueyna_dispatch(job.payload, retries=2)` except definition. The comment is not caller. v2 maybe not. So current.\n\nNeed ensure \"paths exactly as written in the '===== FILE:' headers\". We must not include leading `// ===== FILE:`. Just path. Good.\n\nPotential issue: In `parakeet.cpp`, the definition is Python inside C++ file. The file also contains `# DEPENDENCY`. Excluding it. Good.\n\nPotential issue: In `glm47_moe.py`, call inserted inside dict maybe not syntactically valid but still call. Include.\n\nPotential issue: In `indexer.py`, exact call inserted inside raise NotImplementedError string? It is after a string literal and before continuation string, syntactically invalid but call. Include.\n\nPotential issue: In `deepep_ht.py`, call inserted after if before indented block. Include.\n\nPotential issue: In `quants.c`, call inserted inside #else preprocessor branch. It is C code? Include.\n\nPotential issue: In `lookahead.cpp`, call inserted inside for loop. Include.\n\nNow final JSON only. Ensure no markdown. final answer must be single JSON object. Good.\n</think>\n\n{\n  \"ack\": \"DM6PZAG3\",\n  \"needle_start\": \"34150-HW\",\n  \"needle_mid\": \"51871-L9\",\n  \"needle_end\": \"50721-0M\",\n  \"distractor\": 47484,\n  \"multihop\": \"SEC-9898\",\n  \"contradiction\": [4, 16],\n  \"count\": 6,\n  \"var_chain\": 9040,\n  \"billing_fee\": 63007,\n  \"migration_date\": \"2026-03-11\",\n  \"capacity\": 110250000,\n  \"callers\": [\n    \"llama.cpp-lrr/examples/lookahead/lookahead.cpp\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/parser/glm47_moe.py\",\n    \"llama.cpp-lrr/ggml/src/ggml-cpu/arch/arm/quants.c\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/mla/indexer.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/prepare_finalize/deepep_ht.py\"\n  ]\n}"
+}

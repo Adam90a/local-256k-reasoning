@@ -1,0 +1,4 @@
+threads= 1 read_GBps=  28.1
+threads= 8 read_GBps=  95.6
+threads=16 read_GBps= 103.4
+threads=32 read_GBps=  99.7

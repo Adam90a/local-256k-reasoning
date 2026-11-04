@@ -1,0 +1,15 @@
+[build] prompt_tokens=1000175 target=1000000 (16s)
+[done] score=0.00 easy=0.0 hard=0.0 json=False truncated=False prompt_n=1000175 prefill=4007s (249.58513095744487) gen=32768 tok @ 8.4249708649173
+   BAD needle_start: expected=72239-MC got=None
+   BAD needle_mid: expected=61774-VH got=None
+   BAD needle_end: expected=75641-D9 got=None
+   BAD distractor: expected=48402 got=None
+   BAD multihop: expected=SEC-4658 got=None
+   BAD contradiction: expected=[8, 29] got=None
+   BAD count: expected=7 got=None
+   BAD var_chain: expected=6626 got=None
+   BAD billing_fee: expected=31728 got=None
+   BAD migration_date: expected=2026-03-23 got=None
+   BAD capacity: expected=54000000 got=None
+   BAD callers: expected=['llama.cpp-lrr/ggml/src/ggml-vulkan/vulkan-shaders/vulkan-shaders-gen.cpp', 'llama.cpp-lrr/scripts/server-test-structured.py', 'vllm-env/lib/python3.12/site-packages/vllm/models/minimax_m3/common/ops/index_topk.py', 'vllm-env/lib/python3.12/site-packages/vllm/platforms/__init__.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/triton_kernels/tensor.py'] got=None
+   BAD ack: expected=KQCD4CX0 got=None

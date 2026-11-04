@@ -1,0 +1,14 @@
+[build] prompt_tokens=131146 target=131072 (2s)
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=131146 prefill=168s (781.0871444679475) gen=4940 tok @ 18.90361165155087
+   OK  needle_start: expected=32162-TQ got=32162-TQ
+   OK  needle_mid: expected=93685-Z6 got=93685-Z6
+   OK  needle_end: expected=45158-CB got=45158-CB
+   OK  distractor: expected=31917 got=31917
+   OK  multihop: expected=SEC-9160 got=SEC-9160
+   OK  contradiction: expected=[13, 16] got=[13, 16]
+   OK  count: expected=4 got=4
+   OK  var_chain: expected=8070 got=8070
+   OK  billing_fee: expected=26359 got=26359
+   OK  migration_date: expected=2026-03-16 got=2026-03-16
+   OK  capacity: expected=69000000 got=69000000
+   OK  ack: expected=UKR4TT69 got=UKR4TT69

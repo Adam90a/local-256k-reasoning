@@ -1,0 +1,12 @@
+{
+ "label": "qwen38fn-q4-task2-run2",
+ "claude_exit": 0,
+ "tests_pass": true,
+ "tests_untouched": true,
+ "wall_s": 143,
+ "num_turns": 15,
+ "is_error": false,
+ "result": "All 9 tests pass (`0 failed`, exit code 0). Here's a summary of the three bugs and their fixes:\n\n1. **`ledger/money.py` \u2014 `to_cents` lost cents to floating point.** It parsed with `int(float(amount) * 100)`, but binary floats can't represent values like `19.99` or `0.29` exactly, so `float(\"19.99\") * 100` is `1998.9999\u2026`, and `int()` truncates it to `1998` instead of `1999`. Fix: parse with `Decimal(amount) * 100`, which is exact for decimal input (violated the README rule \"parse user input exactly; never lose a cent to floating point\").\n\n2. **`ledger/fx.py` \u2014 `convert` used banker's rounding.** It computed `round(cents * rate)` with float rates, and Python's `round()` rounds half-to-even, so `5 \u00d7 0.9 = 4.5` became `4` and `25 \u00d7 0.9 = 22.5` became `22`, not the half-up `5` and `23` the README requires. Fix: store the rates as exact `Decimal`s (constructed from strings, so `0.9` isn't a float approximation) and quantize the product to whole cents with `ROUND_HALF_UP`.\n\n3. **`ledger/statement.py` \u2014 `paginate` treated pages as 0-indexed.** It computed `start = page * per_page`, so page 1 skipped the first 10 entries (returning \"entry 11\" first) and the last page of a 25-entry statement came back empty instead of holding the final 5 rows \u2014 this also broke `render`, which delegates to `paginate`. Fix: `start = (page - 1) * per_page`, matching the 1-indexed page convention (a out-of-range start slice silently returned `[]`, which is why the failures were empty results rather than e",
+ "final_tests": "PASS test_convert_half_up\nPASS test_convert_jpy\nPASS test_first_page\nPASS test_fmt\nPASS test_last_page_partial\nPASS test_render_first_line\nPASS test_to_cents_exact\nPASS test_to_cents_negative\nPASS test_to_cents_simple\n0 failed\n",
+ "workdir": "/tmp/claude-1000/-home-adam/aee8f88e-e0a7-4d76-9aed-0c7c432b0b53/scratchpad/agentic-qwen38fn-q4-task2-run2-191111"
+}

@@ -1,0 +1,16 @@
+aime26-1: ok=True out=771 wall=7s
+aime26-3: ok=True out=626 wall=7s
+aime26-5: ok=True out=782 wall=7s
+aime26-7: ok=True out=739 wall=7s
+aime26-9: ok=True out=2099 wall=19s
+aime26-11: ok=True out=3526 wall=35s
+aime26-13: ok=True out=1580 wall=15s
+Traceback (most recent call last):
+  File "/home/adam/local-reasoning-research/benchmarks/cloud/cloud_run.py", line 127, in <module>
+    main()
+  File "/home/adam/local-reasoning-research/benchmarks/cloud/cloud_run.py", line 111, in main
+    r = call(a.backend, None, it["prompt"], a.max_tokens)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adam/local-reasoning-research/benchmarks/cloud/cloud_run.py", line 50, in call
+    raise RuntimeError(d.get("result"))
+RuntimeError: You've hit your 5-hour limit · resets 8pm (America/New_York)

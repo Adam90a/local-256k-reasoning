@@ -1,0 +1,134 @@
+{
+ "label": "super-nvfp4-1m-q8kv",
+ "suite": "both",
+ "seed": 301,
+ "prompt_file": null,
+ "target_tokens": 524288,
+ "prompt_tokens_counted": 524432,
+ "prompt_tokens_server": 524432,
+ "tokens_evaluated": 524432,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 9289,
+ "prefill_s": 1912.421423,
+ "prefill_tps": 274.2240772315381,
+ "gen_s": 787.773996,
+ "gen_tps": 11.79018353888391,
+ "wall_s": 2700.928472518921,
+ "build_s": 6.048113584518433,
+ "expected": {
+  "needle_start": "95409-PQ",
+  "needle_mid": "22504-29",
+  "needle_end": "82901-U4",
+  "distractor": "38808",
+  "multihop": "SEC-3554",
+  "contradiction": [
+   16,
+   26
+  ],
+  "count": 3,
+  "var_chain": 6623,
+  "billing_fee": 56848,
+  "migration_date": "2026-03-16",
+  "capacity": 292500000,
+  "callers": [
+   "llama.cpp-lrr/ggml/src/ggml-sycl/template-instances/fattn-vec-instance-q4_0-q5_0.cpp",
+   "vllm-env/lib/python3.12/site-packages/vllm/compilation/cuda_graph.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/sparse_gemm_with_absmax.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/threadblock/implicit_gemm_wgrad_fusion_multistage.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/v1/executor/abstract.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/vllm_flash_attn/cute/hopper_helpers.py"
+  ],
+  "ack": "TSQSB09V"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "95409-PQ",
+   "got": "95409-PQ",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "22504-29",
+   "got": "22504-29",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "82901-U4",
+   "got": "82901-U4",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "38808",
+   "got": 38808,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-3554",
+   "got": "SEC-3554",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    16,
+    26
+   ],
+   "got": [
+    16,
+    26
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 3,
+   "got": 3,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 6623,
+   "got": 4674,
+   "ok": false
+  },
+  "billing_fee": {
+   "expected": 56848,
+   "got": 56848,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-16",
+   "got": "2026-03-16",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 292500000,
+   "got": 58500000,
+   "ok": false
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/ggml/src/ggml-sycl/template-instances/fattn-vec-instance-q4_0-q5_0.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/compilation/cuda_graph.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/sparse_gemm_with_absmax.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/threadblock/implicit_gemm_wgrad_fusion_multistage.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/executor/abstract.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/vllm_flash_attn/cute/hopper_helpers.py"
+   ],
+   "got": [
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/utils.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/engine/input_processor.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/executor/abstract.py"
+   ],
+   "ok": false,
+   "f1": 0.222
+  },
+  "ack": {
+   "expected": "TSQSB09V",
+   "got": "TSQSB09V",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 0.7692307692307693,
+  "_score_easy": 1.0,
+  "_score_hard": 0.4
+ },
+ "answer_tail": "ges/vllm/v1/attention/backends/utils.py`\n      2. `vllm-env/lib/python3.12/site-packages/vllm/v1/engine/input_processor.py`\n      3. `vllm-env/lib/python3.12/site-packages/vllm/v1/executor/abstract.py`\n    - Wait, let me double-check the exact file paths from the headers.\n    - `===== FILE: vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/utils.py =====`\n    - `===== FILE: vllm-env/lib/python3.12/site-packages/vllm/v1/engine/input_processor.py =====`\n    - `===== FILE: vllm-env/lib/python3.12/site-packages/vllm/v1/executor/abstract.py =====`\n    - Are there any others?\n    - Let me search more carefully for `lrr_ylbqk_dispatch(`.\n    - I see in `llama.cpp-lrr/ggml/src/ggml-sycl/spacemit/rvv_kernels.cpp`: `_res = lrr_ylbqk_dispatch_v2(job.payload)` - this is dispatch_v2, not dispatch.\n    - So the three files above are the callers.\n\nNow let me compile the final JSON:\n\n```json\n{\n  \"ack\": \"TSQSB09V\",\n  \"needle_start\": \"95409-PQ\",\n  \"needle_mid\": \"22504-29\",\n  \"needle_end\": \"82901-U4\",\n  \"distractor\": 38808,\n  \"multihop\": \"SEC-3554\",\n  \"contradiction\": [16, 26],\n  \"count\": 3,\n  \"var_chain\": 4674,\n  \"billing_fee\": 56848,\n  \"migration_date\": \"2026-03-16\",\n  \"capacity\": 58500000,\n  \"callers\": [\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/utils.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/engine/input_processor.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/executor/abstract.py\"\n  ]\n}\n```\n\nWait, let me double-check the billing_fee calculation.\n- The bug: The code divides by 100 instead of 10000 (since basis points are 1/100 of a percent, so 61 bps = 0.61% = 61/10000).\n- Fixed calculation: round(9319312 * 61 / 10000) = round(56847.8032) = 56848.\n- Yes, 56848 is correct.\n\nLet me double-check the capacity:\n- 26 shards * 2,250,000 rows = 58,500,000.\n- No replica count mentioned, so assuming 1 replica (or the question just wants shard capacity).\n- Actually, \"across all shards and replicas\" - if no replicas are mentioned, maybe it's just the shard total.\n- 58,500,000.\n\nLet me double-check the migration_date:\n- Freeze through 2026-03-08 inclusive.\n- Dita on call week starting Monday 2026-03-16.\n- Migrations never on Fri/Sat/Sun.\n- March 16, 2026 is a Monday.\n- So 2026-03-16.\n\nLet me double-check the var_chain:\n- knob_t94 = knob_dp2 (ALIAS in blackwell_helpers.py)\n- knob_dp2 = knob_nj6 (ALIAS in quants.c)\n- knob_nj6 = knob_070 (ALIAS in default_gemm.h)\n- knob_070 = knob_gtf (ALIAS in marlin.py)\n- knob_gtf = 4674 (SET in manager.py)\n- So knob_t94 = 4674.\n\nLet me double-check the count of TODO-GHO:\n1. `vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/deepseek_v2.py`: `# TODO-GHO: follow-up item 1 pending review.`\n2. `llama.cpp-lrr/gguf-py/gguf/gguf_writer.py`: `# TODO-GHO: follow-up item 2 pending review.`\n3. `llama.cpp-lrr/ggml/src/ggml-sycl/spacemit/rvv_kernels.cpp`: `# TODO-GHO: follow-up item 3 pending review.`\n- Count: 3.\n\nLet me double-check the callers:\n- `vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/utils.py`: `_res = lrr_ylbqk_dispatch(job.payload, retries=2)`\n- `vllm-env/lib/python3.12/site-packages/vllm/v1/engine/input_processor.py`: `_res = lrr_ylbqk_dispatch(job.payload, retries=2)`\n- `vllm-env/lib/python3.12/site-packages/vllm/v1/executor/abstract.py`: `_res = lrr_ylbqk_dispatch(job.payload, retries=2)`\n- All three are correct.\n\nEverything looks good. Let me format the final JSON.</think>{\n  \"ack\": \"TSQSB09V\",\n  \"needle_start\": \"95409-PQ\",\n  \"needle_mid\": \"22504-29\",\n  \"needle_end\": \"82901-U4\",\n  \"distractor\": 38808,\n  \"multihop\": \"SEC-3554\",\n  \"contradiction\": [16, 26],\n  \"count\": 3,\n  \"var_chain\": 4674,\n  \"billing_fee\": 56848,\n  \"migration_date\": \"2026-03-16\",\n  \"capacity\": 58500000,\n  \"callers\": [\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/utils.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/engine/input_processor.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/executor/abstract.py\"\n  ]\n}"
+}

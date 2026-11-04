@@ -1,0 +1,15 @@
+[build] prompt_tokens=262376 target=262144 (2s)
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262376 prefill=344s (763.4734598330003) gen=10567 tok @ 29.677070332645634
+   OK  needle_start: expected=45864-8E got=45864-8E
+   OK  needle_mid: expected=15252-H6 got=15252-H6
+   OK  needle_end: expected=79291-1O got=79291-1O
+   OK  distractor: expected=41714 got=41714
+   OK  multihop: expected=SEC-7578 got=SEC-7578
+   OK  contradiction: expected=[12, 16] got=[12, 16]
+   OK  count: expected=3 got=3
+   OK  var_chain: expected=4983 got=4983
+   OK  billing_fee: expected=67977 got=67977
+   OK  migration_date: expected=2026-03-17 got=2026-03-17
+   OK  capacity: expected=121500000 got=121500000
+   OK  callers: expected=['llama.cpp-lrr/common/arg.cpp', 'llama.cpp-lrr/tools/mtmd/clip.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/experts/gpt_oss_triton_kernels_moe.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/threadblock/conv2d_fprop_activation_tile_access_iterator_fixed_channels.h', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/default_gemm_with_reduction.h', 'vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py', 'vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/logit_bias.py'] got=['llama.cpp-lrr/tools/mtmd/clip.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/default_gemm_with_reduction.h', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/threadblock/conv2d_fprop_activation_tile_access_iterator_fixed_channels.h', 'vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py', 'llama.cpp-lrr/common/arg.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/experts/gpt_oss_triton_kernels_moe.py', 'vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/logit_bias.py']
+   OK  ack: expected=TZ17CU1F got=TZ17CU1F

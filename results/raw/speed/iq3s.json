@@ -1,0 +1,31 @@
+{
+ "label": "iq3s",
+ "runs": [
+  {
+   "prompt_n": 3844,
+   "pp_tps": 365.2971855106259,
+   "tg_n": 1024,
+   "tg_tps": 37.323732924939456,
+   "draft_n": null,
+   "draft_accepted": null
+  },
+  {
+   "prompt_n": 3844,
+   "pp_tps": 1049.122628898252,
+   "tg_n": 1024,
+   "tg_tps": 39.77199566310296,
+   "draft_n": null,
+   "draft_accepted": null
+  },
+  {
+   "prompt_n": 3844,
+   "pp_tps": 1042.4994820046797,
+   "tg_n": 1024,
+   "tg_tps": 39.037107575469356,
+   "draft_n": null,
+   "draft_accepted": null
+  }
+ ],
+ "pp_tps_median": 1042.4994820046797,
+ "tg_tps_median": 39.037107575469356
+}

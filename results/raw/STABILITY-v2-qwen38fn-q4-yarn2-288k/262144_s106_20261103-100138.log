@@ -1,0 +1,15 @@
+[build] prompt_tokens=262346 target=262144 (3s)
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262346 prefill=343s (765.8176232825277) gen=10188 tok @ 29.609858676710854
+   OK  needle_start: expected=72403-DQ got=72403-DQ
+   OK  needle_mid: expected=67247-2S got=67247-2S
+   OK  needle_end: expected=94984-IL got=94984-IL
+   OK  distractor: expected=59924 got=59924
+   OK  multihop: expected=SEC-4498 got=SEC-4498
+   OK  contradiction: expected=[20, 28] got=[20, 28]
+   OK  count: expected=7 got=7
+   OK  var_chain: expected=7370 got=7370
+   OK  billing_fee: expected=12953 got=12953
+   OK  migration_date: expected=2026-03-17 got=2026-03-17
+   OK  capacity: expected=127500000 got=127500000
+   OK  callers: expected=['llama.cpp-lrr/examples/llama-eval/llama-server-simulator.py', 'llama.cpp-lrr/ggml/src/ggml-cuda/gated-delta-net-mma.cu', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/triton_kernels/matmul_ogs_details/_reduce_grouped.py'] got=['vllm-env/lib/python3.12/site-packages/vllm/third_party/triton_kernels/matmul_ogs_details/_reduce_grouped.py', 'llama.cpp-lrr/ggml/src/ggml-cuda/gated-delta-net-mma.cu', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h', 'llama.cpp-lrr/examples/llama-eval/llama-server-simulator.py']
+   OK  ack: expected=YN0P7XYY got=YN0P7XYY

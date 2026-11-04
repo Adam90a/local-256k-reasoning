@@ -1,0 +1,4 @@
+Hint: A new version of huggingface_hub (2.4.0) is available! You are using version 1.31.0.
+To update, run: hf update
+Hint: The `hf-cli` skill is not installed. Run `hf skills add -g --claude` to teach your AI agents how to use the `hf` CLI.
+path=/home/adam/.cache/huggingface/hub/models--ISTA-DASLab--Qwen3.8-Flash-Next-GSQ-RCO-GGUF/snapshots/ed59f92082b1e93c0e96d60a8b11aab089b52f09

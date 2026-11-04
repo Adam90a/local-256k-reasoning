@@ -1,0 +1,15 @@
+[build] prompt_tokens=262358 target=262144 (2s)
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262358 prefill=342s (767.8297800999932) gen=8107 tok @ 29.646809396364954
+   OK  needle_start: expected=59562-MF got=59562-MF
+   OK  needle_mid: expected=51648-MH got=51648-MH
+   OK  needle_end: expected=23389-8U got=23389-8U
+   OK  distractor: expected=31954 got=31954
+   OK  multihop: expected=SEC-9703 got=SEC-9703
+   OK  contradiction: expected=[10, 12] got=[10, 12]
+   OK  count: expected=4 got=4
+   OK  var_chain: expected=2809 got=2809
+   OK  billing_fee: expected=13439 got=13439
+   OK  migration_date: expected=2026-03-09 got=2026-03-09
+   OK  capacity: expected=57000000 got=57000000
+   OK  callers: expected=['vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/oracle/int_wna16.py', 'vllm-env/lib/python3.12/site-packages/vllm/models/hy_v4/nvidia/mtp.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/arch/mma_sparse_sm80.h', 'vllm-env/lib/python3.12/site-packages/vllm/vllm_flash_attn/cute/sm100_hd256_2cta_fmha_backward_dkdvkernel.py'] got=['vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/arch/mma_sparse_sm80.h', 'vllm-env/lib/python3.12/site-packages/vllm/models/hy_v4/nvidia/mtp.py', 'vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/oracle/int_wna16.py']
+   OK  ack: expected=ZC2ZUR85 got=ZC2ZUR85

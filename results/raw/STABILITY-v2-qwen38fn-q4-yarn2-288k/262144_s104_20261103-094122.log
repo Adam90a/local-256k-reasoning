@@ -1,0 +1,15 @@
+[build] prompt_tokens=262361 target=262144 (2s)
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262361 prefill=344s (763.1777905102228) gen=7069 tok @ 29.73599410066149
+   OK  needle_start: expected=53337-AI got=53337-AI
+   OK  needle_mid: expected=25481-EV got=25481-EV
+   OK  needle_end: expected=61267-UK got=61267-UK
+   OK  distractor: expected=22684 got=22684
+   OK  multihop: expected=SEC-7201 got=SEC-7201
+   OK  contradiction: expected=[8, 21] got=[8, 21]
+   OK  count: expected=4 got=4
+   OK  var_chain: expected=3798 got=3798
+   OK  billing_fee: expected=48957 got=48957
+   OK  migration_date: expected=2026-03-17 got=2026-03-17
+   OK  capacity: expected=57000000 got=57000000
+   OK  callers: expected=['llama.cpp-lrr/ggml/src/ggml-cpu/arch/riscv/quants.c', 'llama.cpp-lrr/tests/peg-parser/test-gbnf-generation.cpp', 'llama.cpp-lrr/tools/export-lora/export-lora.cpp', 'llama.cpp-lrr/tools/tuning/fa-vec.cpp', 'llama.cpp-lrr/vendor/stb/stb_image.h', 'vllm-env/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py'] got=['llama.cpp-lrr/ggml/src/ggml-cpu/arch/riscv/quants.c', 'llama.cpp-lrr/tests/peg-parser/test-gbnf-generation.cpp', 'llama.cpp-lrr/vendor/stb/stb_image.h', 'vllm-env/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py', 'llama.cpp-lrr/tools/tuning/fa-vec.cpp', 'llama.cpp-lrr/tools/export-lora/export-lora.cpp']
+   OK  ack: expected=EAIPHE49 got=EAIPHE49

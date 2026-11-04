@@ -1,0 +1,15 @@
+[build] prompt_tokens=524432 target=524288 (6s)
+[done] score=0.77 easy=1.0 hard=0.4 json=True truncated=False prompt_n=524432 prefill=1912s (274.2240772315381) gen=9289 tok @ 11.79018353888391
+   OK  needle_start: expected=95409-PQ got=95409-PQ
+   OK  needle_mid: expected=22504-29 got=22504-29
+   OK  needle_end: expected=82901-U4 got=82901-U4
+   OK  distractor: expected=38808 got=38808
+   OK  multihop: expected=SEC-3554 got=SEC-3554
+   OK  contradiction: expected=[16, 26] got=[16, 26]
+   OK  count: expected=3 got=3
+   BAD var_chain: expected=6623 got=4674
+   OK  billing_fee: expected=56848 got=56848
+   OK  migration_date: expected=2026-03-16 got=2026-03-16
+   BAD capacity: expected=292500000 got=58500000
+   BAD callers: expected=['llama.cpp-lrr/ggml/src/ggml-sycl/template-instances/fattn-vec-instance-q4_0-q5_0.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/compilation/cuda_graph.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/sparse_gemm_with_absmax.h', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/threadblock/implicit_gemm_wgrad_fusion_multistage.h', 'vllm-env/lib/python3.12/site-packages/vllm/v1/executor/abstract.py', 'vllm-env/lib/python3.12/site-packages/vllm/vllm_flash_attn/cute/hopper_helpers.py'] got=['vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/utils.py', 'vllm-env/lib/python3.12/site-packages/vllm/v1/engine/input_processor.py', 'vllm-env/lib/python3.12/site-packages/vllm/v1/executor/abstract.py']
+   OK  ack: expected=TSQSB09V got=TSQSB09V

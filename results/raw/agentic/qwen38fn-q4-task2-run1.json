@@ -1,0 +1,12 @@
+{
+ "label": "qwen38fn-q4-task2-run1",
+ "claude_exit": 0,
+ "tests_pass": true,
+ "tests_untouched": true,
+ "wall_s": 187,
+ "num_turns": 15,
+ "is_error": false,
+ "result": "All 9 tests pass (`0 failed`, exit code 0). I only touched the three modules in `ledger/` \u2014 nothing under `tests/` or `run_tests.py` was modified.\n\n**Summary of the three bugs and fixes:**\n\n1. **`ledger/money.py` \u2014 `to_cents()` lost a cent to floating point.** It parsed with `int(float(amount) * 100)`, and since e.g. `float(\"19.99\") * 100` is `1998.999\u2026`, truncation via `int()` yielded `1998` instead of `1999` (same for `\"0.29\"` \u2192 28). Fixed by parsing with `Decimal(amount) * 100`, which is exact for decimal input, per the README's \"never lose a cent to floating point\" rule.\n\n2. **`ledger/fx.py` \u2014 `convert()` used banker's rounding.** Python's builtin `round()` rounds half-to-even, so `5 * 0.9 = 4.5` became 4 and `25 * 0.9 = 22.5` became 22, while the README mandates rounding half-**up**. Fixed by computing `Decimal(cents) * Decimal(str(rate))` and quantizing with `ROUND_HALF_UP` (the `str(rate)` conversion keeps the rate's intended decimal value, e.g. exactly 0.9, rather than its binary approximation).\n\n3. **`ledger/statement.py` \u2014 `paginate()` treated pages as 0-indexed.** It computed `start = page * per_page`, so page 1 skipped the first chunk of entries (first row was \"entry 11\", page 3 of 25 entries returned 0 rows instead of the trailing 5, and `render()`'s first line was wrong). Fixed to `start = (page - 1) * per_page` per the README's 1-indexed page convention \u2014 this one bug caused three of the five test failures.",
+ "final_tests": "PASS test_convert_half_up\nPASS test_convert_jpy\nPASS test_first_page\nPASS test_fmt\nPASS test_last_page_partial\nPASS test_render_first_line\nPASS test_to_cents_exact\nPASS test_to_cents_negative\nPASS test_to_cents_simple\n0 failed\n",
+ "workdir": "/tmp/claude-1000/-home-adam/aee8f88e-e0a7-4d76-9aed-0c7c432b0b53/scratchpad/agentic-qwen38fn-q4-task2-run1-190804"
+}

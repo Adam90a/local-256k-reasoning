@@ -1,0 +1,31 @@
+SERVER UP qwen-stability 09:09:55
+== qwen stability 09:09:55
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262169 prefill=341s (768.9789815276418) gen=8416 tok @ 29.556937814134667
+peaks: {"vram_mib":19392.0,"gpu_util":92.0,"power_w":126.2,"temp_c":89.0,"sm_mhz":2595.0,"ram_used_gb":22.35,"swap_used_gb":20.62,"cpu_pct":49.9,"proc_rss_gb":90.65,"swap_in_mbps":2.8,"swap_out_mbps":0.0,"swap_in_total_mb":30.6}
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262313 prefill=343s (763.890638798374) gen=6841 tok @ 29.66954129965231
+peaks: {"vram_mib":19392.0,"gpu_util":97.0,"power_w":125.86,"temp_c":88.0,"sm_mhz":2610.0,"ram_used_gb":22.78,"swap_used_gb":20.61,"cpu_pct":48.1,"proc_rss_gb":91.15,"swap_in_mbps":0.3,"swap_out_mbps":0.0,"swap_in_total_mb":19.9}
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262366 prefill=343s (764.1472944981256) gen=9867 tok @ 29.682344667914418
+peaks: {"vram_mib":19394.0,"gpu_util":95.0,"power_w":126.94,"temp_c":88.0,"sm_mhz":2610.0,"ram_used_gb":23.24,"swap_used_gb":20.6,"cpu_pct":51.9,"proc_rss_gb":91.12,"swap_in_mbps":1.8,"swap_out_mbps":0.0,"swap_in_total_mb":27.5}
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262361 prefill=344s (763.1777905102228) gen=7069 tok @ 29.73599410066149
+peaks: {"vram_mib":19394.0,"gpu_util":92.0,"power_w":126.42,"temp_c":88.0,"sm_mhz":2610.0,"ram_used_gb":23.68,"swap_used_gb":20.59,"cpu_pct":51.1,"proc_rss_gb":91.12,"swap_in_mbps":1.5,"swap_out_mbps":0.0,"swap_in_total_mb":22.2}
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262284 prefill=343s (764.3714964375696) gen=8433 tok @ 29.63666607273832
+peaks: {"vram_mib":19394.0,"gpu_util":91.0,"power_w":125.35,"temp_c":88.0,"sm_mhz":2610.0,"ram_used_gb":23.36,"swap_used_gb":20.58,"cpu_pct":50.1,"proc_rss_gb":91.03,"swap_in_mbps":3.2,"swap_out_mbps":0.0,"swap_in_total_mb":27.2}
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262346 prefill=343s (765.8176232825277) gen=10188 tok @ 29.609858676710854
+peaks: {"vram_mib":19394.0,"gpu_util":96.0,"power_w":125.87,"temp_c":88.0,"sm_mhz":2610.0,"ram_used_gb":23.58,"swap_used_gb":20.56,"cpu_pct":48.7,"proc_rss_gb":90.52,"swap_in_mbps":0.4,"swap_out_mbps":0.0,"swap_in_total_mb":20.9}
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262281 prefill=342s (767.4890939741515) gen=12973 tok @ 29.65347934317644
+peaks: {"vram_mib":19394.0,"gpu_util":95.0,"power_w":125.92,"temp_c":88.0,"sm_mhz":2610.0,"ram_used_gb":23.64,"swap_used_gb":20.56,"cpu_pct":50.4,"proc_rss_gb":90.93,"swap_in_mbps":1.6,"swap_out_mbps":0.0,"swap_in_total_mb":24.5}
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262358 prefill=342s (767.8297800999932) gen=8107 tok @ 29.646809396364954
+peaks: {"vram_mib":19394.0,"gpu_util":93.0,"power_w":125.28,"temp_c":88.0,"sm_mhz":2610.0,"ram_used_gb":23.9,"swap_used_gb":20.54,"cpu_pct":51.5,"proc_rss_gb":90.81,"swap_in_mbps":23.9,"swap_out_mbps":0.0,"swap_in_total_mb":70.8}
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262282 prefill=343s (764.542723729845) gen=11845 tok @ 29.731260506868438
+peaks: {"vram_mib":19394.0,"gpu_util":94.0,"power_w":124.98,"temp_c":88.0,"sm_mhz":2610.0,"ram_used_gb":23.9,"swap_used_gb":20.52,"cpu_pct":50.5,"proc_rss_gb":90.34,"swap_in_mbps":1.9,"swap_out_mbps":0.0,"swap_in_total_mb":28.8}
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262376 prefill=344s (763.4734598330003) gen=10567 tok @ 29.677070332645634
+peaks: {"vram_mib":19394.0,"gpu_util":92.0,"power_w":126.38,"temp_c":88.0,"sm_mhz":2610.0,"ram_used_gb":24.05,"swap_used_gb":20.51,"cpu_pct":51.3,"proc_rss_gb":90.29,"swap_in_mbps":1.5,"swap_out_mbps":0.0,"swap_in_total_mb":20.7}
+STABILITY_DONE 11:00:37
+SERVER UP qwen-512k 11:00:48
+== qwen 512k 11:00:48
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=524427 prefill=742s (706.5696350933032) gen=28092 tok @ 9.529738206038097
+peaks: {"vram_mib":23026.0,"gpu_util":100.0,"power_w":147.12,"temp_c":89.0,"sm_mhz":2595.0,"ram_used_gb":24.28,"swap_used_gb":20.49,"cpu_pct":44.8,"proc_rss_gb":90.12,"swap_in_mbps":2.4,"swap_out_mbps":0.0,"swap_in_total_mb":99.2}
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=524446 prefill=741s (707.7469082988596) gen=19206 tok @ 9.65499018446701
+peaks: {"vram_mib":23026.0,"gpu_util":100.0,"power_w":146.94,"temp_c":89.0,"sm_mhz":2610.0,"ram_used_gb":26.09,"swap_used_gb":23.59,"cpu_pct":53.0,"proc_rss_gb":89.95,"swap_in_mbps":145.0,"swap_out_mbps":603.0,"swap_in_total_mb":498.2}
+SERVER FAILED super-1m
+PHASE3_DONE 13:03:11

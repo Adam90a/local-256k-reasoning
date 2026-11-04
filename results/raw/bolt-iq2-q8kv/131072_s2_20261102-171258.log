@@ -1,0 +1,10 @@
+[build] prompt_tokens=131201 target=131072 (2s)
+[done] score=0.00 json=False truncated=False prompt_n=131201 prefill=78s (1679.6211151856692) gen=4174 tok @ 45.493881214702114
+   BAD needle_start: expected=32162-TQ got=None
+   BAD needle_mid: expected=93685-Z6 got=None
+   BAD needle_end: expected=45158-CB got=None
+   BAD distractor: expected=31917 got=None
+   BAD multihop: expected=SEC-9160 got=None
+   BAD contradiction: expected=[13, 16] got=None
+   BAD count: expected=4 got=None
+   BAD ack: expected=UKR4TT69 got=None

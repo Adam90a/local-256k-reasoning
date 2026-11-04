@@ -1,0 +1,14 @@
+{
+ "vram_mib": 17986.0,
+ "gpu_util": 82.0,
+ "power_w": 120.39,
+ "temp_c": 85.0,
+ "sm_mhz": 2595.0,
+ "ram_used_gb": 25.54,
+ "swap_used_gb": 22.25,
+ "cpu_pct": 48.3,
+ "proc_rss_gb": 82.33,
+ "swap_in_mbps": 200.9,
+ "swap_out_mbps": 56.7,
+ "swap_in_total_mb": 425.2
+}

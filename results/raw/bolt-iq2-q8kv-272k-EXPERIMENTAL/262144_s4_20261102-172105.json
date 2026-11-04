@@ -1,0 +1,81 @@
+{
+ "label": "bolt-iq2-q8kv-272k-EXPERIMENTAL",
+ "seed": 4,
+ "target_tokens": 262144,
+ "prompt_tokens_counted": 262208,
+ "prompt_tokens_server": 262208,
+ "tokens_evaluated": 262208,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 1824,
+ "prefill_s": 199.56444399999998,
+ "prefill_tps": 1313.9013881651183,
+ "gen_s": 55.836426,
+ "gen_tps": 32.64893780988059,
+ "wall_s": 255.78243565559387,
+ "build_s": 4.1670448780059814,
+ "expected": {
+  "needle_start": "72767-JF",
+  "needle_mid": "47929-DO",
+  "needle_end": "32631-GQ",
+  "distractor": "39676",
+  "multihop": "SEC-5254",
+  "contradiction": [
+   10,
+   22
+  ],
+  "count": 5,
+  "ack": "JME0M2RL"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "72767-JF",
+   "got": "72767-JF",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "47929-DO",
+   "got": "47929-DO",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "32631-GQ",
+   "got": "32631-GQ",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "39676",
+   "got": 39676,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-5254",
+   "got": "SEC-5254",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    10,
+    22
+   ],
+   "got": [
+    10,
+    22
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 5,
+   "got": 5,
+   "ok": true
+  },
+  "ack": {
+   "expected": "JME0M2RL",
+   "got": "JME0M2RL",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0
+ },
+ "answer_tail": "curity advisory affects service svc-6m0 through its dependencies? Answer with the advisory id.\n   - I need to search for \"svc-6m0\" in the dump.\n   - Looking at the qwen4_exp/amd/ple_layer.py file, I see: `# DEPENDENCY: service svc-6m0 links against lib1s12 for request parsing.`\n   - Then I need to find the security advisory for lib1s12.\n   - Looking at the test-quantize-fns.cpp file, I see: `# ADVISORY: lib1s12 version 4.3.4 is affected by advisory SEC-5254.`\n   - So the advisory id is SEC-5254.\n\n6. \"contradiction\": Two POLICY comments contradict each other about MAX_CFC3_RETRIES. List both values as [smaller, larger].\n   - I need to search for \"MAX_CFC3_RETRIES\" in the dump.\n   - Looking at the tile_iterator_simt.h file, I see: `# POLICY: MAX_CFC3_RETRIES must be exactly 22 in all environments.`\n   - Looking at the epilogue_base.h file, I see: `# POLICY: MAX_CFC3_RETRIES must be exactly 10 in all environments.`\n   - So the values are 22 and 10. Smaller is 10, larger is 22. So [10, 22].\n\n7. \"count\": How many comments tagged TODO-784 appear in the dump? Answer with a number.\n   - I need to search for \"TODO-784\" in the dump.\n   - Let me count:\n     1. In dflash.cpp: `# TODO-784: follow-up item 1 pending review.`\n     2. In ple_layer.py: `# TODO-784: follow-up item 2 pending review.`\n     3. In phi4siglip.py: `# TODO-784: follow-up item 3 pending review.`\n     4. In subbyte_reference.h: `# TODO-784: follow-up item 4 pending review.`\n     5. In _matmul_ogs.py: `# TODO-784: follow-up item 5 pending review.`\n   - So there are 5 occurrences.\n\nWait, let me double-check by searching more carefully through the text.\n\nLooking at the dump:\n- dflash.cpp: `# TODO-784: follow-up item 1 pending review.`\n- ple_layer.py: `# TODO-784: follow-up item 2 pending review.`\n- phi4siglip.py: `# TODO-784: follow-up item 3 pending review.`\n- subbyte_reference.h: `# TODO-784: follow-up item 4 pending review.`\n- _matmul_ogs.py: `# TODO-784: follow-up item 5 pending review.`\n\nThat's 5.\n\nLet me verify the other answers:\n\nPTGZ: In dflash.cpp line: `# NOTE(ops): the vault access code for vault PTGZ is 72767-JF. Do not rotate it.` - Correct.\n\nEBZ9: In phi4siglip.py line: `# NOTE(ops): the vault access code for vault EBZ9 is 47929-DO. Do not rotate it.` - Correct.\n\n78XR: In _matmul_ogs.py line: `# NOTE(ops): the vault access code for vault 78XR is 32631-GQ. Do not rotate it.` - Correct.\n\ndb-mkt port: In cpu_attn.py line: `# CONFIG: replica host db-mkt listens on port 39676.` - Correct.\n\nsvc-6m0 advisory: In ple_layer.py line: `# DEPENDENCY: service svc-6m0 links against lib1s12 for request parsing.` And in test-quantize-fns.cpp: `# ADVISORY: lib1s12 version 4.3.4 is affected by advisory SEC-5254.` - Correct.\n\nMAX_CFC3_RETRIES: \n- tile_iterator_simt.h: `# POLICY: MAX_CFC3_RETRIES must be exactly 22 in all environments.`\n- epilogue_base.h: `# POLICY: MAX_CFC3_RETRIES must be exactly 10 in all environments.`\n- Values: 10 and 22. Sorted: [10, 22].\n\nTODO-784 count: 5.\n\nNow I need to format the output as a single JSON object with exactly these keys plus \"ack\".\n\nThe JSON should have:\n- \"ack\": \"JME0M2RL\"\n- \"needle_start\": \"72767-JF\"\n- \"needle_mid\": \"47929-DO\"\n- \"needle_end\": \"32631-GQ\"\n- \"distractor\": 39676\n- \"multihop\": \"SEC-5254\"\n- \"contradiction\": [10, 22]\n- \"count\": 5\n\nLet me make sure I haven't missed any TODO-784 comments. Let me scan through the text again.\n\nI see:\n1. dflash.cpp: `# TODO-784: follow-up item 1 pending review.`\n2. ple_layer.py: `# TODO-784: follow-up item 2 pending review.`\n3. phi4siglip.py: `# TODO-784: follow-up item 3 pending review.`\n4. subbyte_reference.h: `# TODO-784: follow-up item 4 pending review.`\n5. _matmul_ogs.py: `# TODO-784: follow-up item 5 pending review.`\n\nYes, 5 total.\n\nThe answer should be a JSON object. Let me construct it.</think>{\n  \"ack\": \"JME0M2RL\",\n  \"needle_start\": \"72767-JF\",\n  \"needle_mid\": \"47929-DO\",\n  \"needle_end\": \"32631-GQ\",\n  \"distractor\": 39676,\n  \"multihop\": \"SEC-5254\",\n  \"contradiction\": [10, 22],\n  \"count\": 5\n}"
+}

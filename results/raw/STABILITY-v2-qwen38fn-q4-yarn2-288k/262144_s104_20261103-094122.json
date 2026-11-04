@@ -1,0 +1,137 @@
+{
+ "label": "STABILITY-v2-qwen38fn-q4-yarn2-288k",
+ "suite": "both",
+ "seed": 104,
+ "prompt_file": null,
+ "target_tokens": 262144,
+ "prompt_tokens_counted": 262361,
+ "prompt_tokens_server": 262361,
+ "tokens_evaluated": 262361,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 7069,
+ "prefill_s": 343.774417,
+ "prefill_tps": 763.1777905102228,
+ "gen_s": 237.691734,
+ "gen_tps": 29.73599410066149,
+ "wall_s": 581.7058820724487,
+ "build_s": 2.389909029006958,
+ "expected": {
+  "needle_start": "53337-AI",
+  "needle_mid": "25481-EV",
+  "needle_end": "61267-UK",
+  "distractor": "22684",
+  "multihop": "SEC-7201",
+  "contradiction": [
+   8,
+   21
+  ],
+  "count": 4,
+  "var_chain": 3798,
+  "billing_fee": 48957,
+  "migration_date": "2026-03-17",
+  "capacity": 57000000,
+  "callers": [
+   "llama.cpp-lrr/ggml/src/ggml-cpu/arch/riscv/quants.c",
+   "llama.cpp-lrr/tests/peg-parser/test-gbnf-generation.cpp",
+   "llama.cpp-lrr/tools/export-lora/export-lora.cpp",
+   "llama.cpp-lrr/tools/tuning/fa-vec.cpp",
+   "llama.cpp-lrr/vendor/stb/stb_image.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py"
+  ],
+  "ack": "EAIPHE49"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "53337-AI",
+   "got": "53337-AI",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "25481-EV",
+   "got": "25481-EV",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "61267-UK",
+   "got": "61267-UK",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "22684",
+   "got": 22684,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-7201",
+   "got": "SEC-7201",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    8,
+    21
+   ],
+   "got": [
+    8,
+    21
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 4,
+   "got": 4,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 3798,
+   "got": 3798,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 48957,
+   "got": 48957,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-17",
+   "got": "2026-03-17",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 57000000,
+   "got": 57000000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/ggml/src/ggml-cpu/arch/riscv/quants.c",
+    "llama.cpp-lrr/tests/peg-parser/test-gbnf-generation.cpp",
+    "llama.cpp-lrr/tools/export-lora/export-lora.cpp",
+    "llama.cpp-lrr/tools/tuning/fa-vec.cpp",
+    "llama.cpp-lrr/vendor/stb/stb_image.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py"
+   ],
+   "got": [
+    "llama.cpp-lrr/ggml/src/ggml-cpu/arch/riscv/quants.c",
+    "llama.cpp-lrr/tests/peg-parser/test-gbnf-generation.cpp",
+    "llama.cpp-lrr/vendor/stb/stb_image.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py",
+    "llama.cpp-lrr/tools/tuning/fa-vec.cpp",
+    "llama.cpp-lrr/tools/export-lora/export-lora.cpp"
+   ],
+   "ok": true,
+   "f1": 1.0
+  },
+  "ack": {
+   "expected": "EAIPHE49",
+   "got": "EAIPHE49",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": "ding review.` in Qwen3OmniMmprojModel get_vision_config.\n- In mtmd-cli.cpp: `# TODO-2FD: follow-up item 4 pending review.` in eval_message.\nNo others. Count 4.\nDouble-check needle codes: BMOZ 53337-AI. BKGJ 25481-EV. XDMQ 61267-UK.\nDouble-check distractor db-90v port: There are multiple CONFIG replica hosts: db-t0c 24726, db-328 42930, db-pql 55489, db-cgc 33104, db-hkq 26203, db-90v 22684. Yes.\nDouble-check multihop: DEPENDENCY svc-394 links against libiojl. PIN libiojl 4.0.8. ADVISORY libiojl 4.0.8 affected by SEC-7201. Good.\nNeed final JSON only. Ensure no markdown. But final can be code? User says return one JSON object. We'll output raw JSON.\nNeed maybe include keys order? Not important but can.\nPotential ambiguity callers: Should we include `vllm-env/lib/python3.12/site-packages/vllm/distributed/device_communicators/shm_broadcast.py` because it contains `# TODO: do not call lrr_a4hkk_dispatch( here until the queue is drained`? The question says \"calls\" not \"mentions\". I think exclude. But maybe they expect grep of `lrr_a4hkk_dispatch(` excluding definition, then comment would count? But a comment is not a call. Also `lrr_a4hkk_dispatch_v2` not count. Need maybe if they consider any occurrence of `lrr_a4hkk_dispatch(` includes comment, then include shm_broadcast.py. But they specifically \"calls\". I'd exclude comment. Need think about automated expected? These tasks often ask \"calls\" and inserted call lines. They may also inserted comment as distractor. Exclude.\nPotential issue: stb_image.h call is inside enum declaration: `enum { STBI__SCAN_load=0, STBI__SCAN_type, _res = lrr_a4hkk_dispatch(job.payload, retries=2) STBI__SCAN_header };` It's not valid C but still call expression in source. Count.\nPotential issue: test-gbnf-generation.cpp call is inside test lambda after parser = ... and before build_grammar. Count.\nPotential issue: llm_engine.py call is inside method has_unfinished_requests_dp before body. Count.\nPotential issue: fa-vec.cpp call inserted inside boolean expression line: `    _res = lrr_a4hkk_dispatch(job.payload, retries=2)\n                         (tot < bestTot ||` Count.\nPotential issue: export-lora.cpp call inside if block. Count.\nNeed maybe include `llama.cpp-lrr/ggml/src/ggml-cpu/arch/riscv/quants.c` path exactly? Header: `// ===== FILE: llama.cpp-lrr/ggml/src/ggml-cpu/arch/riscv/quants.c =====`. Yes.\nPath for test: `// ===== FILE: llama.cpp-lrr/tests/peg-parser/test-gbnf-generation.cpp =====`.\nPath for stb: `// ===== FILE: llama.cpp-lrr/vendor/stb/stb_image.h =====`.\nPath for llm_engine: `// ===== FILE: vllm-env/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py =====`.\nPath for fa-vec: `// ===== FILE: llama.cpp-lrr/tools/tuning/fa-vec.cpp =====`.\nPath for export-lora: `// ===== FILE: llama.cpp-lrr/tools/export-lora/export-lora.cpp =====`.\nNeed maybe include `vllm-env/lib/python3.12/site-packages/vllm/v1/spec_decode/step3p5.py`? Excluding file that defines it. No.\nCould there be call in `llama.cpp-lrr/ggml/src/ggml-cpu/arch/riscv/quants.c` before definition? Yes.\nNeed final JSON with integers not strings except where specified. \"distractor\": number. \"count\": number. \"var_chain\": number. \"billing_fee\": number. \"capacity\": number. \"contradiction\": [8,21]. \"callers\": list.\nEnsure ack value exact EAIPHE49.\n\nLet's craft final.\n</think>\n\n{\n  \"ack\": \"EAIPHE49\",\n  \"needle_start\": \"53337-AI\",\n  \"needle_mid\": \"25481-EV\",\n  \"needle_end\": \"61267-UK\",\n  \"distractor\": 22684,\n  \"multihop\": \"SEC-7201\",\n  \"contradiction\": [\n    8,\n    21\n  ],\n  \"count\": 4,\n  \"var_chain\": 3798,\n  \"billing_fee\": 48957,\n  \"migration_date\": \"2026-03-17\",\n  \"capacity\": 57000000,\n  \"callers\": [\n    \"llama.cpp-lrr/ggml/src/ggml-cpu/arch/riscv/quants.c\",\n    \"llama.cpp-lrr/tests/peg-parser/test-gbnf-generation.cpp\",\n    \"llama.cpp-lrr/vendor/stb/stb_image.h\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py\",\n    \"llama.cpp-lrr/tools/tuning/fa-vec.cpp\",\n    \"llama.cpp-lrr/tools/export-lora/export-lora.cpp\"\n  ]\n}"
+}

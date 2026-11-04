@@ -1,0 +1,140 @@
+{
+ "label": "STABILITY-v2-qwen38fn-q4-yarn2-288k",
+ "suite": "both",
+ "seed": 110,
+ "prompt_file": null,
+ "target_tokens": 262144,
+ "prompt_tokens_counted": 262376,
+ "prompt_tokens_server": 262376,
+ "tokens_evaluated": 262376,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 10567,
+ "prefill_s": 343.660931,
+ "prefill_tps": 763.4734598330003,
+ "gen_s": 356.032448,
+ "gen_tps": 29.677070332645634,
+ "wall_s": 699.9405710697174,
+ "build_s": 1.8534152507781982,
+ "expected": {
+  "needle_start": "45864-8E",
+  "needle_mid": "15252-H6",
+  "needle_end": "79291-1O",
+  "distractor": "41714",
+  "multihop": "SEC-7578",
+  "contradiction": [
+   12,
+   16
+  ],
+  "count": 3,
+  "var_chain": 4983,
+  "billing_fee": 67977,
+  "migration_date": "2026-03-17",
+  "capacity": 121500000,
+  "callers": [
+   "llama.cpp-lrr/common/arg.cpp",
+   "llama.cpp-lrr/tools/mtmd/clip.cpp",
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/experts/gpt_oss_triton_kernels_moe.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/threadblock/conv2d_fprop_activation_tile_access_iterator_fixed_channels.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/default_gemm_with_reduction.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/logit_bias.py"
+  ],
+  "ack": "TZ17CU1F"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "45864-8E",
+   "got": "45864-8E",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "15252-H6",
+   "got": "15252-H6",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "79291-1O",
+   "got": "79291-1O",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "41714",
+   "got": 41714,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-7578",
+   "got": "SEC-7578",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    12,
+    16
+   ],
+   "got": [
+    12,
+    16
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 3,
+   "got": 3,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 4983,
+   "got": 4983,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 67977,
+   "got": 67977,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-17",
+   "got": "2026-03-17",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 121500000,
+   "got": 121500000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/common/arg.cpp",
+    "llama.cpp-lrr/tools/mtmd/clip.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/experts/gpt_oss_triton_kernels_moe.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/threadblock/conv2d_fprop_activation_tile_access_iterator_fixed_channels.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/default_gemm_with_reduction.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/logit_bias.py"
+   ],
+   "got": [
+    "llama.cpp-lrr/tools/mtmd/clip.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/default_gemm_with_reduction.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/threadblock/conv2d_fprop_activation_tile_access_iterator_fixed_channels.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py",
+    "llama.cpp-lrr/common/arg.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/experts/gpt_oss_triton_kernels_moe.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/logit_bias.py"
+   ],
+   "ok": true,
+   "f1": 1.0
+  },
+  "ack": {
+   "expected": "TZ17CU1F",
+   "got": "TZ17CU1F",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": "Z17CU1F\"\n\nNeed ensure JSON valid. No comments.\n\nDouble-check FJ2A code: 79291-1O: Is last char letter O or zero? Dump: \"79291-1O\" (capital O). Use exactly.\n\nDouble-check 806U: \"15252-H6\". Good.\n\nDouble-check YP04: \"45864-8E\". Good.\n\nDouble-check db-93r port: 41714. Yes.\n\nDouble-check var_chain if maybe knob_c3q -> knob_iqv -> knob_84l -> knob_ihk -> knob_g1n -> knob_oj2 -> 4983. If there is alias knob_ihk = knob_g1n and knob_84l = knob_ihk. Good.\n\nCould there be circular alias? no.\n\nDouble-check \"SET/ALIAS comments\" includes SET knob_gj5 = 2144, but not used for c3q. There are other paths: knob_q6w->4cs->ppr->gj5=2144. knob_jkg->q6w. knob_xio->jkg. knob_wl4=6067. knob_op5->wl4. knob_g1h->op5. knob_cz2->g1h. knob_dy7->cz2. knob_1lj->dy7. But c3q path to oj2. Good.\n\nDouble-check if knob_iqv maybe alias to knob_84l, knob_84l alias to knob_ihk, knob_ihk alias to knob_g1n, knob_g1n alias to knob_oj2, knob_oj2 set 4983. Good.\n\nDouble-check if there is \"ALIAS: knob_c3q = knob_iqv\" maybe in gpt_oss_triton_kernels_moe.py after class init. Yes.\n\nDouble-check billing: If fix is /10000, round. Python round(67977.48)=67977. If using integer division? They ask rounded nearest. Good.\n\nDouble-check migration: Is 2026-03-17 Tuesday? Let's verify day of week. 2026-03-01 Sunday. 03-16 Monday. 03-17 Tuesday. Yes.\n\nDouble-check change freeze through 2026-03-11 inclusive. 03-12 Thu. But not Dita. Good.\n\nDouble-check if \"database migrations never run on Fridays, Saturdays or Sundays\" and \"a migration may only run on a day when on-call is Dita\". If Dita week starting 2026-03-16 and maintenance day 2026-03-16, next 2026-03-17. Good.\n\nPotential nuance: ONCALL week starting Monday 2026-03-16: Dita, but if migration may only run on a day when on-call engineer is Dita, and the rule \"database migrations never run on Fridays, Saturdays or Sundays\" means Monday-Thursday. 2026-03-16 maintenance, so 17. Good.\n\nPotential nuance: There is also \"# RULE: database migrations never run on Fridays, Saturdays or Sundays.\" and \"# RULE: 2026-03-16 is a datacenter maintenance day; no migrations.\" If 2026-03-16 is Monday. Good.\n\nPotential nuance: Count TODO-66X: In dump, there is \"# TODO-66X: follow-up item 1 pending review.\" after PROJECTOR_TYPE_INTERNVL in clip.cpp. \"# TODO-66X: follow-up item 2 pending review.\" in rocm_aiter_mla_sparse.py. \"# TODO-66X: follow-up item 3 pending review.\" in gpt_oss_triton_kernels_moe.py. There might be \"# TODO-66X: follow-up item 1 pending review.\" in mtmd-image.h? Let's check: In mtmd-image.h after private: ensure_divide then \"# CONFIG: replica host db-sxx listens on port 25507.\" no TODO. In clip.cpp there is also \"# TODO-66X: follow-up item 1 pending review.\" yes. No item 4. count 3.\n\nPotential nuance: The \"distractor\" key asks \"Which port does replica host db-93r listen on? Answer with the number.\" So integer not string. Good.\n\nPotential nuance: The final answer must be a single JSON object and JSON must contain key \"ack\". Could include other keys. Good.\n\nNow final.\n</think>\n\n{\n  \"ack\": \"TZ17CU1F\",\n  \"needle_start\": \"45864-8E\",\n  \"needle_mid\": \"15252-H6\",\n  \"needle_end\": \"79291-1O\",\n  \"distractor\": 41714,\n  \"multihop\": \"SEC-7578\",\n  \"contradiction\": [\n    12,\n    16\n  ],\n  \"count\": 3,\n  \"var_chain\": 4983,\n  \"billing_fee\": 67977,\n  \"migration_date\": \"2026-03-17\",\n  \"capacity\": 121500000,\n  \"callers\": [\n    \"llama.cpp-lrr/tools/mtmd/clip.cpp\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/default_gemm_with_reduction.h\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/threadblock/conv2d_fprop_activation_tile_access_iterator_fixed_channels.h\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py\",\n    \"llama.cpp-lrr/common/arg.cpp\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/experts/gpt_oss_triton_kernels_moe.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/logit_bias.py\"\n  ]\n}"
+}

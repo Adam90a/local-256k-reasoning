@@ -1,0 +1,16 @@
+# Installed 2026-11-03 (on demand, not enabled at boot). Qwen3.8-Flash-Next local long-context server (validated 256K profile).
+# Install: cp to ~/.config/systemd/user/, daemon-reload, start (after approval).
+[Unit]
+Description=Qwen3.8-Flash-Next llama-server (RTX PRO 4000, 288K window, YaRN x2) — local-reasoning-research
+After=network.target
+
+[Service]
+Environment=CUDA_DEVICE_ORDER=PCI_BUS_ID
+Environment=CUDA_VISIBLE_DEVICES=GPU-4e9ed5ea-d6d0-183f-9335-fd87f65d3f16
+ExecStart=/home/adam/local-reasoning-research/scripts/serve.sh /home/adam/local-reasoning-research/configs/qwen38fn-q4-yarn2-288k.env
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=600
+
+[Install]
+WantedBy=default.target

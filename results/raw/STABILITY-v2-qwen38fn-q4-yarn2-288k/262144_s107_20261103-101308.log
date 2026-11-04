@@ -1,0 +1,15 @@
+[build] prompt_tokens=262281 target=262144 (3s)
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262281 prefill=342s (767.4890939741515) gen=12973 tok @ 29.65347934317644
+   OK  needle_start: expected=28063-18 got=28063-18
+   OK  needle_mid: expected=96448-RU got=96448-RU
+   OK  needle_end: expected=80071-IP got=80071-IP
+   OK  distractor: expected=23030 got=23030
+   OK  multihop: expected=SEC-9393 got=SEC-9393
+   OK  contradiction: expected=[20, 21] got=[20, 21]
+   OK  count: expected=3 got=3
+   OK  var_chain: expected=6336 got=6336
+   OK  billing_fee: expected=8945 got=8945
+   OK  migration_date: expected=2026-03-12 got=2026-03-12
+   OK  capacity: expected=92000000 got=92000000
+   OK  callers: expected=['llama.cpp-lrr/src/models/openai-moe.cpp', 'llama.cpp-lrr/tests/test_conversion_fp8.py', 'vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/router/dsv4_topk.py', 'vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/funasr.py', 'vllm-env/lib/python3.12/site-packages/vllm/models/deepseek_v4/amd/dspark.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h', 'vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py'] got=['llama.cpp-lrr/tests/test_conversion_fp8.py', 'vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/router/dsv4_topk.py', 'llama.cpp-lrr/src/models/openai-moe.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/models/deepseek_v4/amd/dspark.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h', 'vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/funasr.py', 'vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py']
+   OK  ack: expected=6VQAOZ8S got=6VQAOZ8S

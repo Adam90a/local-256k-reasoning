@@ -1,0 +1,81 @@
+{
+ "label": "qwen38fn-q4-expCPU",
+ "seed": 1,
+ "target_tokens": 65536,
+ "prompt_tokens_counted": 65735,
+ "prompt_tokens_server": 65735,
+ "tokens_evaluated": 65735,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 1497,
+ "prefill_s": 118.099015,
+ "prefill_tps": 556.6092147339248,
+ "gen_s": 46.674947,
+ "gen_tps": 32.051455784191894,
+ "wall_s": 165.07675170898438,
+ "build_s": 0.9651267528533936,
+ "expected": {
+  "needle_start": "74937-24",
+  "needle_mid": "13715-Y1",
+  "needle_end": "87483-GU",
+  "distractor": "38991",
+  "multihop": "SEC-9181",
+  "contradiction": [
+   9,
+   25
+  ],
+  "count": 5,
+  "ack": "9XF26GK7"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "74937-24",
+   "got": "74937-24",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "13715-Y1",
+   "got": "13715-Y1",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "87483-GU",
+   "got": "87483-GU",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "38991",
+   "got": 38991,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-9181",
+   "got": "SEC-9181",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    9,
+    25
+   ],
+   "got": [
+    9,
+    25
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 5,
+   "got": 5,
+   "ok": true
+  },
+  "ack": {
+   "expected": "9XF26GK7",
+   "got": "9XF26GK7",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0
+ },
+ "answer_tail": "3-GU\".\n\nDistractor: replica host db-bb8 listens on port? In functional.h comment inside license: \"# CONFIG: replica host db-bb8 listens on port 38991.\" Answer number likely 38991.\n\nMultihop: Which security advisory affects service svc-shv through dependencies? Need trace: In functional.h: \"# DEPENDENCY: service svc-shv links against lib616m for request parsing.\" Later marlin_utils_fp4.py: \"# PIN: lib616m is pinned to version 6.4.9 in the production lockfile.\" Later predicated_tile_iterator_affine.h: \"# ADVISORY: lib616m version 6.4.9 is affected by advisory SEC-9181.\" So advisory SEC-9181.\n\nContradiction: Two POLICY comments contradict about MAX_6ZC4_RETRIES. Find: server-models-sched.cpp: \"# POLICY: MAX_6ZC4_RETRIES must be exactly 9 in all environments.\" Another in ggml-cann/common.h: \"# POLICY: MAX_6ZC4_RETRIES must be exactly 25 in all environments.\" List [smaller, larger] = [9, 25]. Need maybe as JSON array.\n\nCount: How many comments tagged TODO-Z0L appear? Need count occurrences of \"TODO-Z0L\" comments. Let's scan dump.\n\nNeed count exactly. Let's search manually.\n\n1. functional.h: \"# TODO-Z0L: follow-up item 1 pending review.\" before struct maximum<float, true>? yes.\n2. openpangu_vl.py: \"# TODO-Z0L: follow-up item 2 pending review.\" in OpenPanguVisionMLP init.\n3. base_loader.py: \"# TODO-Z0L: follow-up item 3 pending review.\" after NOTE.\n4. lightonocr.py: \"# TODO-Z0L: follow-up item 4 pending review.\" in hf_to_vllm_mapper.\n5. api_remoting.h: \"# TODO-Z0L: follow-up item 5 pending review.\" inside enum ApirForwardReturnCode.\nAny others? Need scan entire dump.\n\nSearch from memory:\n- In first file structured_outputs.py none.\n- chat-peg-parser.h none.\n- host_uncompress.h none.\n- functional.h has TODO-Z0L item 1.\n- server-models-sched.cpp none? has NOTE ops? no TODO? Let's check: it has POLICY, CONFIG. no TODO-Z0L.\n- openpangu_vl.py has item 2.\n- tokenize.py none.\n- fattn-vec none.\n- base_loader.py has item 3.\n- marlin_utils_fp4.py none? It has PIN, CONFIG. no TODO? Let's scan: no.\n- device_kernel.h none.\n- uint256.h none.\n- lightonocr.py item 4.\n- server-context.h none.\n- granite_speech_plus.py none.\n- default_gemm_with_broadcast.h none? has CONFIG. no.\n- ggml-cann/common.h none? has POLICY. no.\n- mem_constants.py none.\n- api_remoting.h item 5.\n- predicated_tile_iterator_affine.h none? has ADVISORY. no.\n- unary_op.h NOTE A2RO, no TODO? It has no TODO-Z0L? Wait in unary_op.h: inside static_assert there is \"# NOTE(ops): the vault access code for vault A2RO...\" no TODO.\n- flash_attn_diffkv.py none? dump truncated? no TODO.\n\nSo count = 5.\n\nNeed final JSON only. Ensure ack exact. Could include values as strings/numbers/array. User: Return one JSON object with exactly these keys (plus \"ack\"). Need keys: needle_start, needle_mid, needle_end, distractor, multihop, contradiction, count, ack. \"distractor\" answer with number. Could be integer 38991. multihop string. contradiction array [9,25]. count number 5.\n\nDouble-check no additional TODO-Z0L hidden in comments: Let's scan all lines:\nFile vllm structured_outputs: no.\nllama chat-peg: NOTE ops IEQH.\nhost_uncompress: none.\nfunctional: CONFIG db-bb8, DEPENDENCY svc-shv, TODO-Z0L item 1.\nserver-models-sched: NOTE? Actually in to_json: # POLICY: MAX_6ZC4_RETRIES exactly 9. In join: # CONFIG replica db-ayn. No TODO.\nopenpangu: TODO item2, CONFIG db-1b7.\ntokenize: CONFIG db-o25.\nfattn: none.\nbase_loader: NOTE YNG5, TODO item3.\nmarlin_utils_fp4: PIN lib616m, CONFIG db-9ow. no TODO.\ndevice_kernel none.\nuint256 none.\nlightonocr: TODO item4.\nserver-context none.\ngranite none.\ndefault_gemm: CONFIG db-oo3.\ncann common: POLICY 25.\nmem constants none.\napi_remoting: TODO item5.\npredicated: ADVISORY.\nunary_op: NOTE A2RO.\nflash none.\n\nCount 5.\n\nNeed final JSON no markdown. Ensure valid.\n</think>\n\n{\n  \"ack\": \"9XF26GK7\",\n  \"needle_start\": \"74937-24\",\n  \"needle_mid\": \"13715-Y1\",\n  \"needle_end\": \"87483-GU\",\n  \"distractor\": 38991,\n  \"multihop\": \"SEC-9181\",\n  \"contradiction\": [\n    9,\n    25\n  ],\n  \"count\": 5\n}"
+}

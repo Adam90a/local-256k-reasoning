@@ -1,0 +1,11 @@
+arc196_d: ok=False finish=length toks=32768 tps=19.3 wall=1699s
+arc196_c: ok=False finish=length toks=32768 tps=19.3 wall=1701s
+arc196_b: ok=False finish=length toks=32768 tps=19.4 wall=1697s
+arc196_a: ok=True finish=stop toks=28422 tps=19.4 wall=1468s
+abc400_g: ok=False finish=length toks=32768 tps=19.4 wall=1695s
+abc400_e: ok=True finish=stop toks=12032 tps=19.4 wall=625s
+abc399_f: ok=True finish=stop toks=3511 tps=19.5 wall=183s
+abc399_e: ok=False finish=length toks=32768 tps=19.3 wall=1700s
+arc195_e: ok=True finish=stop toks=24574 tps=19.4 wall=1272s
+arc195_d: ok=False finish=length toks=32768 tps=19.4 wall=1696s
+SUMMARY lcb: 4/10

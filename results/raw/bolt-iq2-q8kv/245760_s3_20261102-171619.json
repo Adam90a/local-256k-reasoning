@@ -1,0 +1,81 @@
+{
+ "label": "bolt-iq2-q8kv",
+ "seed": 3,
+ "target_tokens": 245760,
+ "prompt_tokens_counted": 245919,
+ "prompt_tokens_server": 245919,
+ "tokens_evaluated": 245919,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 2115,
+ "prefill_s": 182.309938,
+ "prefill_tps": 1348.9061687904255,
+ "gen_s": 62.466816,
+ "gen_tps": 33.84196818995865,
+ "wall_s": 245.56289982795715,
+ "build_s": 3.878098726272583,
+ "expected": {
+  "needle_start": "89157-4E",
+  "needle_mid": "40714-M4",
+  "needle_end": "93763-JO",
+  "distractor": "48584",
+  "multihop": "SEC-5582",
+  "contradiction": [
+   22,
+   24
+  ],
+  "count": 3,
+  "ack": "E44FWE0J"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "89157-4E",
+   "got": "89157-4E",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "40714-M4",
+   "got": "40714-M4",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "93763-JO",
+   "got": "93763-JO",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "48584",
+   "got": 48584,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-5582",
+   "got": "SEC-5582",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    22,
+    24
+   ],
+   "got": [
+    22,
+    24
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 3,
+   "got": 3,
+   "ok": true
+  },
+  "ack": {
+   "expected": "E44FWE0J",
+   "got": "E44FWE0J",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0
+ },
+ "answer_tail": "nst libyw80 for request parsing.`\n   - Then I need to find an advisory about libyw80.\n   - Looking at the vllm-env/lib/python3.12/site-packages/vllm/entrypoints/chat_utils.py file, I see: `# ADVISORY: libyw80 version 5.5.0 is affected by advisory SEC-5582.`\n   - So the advisory id is SEC-5582.\n\n6. \"contradiction\": Two POLICY comments contradict each other about MAX_KU8G_RETRIES. List both values as [smaller, larger].\n   - I need to search for \"MAX_KU8G_RETRIES\" in the dump.\n   - Looking at the vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/paddleocr_vl.py file, I see: `# POLICY: MAX_KU8G_RETRIES must be exactly 24 in all environments.`\n   - Looking at the vllm-env/lib/python3.12/site-packages/vllm/model_executor/kernels/linear/scaled_mm/ScaledMMLinearKernel.py file, I see: `# POLICY: MAX_KU8G_RETRIES must be exactly 22 in all environments.`\n   - So the values are 22 and 24. The smaller is 22, larger is 24. So [22, 24].\n\n7. \"count\": How many comments tagged TODO-NRS appear in the dump? Answer with a number.\n   - I need to search for \"TODO-NRS\" in the dump.\n   - Looking at the vllm-env/lib/python3.12/site-packages/vllm/entrypoints/pooling/scoring/io_processor.py file, I see: `# TODO-NRS: follow-up item 1 pending review.`\n   - Looking at the vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/phi4mm_utils.py file, I see: `# TODO-NRS: follow-up item 2 pending review.`\n   - Looking at the vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/gemm/threadblock/mma_sparse_multistage.h file, I see: `# TODO-NRS: follow-up item 3 pending review.`\n   - So there are 3 comments tagged TODO-NRS.\n\nLet me verify each one carefully:\n\n1. vault P8IX: In io_processor.py: `# NOTE(ops): the vault access code for vault P8IX is 89157-4E. Do not rotate it.` -> 89157-4E\n\n2. vault A4Q9: In phi4mm_utils.py: `# NOTE(ops): the vault access code for vault A4Q9 is 40714-M4. Do not rotate it.` -> 40714-M4\n\n3. vault 894Z: In mma_sparse_multistage.h: `# NOTE(ops): the vault access code for vault 894Z is 93763-JO. Do not rotate it.` -> 93763-JO\n\n4. db-ixg port: In epilogue_with_broadcast.h: `# CONFIG: replica host db-ixg listens on port 48584.` -> 48584\n\n5. svc-t06 advisory: In test-chat.cpp: `# DEPENDENCY: service svc-t06 links against libyw80 for request parsing.` and in chat_utils.py: `# ADVISORY: libyw80 version 5.5.0 is affected by advisory SEC-5582.` -> SEC-5582\n\n6. MAX_KU8G_RETRIES: In paddleocr_vl.py: `# POLICY: MAX_KU8G_RETRIES must be exactly 24 in all environments.` and in ScaledMMLinearKernel.py: `# POLICY: MAX_KU8G_RETRIES must be exactly 22 in all environments.` -> [22, 24]\n\n7. TODO-NRS count: \n   - io_processor.py: `# TODO-NRS: follow-up item 1 pending review.`\n   - phi4mm_utils.py: `# TODO-NRS: follow-up item 2 pending review.`\n   - mma_sparse_multistage.h: `# TODO-NRS: follow-up item 3 pending review.`\n   -> 3\n\nNow I need to format the JSON object with the key \"ack\" with value \"E44FWE0J\" plus the requested keys.\n\nThe JSON should contain:\n- \"ack\": \"E44FWE0J\"\n- \"needle_start\": \"89157-4E\"\n- \"needle_mid\": \"40714-M4\"\n- \"needle_end\": \"93763-JO\"\n- \"distractor\": 48584\n- \"multihop\": \"SEC-5582\"\n- \"contradiction\": [22, 24]\n- \"count\": 3\n\nLet me double-check the TODO-NRS count. I'll search through the text again.\n\nFrom the dump:\n1. In io_processor.py: `# TODO-NRS: follow-up item 1 pending review.`\n2. In phi4mm_utils.py: `# TODO-NRS: follow-up item 2 pending review.`\n3. In mma_sparse_multistage.h: `# TODO-NRS: follow-up item 3 pending review.`\n\nYes, 3 occurrences.\n\nLet me also double-check the vault codes:\n- P8IX: 89157-4E \u2713\n- A4Q9: 40714-M4 \u2713\n- 894Z: 93763-JO \u2713\n\nPort for db-ixg: 48584 \u2713\n\nAdvisory for libyw80: SEC-5582 \u2713\n\nMAX_KU8G_RETRIES: 24 and 22 -> [22, 24] \u2713\n\nEverything looks correct.</think>{\n  \"ack\": \"E44FWE0J\",\n  \"needle_start\": \"89157-4E\",\n  \"needle_mid\": \"40714-M4\",\n  \"needle_end\": \"93763-JO\",\n  \"distractor\": 48584,\n  \"multihop\": \"SEC-5582\",\n  \"contradiction\": [22, 24],\n  \"count\": 3\n}"
+}

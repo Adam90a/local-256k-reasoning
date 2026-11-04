@@ -1,0 +1,140 @@
+{
+ "label": "STABILITY-v2-qwen38fn-q4-yarn2-288k",
+ "suite": "both",
+ "seed": 107,
+ "prompt_file": null,
+ "target_tokens": 262144,
+ "prompt_tokens_counted": 262281,
+ "prompt_tokens_server": 262281,
+ "tokens_evaluated": 262281,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 12973,
+ "prefill_s": 341.739058,
+ "prefill_tps": 767.4890939741515,
+ "gen_s": 437.452882,
+ "gen_tps": 29.65347934317644,
+ "wall_s": 779.4268927574158,
+ "build_s": 2.509577989578247,
+ "expected": {
+  "needle_start": "28063-18",
+  "needle_mid": "96448-RU",
+  "needle_end": "80071-IP",
+  "distractor": "23030",
+  "multihop": "SEC-9393",
+  "contradiction": [
+   20,
+   21
+  ],
+  "count": 3,
+  "var_chain": 6336,
+  "billing_fee": 8945,
+  "migration_date": "2026-03-12",
+  "capacity": 92000000,
+  "callers": [
+   "llama.cpp-lrr/src/models/openai-moe.cpp",
+   "llama.cpp-lrr/tests/test_conversion_fp8.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/router/dsv4_topk.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/funasr.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/models/deepseek_v4/amd/dspark.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py"
+  ],
+  "ack": "6VQAOZ8S"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "28063-18",
+   "got": "28063-18",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "96448-RU",
+   "got": "96448-RU",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "80071-IP",
+   "got": "80071-IP",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "23030",
+   "got": 23030,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-9393",
+   "got": "SEC-9393",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    20,
+    21
+   ],
+   "got": [
+    20,
+    21
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 3,
+   "got": 3,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 6336,
+   "got": 6336,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 8945,
+   "got": 8945,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-12",
+   "got": "2026-03-12",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 92000000,
+   "got": 92000000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/src/models/openai-moe.cpp",
+    "llama.cpp-lrr/tests/test_conversion_fp8.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/router/dsv4_topk.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/funasr.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/models/deepseek_v4/amd/dspark.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py"
+   ],
+   "got": [
+    "llama.cpp-lrr/tests/test_conversion_fp8.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/router/dsv4_topk.py",
+    "llama.cpp-lrr/src/models/openai-moe.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/models/deepseek_v4/amd/dspark.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/funasr.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py"
+   ],
+   "ok": true,
+   "f1": 1.0
+  },
+  "ack": {
+   "expected": "6VQAOZ8S",
+   "got": "6VQAOZ8S",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": "actor 2 includes original? Usually yes, 2 copies. Good.\n\nDouble-check count TODO-C5Y: There is also \"# TODO-C5Y: follow-up item 1 pending review.\" in test_conversion_fp8.py. \"# TODO-C5Y: follow-up item 2 pending review.\" in intern_vit.py. \"# TODO-C5Y: follow-up item 3 pending review.\" in sample/metadata.py. Could there be \"# TODO-C5Y: follow-up item 2 pending review.\" in intern_vit.py near NOTE(ops). Yes. 3.\n\nNeed maybe include \"TODO-C5Y\" in comments only. Good.\n\nPotential issue: The dump has \"def lrr_rqmbb_dispatch(payload, *, retries=3):\" inside a docstring in compressed_tensors_embedding.py. It might be considered \"defines it\" but not actual Python definition due to docstring. But question says excluding file that defines it. We exclude it. If they expected call list only actual calls, no issue.\n\nPotential issue: \"lrr_rqmbb_dispatch_v2\" might be considered call to lrr_rqmbb_dispatch? No, different function. Exclude.\n\nPotential issue: \"callers\" paths exactly as written in headers. Need include full path strings as in header. Should not include \"FILE: \" prefix. Use exact relative path. Ensure no trailing spaces. List strings.\n\nLet's verify each path spelling:\n- llama.cpp-lrr/tests/test_conversion_fp8.py (yes)\n- vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/router/dsv4_topk.py (yes)\n- llama.cpp-lrr/src/models/openai-moe.cpp (yes)\n- vllm-env/lib/python3.12/site-packages/vllm/models/deepseek_v4/amd/dspark.py (yes)\n- vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h (yes)\n- vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/funasr.py (yes)\n- vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py (yes)\n\nNeed maybe include \"vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/device_kernel.h\" if _v2 excluded. No.\nNeed maybe include \"llama.cpp-lrr/ggml/src/ggml-hexagon/htp/upscale-ops.c\" if comment considered. No.\n\nLet's think about possible hidden call in \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/funasr.py\" line in sequence_mask. yes.\nIn \"vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py\" line in wait_for_completion. yes.\nIn \"vllm-env/lib/python3.12/site-packages/vllm/models/deepseek_v4/amd/dspark.py\" line in _insert_context_kv. yes.\nIn \"vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h\" line near MmaPolicy. yes.\nIn \"llama.cpp-lrr/src/models/openai-moe.cpp\" line in load_arch_tensors. yes.\nIn \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/router/dsv4_topk.py\" line in kernel. yes.\nIn \"llama.cpp-lrr/tests/test_conversion_fp8.py\" line in test_fp8_scale_formats. yes.\n\nCould there be call in \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_embedding.py\" as def only. no.\n\nNeed final oververbosity 9 but user demands single JSON object. So just JSON.\n\nDouble-check JSON validity: numbers no quotes. List of strings. Ensure ack included. final.\n</think>\n\n{\n  \"needle_start\": \"28063-18\",\n  \"needle_mid\": \"96448-RU\",\n  \"needle_end\": \"80071-IP\",\n  \"distractor\": 23030,\n  \"multihop\": \"SEC-9393\",\n  \"contradiction\": [\n    20,\n    21\n  ],\n  \"count\": 3,\n  \"var_chain\": 6336,\n  \"billing_fee\": 8945,\n  \"migration_date\": \"2026-03-12\",\n  \"capacity\": 92000000,\n  \"callers\": [\n    \"llama.cpp-lrr/tests/test_conversion_fp8.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/router/dsv4_topk.py\",\n    \"llama.cpp-lrr/src/models/openai-moe.cpp\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/models/deepseek_v4/amd/dspark.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_conv2d_dgrad.h\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/funasr.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/utils.py\"\n  ],\n  \"ack\": \"6VQAOZ8S\"\n}"
+}

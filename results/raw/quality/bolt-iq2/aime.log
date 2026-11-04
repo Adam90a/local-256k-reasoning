@@ -1,0 +1,16 @@
+aime26-1: ok=True finish=stop toks=2769 tps=72.9 wall=38s
+aime26-3: ok=True finish=stop toks=5944 tps=71.7 wall=83s
+aime26-5: ok=True finish=stop toks=2465 tps=72.5 wall=34s
+aime26-7: ok=True finish=stop toks=4966 tps=72.1 wall=69s
+aime26-9: ok=True finish=stop toks=26424 tps=68.4 wall=387s
+aime26-11: ok=False finish=length toks=32768 tps=67.5 wall=486s
+aime26-13: ok=True finish=stop toks=18301 tps=69.7 wall=263s
+aime26-15: ok=False finish=length toks=32768 tps=67.5 wall=486s
+aime26-17: ok=True finish=stop toks=18941 tps=69.7 wall=273s
+aime26-19: ok=True finish=stop toks=8780 tps=71.4 wall=123s
+aime26-21: ok=True finish=stop toks=18638 tps=69.8 wall=268s
+aime26-23: ok=True finish=stop toks=32734 tps=67.6 wall=485s
+aime26-25: ok=True finish=stop toks=20239 tps=69.5 wall=292s
+aime26-27: ok=False finish=length toks=32768 tps=67.6 wall=485s
+aime26-29: ok=False finish=length toks=32768 tps=67.6 wall=486s
+SUMMARY aime: 11/15

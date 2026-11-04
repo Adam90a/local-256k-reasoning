@@ -1,0 +1,23 @@
+SERVER UP super-1m 13:04:04
+21356 MiB
+[done] score=0.77 easy=1.0 hard=0.4 json=True truncated=False prompt_n=524432 prefill=1912s (274.2240772315381) gen=9289 tok @ 11.79018353888391
+   BAD var_chain: expected=6623 got=4674
+   BAD capacity: expected=292500000 got=58500000
+   BAD callers: expected=['llama.cpp-lrr/ggml/src/ggml-sycl/template-instances/fattn-vec-instance-q4_0-q5_0.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/compilation/cuda_graph.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/sparse_gemm_with_absmax.h', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/threadblock/implicit_gemm_wgrad_fusion_multistage.h', 'vllm-env/lib/python3.12/site-packages/vllm/v1/executor/abstract.py', 'vllm-env/lib/python3.12/site-packages/vllm/vllm_flash_attn/cute/hopper_helpers.py'] got=['vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/utils.py', 'vllm-env/lib/python3.12/site-packages/vllm/v1/engine/input_processor.py', 'vllm-env/lib/python3.12/site-packages/vllm/v1/executor/abstract.py']
+peaks: {"vram_mib":21456.0,"gpu_util":100.0,"power_w":142.74,"temp_c":88.0,"sm_mhz":2580.0,"ram_used_gb":23.65,"swap_used_gb":22.41,"cpu_pct":49.8,"proc_rss_gb":67.96,"swap_in_mbps":142.4,"swap_out_mbps":214.2,"swap_in_total_mb":2707.9}
+[done] score=0.00 easy=0.0 hard=0.0 json=False truncated=False prompt_n=1000175 prefill=4007s (249.58513095744487) gen=32768 tok @ 8.4249708649173
+   BAD needle_start: expected=72239-MC got=None
+   BAD needle_mid: expected=61774-VH got=None
+   BAD needle_end: expected=75641-D9 got=None
+   BAD distractor: expected=48402 got=None
+   BAD multihop: expected=SEC-4658 got=None
+   BAD contradiction: expected=[8, 29] got=None
+   BAD count: expected=7 got=None
+   BAD var_chain: expected=6626 got=None
+   BAD billing_fee: expected=31728 got=None
+   BAD migration_date: expected=2026-03-23 got=None
+   BAD capacity: expected=54000000 got=None
+   BAD callers: expected=['llama.cpp-lrr/ggml/src/ggml-vulkan/vulkan-shaders/vulkan-shaders-gen.cpp', 'llama.cpp-lrr/scripts/server-test-structured.py', 'vllm-env/lib/python3.12/site-packages/vllm/models/minimax_m3/common/ops/index_topk.py', 'vllm-env/lib/python3.12/site-packages/vllm/platforms/__init__.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/triton_kernels/tensor.py'] got=None
+   BAD ack: expected=KQCD4CX0 got=None
+peaks: {"vram_mib":21456.0,"gpu_util":100.0,"power_w":145.87,"temp_c":89.0,"sm_mhz":2610.0,"ram_used_gb":30.49,"swap_used_gb":27.09,"cpu_pct":43.9,"proc_rss_gb":71.5,"swap_in_mbps":133.3,"swap_out_mbps":1292.2,"swap_in_total_mb":2349.2}
+SUPER1M_DONE 16:01:08

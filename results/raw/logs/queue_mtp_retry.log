@@ -1,0 +1,4 @@
+SERVER UP q4-mtp2 18:40:31 vram=21996 MiB
+SPEED q4-mtp: prefill 613 tok/s, decode 44.2 tok/s, draft accept 0.59
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262351 prefill=407s (645.0191968512189) gen=8168 tok @ 25.098832067783555
+MTP_DONE 18:58:01

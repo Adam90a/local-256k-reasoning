@@ -1,0 +1,5 @@
+arc196_d: ok=False out=65536 wall=921s
+arc196_c: ok=False out=65536 wall=980s
+abc400_g: ok=False out=65397 wall=1017s
+arc195_d: ok=False out=65536 wall=726s
+SUMMARY minimax lcb: 0/4

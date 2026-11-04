@@ -1,0 +1,10 @@
+[build] prompt_tokens=262367 target=262144 (3s)
+[done] score=1.00 json=True truncated=False prompt_n=262367 prefill=349s (751.140781086553) gen=4971 tok @ 29.820369414736305
+   OK  needle_start: expected=72767-JF got=72767-JF
+   OK  needle_mid: expected=47929-DO got=47929-DO
+   OK  needle_end: expected=32631-GQ got=32631-GQ
+   OK  distractor: expected=39676 got=39676
+   OK  multihop: expected=SEC-5254 got=SEC-5254
+   OK  contradiction: expected=[10, 22] got=[10, 22]
+   OK  count: expected=5 got=5
+   OK  ack: expected=JME0M2RL got=JME0M2RL

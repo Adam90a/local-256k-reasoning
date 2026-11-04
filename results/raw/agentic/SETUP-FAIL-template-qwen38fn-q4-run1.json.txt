@@ -1,0 +1,12 @@
+{
+ "label": "qwen38fn-q4-run1",
+ "claude_exit": 1,
+ "tests_pass": false,
+ "tests_untouched": true,
+ "wall_s": 175,
+ "num_turns": 1,
+ "is_error": true,
+ "result": "API Error: 500 \n------------\nWhile executing CallExpression at line 110, column 28 in source:\n...eveloper\" %}\u21b5        {{- raise_exception('System message must be at the beginnin...\n                                           ^\nError: Jinja Exception: System message must be at the beginning. This is a server-side issue, usually temporary \u2014 try again in a moment. If it persists, check your inference gateway (127.0.0.1:8090).",
+ "final_tests": "3/scratchpad/agentic-qwen38fn-q4-run1-185838/run_tests.py\", line 8, in <module>\n    getattr(t, name)(); print(f\"PASS {name}\")\n    ^^^^^^^^^^^^^^^^^^\nAssertionError\nTraceback (most recent call last):\n  File \"/tmp/claude-1000/-home-adam/aee8f88e-e0a7-4d76-9aed-0c7c432b0b53/scratchpad/agentic-qwen38fn-q4-run1-185838/run_tests.py\", line 8, in <module>\n    getattr(t, name)(); print(f\"PASS {name}\")\n    ^^^^^^^^^^^^^^^^^^\nAssertionError\nFAIL test_clearance_line_total\nFAIL test_inventory_value\nPASS test_no_discount\nFAIL test_seasonal_discount\nPASS test_top_lines\nPASS test_top_lines_default_n\n3 failed\n",
+ "workdir": "/tmp/claude-1000/-home-adam/aee8f88e-e0a7-4d76-9aed-0c7c432b0b53/scratchpad/agentic-qwen38fn-q4-run1-185838"
+}

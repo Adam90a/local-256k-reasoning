@@ -1,0 +1,125 @@
+{
+ "label": "super-nvfp4-1m-q8kv",
+ "suite": "both",
+ "seed": 302,
+ "prompt_file": null,
+ "target_tokens": 1000000,
+ "prompt_tokens_counted": 1000175,
+ "prompt_tokens_server": 1000175,
+ "tokens_evaluated": 1000175,
+ "truncated": false,
+ "stop_type": "limit",
+ "output_tokens": 32768,
+ "prefill_s": 4007.350102,
+ "prefill_tps": 249.58513095744487,
+ "gen_s": 3889.27161,
+ "gen_tps": 8.4249708649173,
+ "wall_s": 7899.636334180832,
+ "build_s": 16.19438886642456,
+ "expected": {
+  "needle_start": "72239-MC",
+  "needle_mid": "61774-VH",
+  "needle_end": "75641-D9",
+  "distractor": "48402",
+  "multihop": "SEC-4658",
+  "contradiction": [
+   8,
+   29
+  ],
+  "count": 7,
+  "var_chain": 6626,
+  "billing_fee": 31728,
+  "migration_date": "2026-03-23",
+  "capacity": 54000000,
+  "callers": [
+   "llama.cpp-lrr/ggml/src/ggml-vulkan/vulkan-shaders/vulkan-shaders-gen.cpp",
+   "llama.cpp-lrr/scripts/server-test-structured.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/models/minimax_m3/common/ops/index_topk.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/platforms/__init__.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/triton_kernels/tensor.py"
+  ],
+  "ack": "KQCD4CX0"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "72239-MC",
+   "got": null,
+   "ok": false
+  },
+  "needle_mid": {
+   "expected": "61774-VH",
+   "got": null,
+   "ok": false
+  },
+  "needle_end": {
+   "expected": "75641-D9",
+   "got": null,
+   "ok": false
+  },
+  "distractor": {
+   "expected": "48402",
+   "got": null,
+   "ok": false
+  },
+  "multihop": {
+   "expected": "SEC-4658",
+   "got": null,
+   "ok": false
+  },
+  "contradiction": {
+   "expected": [
+    8,
+    29
+   ],
+   "got": null,
+   "ok": false
+  },
+  "count": {
+   "expected": 7,
+   "got": null,
+   "ok": false
+  },
+  "var_chain": {
+   "expected": 6626,
+   "got": null,
+   "ok": false
+  },
+  "billing_fee": {
+   "expected": 31728,
+   "got": null,
+   "ok": false
+  },
+  "migration_date": {
+   "expected": "2026-03-23",
+   "got": null,
+   "ok": false
+  },
+  "capacity": {
+   "expected": 54000000,
+   "got": null,
+   "ok": false
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/ggml/src/ggml-vulkan/vulkan-shaders/vulkan-shaders-gen.cpp",
+    "llama.cpp-lrr/scripts/server-test-structured.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/models/minimax_m3/common/ops/index_topk.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/platforms/__init__.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/triton_kernels/tensor.py"
+   ],
+   "got": null,
+   "ok": false,
+   "f1": 0.0
+  },
+  "ack": {
+   "expected": "KQCD4CX0",
+   "got": null,
+   "ok": false
+  },
+  "_json_ok": false,
+  "_score": 0.0,
+  "_score_easy": 0.0,
+  "_score_hard": 0.0
+ },
+ "answer_tail": "s/pockettts-seanet.cpp file...\n   - But the question says they contradict each other...\n   - Let me look for different values...\n   - I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in one place\n   - And I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in another place...\n   - But the question says they contradict each other...\n   - Let me look for \"MAX_IMQH_RETRIES\" more carefully...\n   - I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in the test-llama-context.cpp file\n   - And I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in the models/pockettts-seanet.cpp file...\n   - But the question says they contradict each other...\n   - Let me look for different values...\n   - I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in one place\n   - And I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in another place...\n   - But the question says they contradict each other...\n   - Let me look for \"MAX_IMQH_RETRIES\" more carefully...\n   - I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in the test-llama-context.cpp file\n   - And I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in the models/pockettts-seanet.cpp file...\n   - But the question says they contradict each other...\n   - Let me look for different values...\n   - I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in one place\n   - And I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in another place...\n   - But the question says they contradict each other...\n   - Let me look for \"MAX_IMQH_RETRIES\" more carefully...\n   - I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in the test-llama-context.cpp file\n   - And I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in the models/pockettts-seanet.cpp file...\n   - But the question says they contradict each other...\n   - Let me look for different values...\n   - I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in one place\n   - And I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in another place...\n   - But the question says they contradict each other...\n   - Let me look for \"MAX_IMQH_RETRIES\" more carefully...\n   - I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in the test-llama-context.cpp file\n   - And I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in the models/pockettts-seanet.cpp file...\n   - But the question says they contradict each other...\n   - Let me look for different values...\n   - I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in one place\n   - And I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in another place...\n   - But the question says they contradict each other...\n   - Let me look for \"MAX_IMQH_RETRIES\" more carefully...\n   - I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in the test-llama-context.cpp file\n   - And I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in the models/pockettts-seanet.cpp file...\n   - But the question says they contradict each other...\n   - Let me look for different values...\n   - I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in one place\n   - And I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in another place...\n   - But the question says they contradict each other...\n   - Let me look for \"MAX_IMQH_RETRIES\" more carefully...\n   - I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in the test-llama-context.cpp file\n   - And I see: \"# POLICY: MAX_IMQH_RETRIES must be exactly 8 in all environments.\" in the models/pockettts-seanet.cpp file...\n   - But the question says they contradict each other...\n"
+}

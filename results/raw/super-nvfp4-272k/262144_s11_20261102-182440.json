@@ -1,0 +1,108 @@
+{
+ "label": "super-nvfp4-272k",
+ "suite": "both",
+ "seed": 11,
+ "target_tokens": 262144,
+ "prompt_tokens_counted": 262312,
+ "prompt_tokens_server": 262312,
+ "tokens_evaluated": 262312,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 5002,
+ "prefill_s": 373.24564799999996,
+ "prefill_tps": 702.7864930390294,
+ "gen_s": 273.67456599999997,
+ "gen_tps": 18.273528567503053,
+ "wall_s": 647.8738100528717,
+ "build_s": 3.213402271270752,
+ "expected": {
+  "needle_start": "76563-ML",
+  "needle_mid": "68535-TJ",
+  "needle_end": "69374-KA",
+  "distractor": "40662",
+  "multihop": "SEC-1276",
+  "contradiction": [
+   14,
+   17
+  ],
+  "count": 7,
+  "var_chain": 7027,
+  "billing_fee": 49595,
+  "migration_date": "2026-03-12",
+  "capacity": 276000000,
+  "ack": "MRVFTVA0"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "76563-ML",
+   "got": "76563-ML",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "68535-TJ",
+   "got": "68535-TJ",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "69374-KA",
+   "got": "69374-KA",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "40662",
+   "got": 40662,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-1276",
+   "got": "SEC-1276",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    14,
+    17
+   ],
+   "got": [
+    14,
+    17
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 7,
+   "got": 7,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 7027,
+   "got": 7027,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 49595,
+   "got": 49595,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-12",
+   "got": "2026-03-11",
+   "ok": false
+  },
+  "capacity": {
+   "expected": 276000000,
+   "got": 276000000,
+   "ok": true
+  },
+  "ack": {
+   "expected": "MRVFTVA0",
+   "got": "MRVFTVA0",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 0.9166666666666666,
+  "_score_easy": 1.0,
+  "_score_hard": 0.75
+ },
+ "answer_tail": "\"events_o8y\" again.\n    - sharded_rdt_engine.py: \"# CAPACITY: each shard of events_o8y holds 2,000,000 rows.\"\n    - examples/pydantic_models_to_grammar.py: \"# PLAN: every shard of events_o8y is replicated with replication factor 3.\"\n    \n    - Hmm, I need the number of shards. Let me look for any other references.\n    - Maybe I missed something. Let me search for \"shard\" near events_o8y.\n    - I don't see an explicit shard count. Wait, let me look at the context again.\n    - Actually, maybe the number of shards is implied somewhere else.\n    - Let me search for \"46 shards\" or similar.\n    - Found in flash_fwd_sm100.py: \"# PLAN: events_o8y is split into 46 shards.\"\n    - Yes! In flash_fwd_sm100.py: \"# PLAN: events_o8y is split into 46 shards.\"\n    \n    - So: 46 shards, each holds 2,000,000 rows, replication factor 3.\n    - Total = 46 * 2,000,000 * 3 = 276,000,000.\n    \n    - Answer: 276000000\n\nNow let me compile all answers:\n\n- ack: \"MRVFTVA0\"\n- needle_start: \"76563-ML\"\n- needle_mid: \"68535-TJ\"\n- needle_end: \"69374-KA\"\n- distractor: 40662\n- multihop: \"SEC-1276\"\n- contradiction: [14, 17]\n- count: 7\n- var_chain: 7027\n- billing_fee: 49595\n- migration_date: \"2026-03-11\"\n- capacity: 276000000\n\nLet me double-check the billing fee calculation.\n- cust5cd -> silver -> 60 bps\n- amount_cents = 8265850\n- Bug: dividing by 100 instead of 10000\n- Fixed: 8265850 * 60 / 10000 = 49595.1 -> round to 49595\n\nWait, let me re-read the compute_fee code to make sure I understand the bug correctly.\n```python\nFEE_RATE_BPS = {\"gold\": 39, \"silver\": 60, \"basic\": 118}  # fee rate per tier, in basis points (1 bp = 0.01%)\n\ndef compute_fee(amount_cents, tier):\n    \"\"\"Fee for a charge, returned in cents.\"\"\"\n    return round(amount_cents * FEE_RATE_BPS[tier] / 100)\n```\n\nIf rate is in basis points, then 60 bps = 0.60% = 0.006.\nTo calculate fee: amount * 0.006 = amount * 60 / 10000.\nBut the code does amount * 60 / 100 = amount * 0.6 = 60% of amount.\nSo the bug is indeed dividing by 100 instead of 10000.\nFixed fee: 8265850 * 60 / 10000 = 49595.1 -> 49595.\n\nLet me also verify the var_chain again:\n- knob_8d8 = knob_142 (from constants.h)\n- knob_142 = knob_tb4 (from turboquant/config.py)\n- knob_tb4 = knob_3gt (from prefill_prefix_lm_attention.py)\n- knob_3gt = knob_ujj (from examples/pydantic_models_to_grammar.py)\n- knob_ujj = knob_dje (from sm100_hd256_2cta_fmha_forward.py)\n- knob_dje = 7027 (from granitemoeshared.py)\n- So knob_8d8 = 7027. Correct.\n\nLet me verify the migration date:\n- RULE: no migrations on Fri, Sat, Sun\n- RULE: migration only when Ana is on call\n- RULE: change freeze through 2026-03-10 inclusive\n- ONCALL: Ana week starting Monday 2026-03-09 (March 9-15)\n- Change freeze ends March 10, so earliest possible is March 11.\n- March 11, 2026 is a Wednesday. Ana is on call. Not weekend.\n- So 2026-03-11. Correct.\n\nLet me verify capacity:\n- 46 shards (from flash_fwd_sm100.py)\n- 2,000,000 rows per shard (from sharded_rdt_engine.py)\n- Replication factor 3 (from examples/pydantic_models_to_grammar.py)\n- Total: 46 * 2,000,000 * 3 = 276,000,000. Correct.\n\nLet me verify the TODO-Z0E count:\n1. w4a8_int8.py: \"# TODO-Z0E: follow-up item 1 pending review.\"\n2. sharded_rdt_engine.py: \"# TODO-Z0E: follow-up item 2 pending review.\"\n3. block_sparse_utils.py: \"# TODO-Z0E: follow-up item 3 pending review.\"\n4. structured_output/utils.py: \"# TODO-Z0E: follow-up item 4 pending review.\"\n5. turboquant_attn.py: \"# TODO-Z0E: follow-up item 5 pending review.\"\n6. deepseek_v4/quant_config.py: \"# TODO-Z0E: follow-up item 6 pending review.\"\n7. default_gemm_planar_complex_universal.h: \"# TODO-Z0E: follow-up item 7 pending review.\"\nTotal: 7. Correct.\n\nNow I'll format the JSON response.</think>{\n  \"ack\": \"MRVFTVA0\",\n  \"needle_start\": \"76563-ML\",\n  \"needle_mid\": \"68535-TJ\",\n  \"needle_end\": \"69374-KA\",\n  \"distractor\": 40662,\n  \"multihop\": \"SEC-1276\",\n  \"contradiction\": [14, 17],\n  \"count\": 7,\n  \"var_chain\": 7027,\n  \"billing_fee\": 49595,\n  \"migration_date\": \"2026-03-11\",\n  \"capacity\": 276000000\n}"
+}

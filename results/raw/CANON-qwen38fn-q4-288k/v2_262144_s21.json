@@ -1,0 +1,137 @@
+{
+ "label": "CANON-qwen38fn-q4-288k",
+ "suite": "both",
+ "seed": 21,
+ "prompt_file": "results/prompts/v2/262144_s21.json",
+ "target_tokens": 262144,
+ "prompt_tokens_counted": 262726,
+ "prompt_tokens_server": 262726,
+ "tokens_evaluated": 262726,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 9439,
+ "prefill_s": 355.54217700000004,
+ "prefill_tps": 738.9446794100043,
+ "gen_s": 317.949526,
+ "gen_tps": 29.68395681772458,
+ "wall_s": 673.9642746448517,
+ "build_s": 0.3591501712799072,
+ "expected": {
+  "needle_start": "72796-N4",
+  "needle_mid": "40940-AA",
+  "needle_end": "40441-OC",
+  "distractor": "22433",
+  "multihop": "SEC-3394",
+  "contradiction": [
+   16,
+   18
+  ],
+  "count": 6,
+  "var_chain": 3837,
+  "billing_fee": 105627,
+  "migration_date": "2026-03-17",
+  "capacity": 78750000,
+  "callers": [
+   "llama.cpp-lrr/ggml/src/ggml-sycl/fattn-mkl.cpp",
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/bert.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/deepseek_mtp.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/threadblock/depthwise_mma_core_with_lane_access_size.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/spec_decode/eagle/eagle3_utils.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py"
+  ],
+  "ack": "RBFK5A5E"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "72796-N4",
+   "got": "72796-N4",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "40940-AA",
+   "got": "40940-AA",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "40441-OC",
+   "got": "40441-OC",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "22433",
+   "got": 22433,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-3394",
+   "got": "SEC-3394",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    16,
+    18
+   ],
+   "got": [
+    16,
+    18
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 6,
+   "got": 6,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 3837,
+   "got": 3837,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 105627,
+   "got": 105627,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-17",
+   "got": "2026-03-17",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 78750000,
+   "got": 78750000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/ggml/src/ggml-sycl/fattn-mkl.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/bert.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/deepseek_mtp.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/threadblock/depthwise_mma_core_with_lane_access_size.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/spec_decode/eagle/eagle3_utils.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py"
+   ],
+   "got": [
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/deepseek_mtp.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py",
+    "llama.cpp-lrr/ggml/src/ggml-sycl/fattn-mkl.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/threadblock/depthwise_mma_core_with_lane_access_size.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/bert.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/spec_decode/eagle/eagle3_utils.py"
+   ],
+   "ok": true,
+   "f1": 1.0
+  },
+  "ack": {
+   "expected": "RBFK5A5E",
+   "got": "RBFK5A5E",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": " Tuesday. Good.\n\nCould there be earlier date in Ana's week before maintenance if week starting Monday 2026-03-16 but maintenance only that day? Tuesday. Good.\n\nCould \"change freeze lasts through 2026-03-08 inclusive\" and on-call Ana week 2026-03-16 no issue.\n\nCould \"week starting Monday 2026-03-16: Ana\" but rule no migrations on 2026-03-16; Tuesday 17. Good.\n\nPotential issue: \"Applying every RULE comment\" includes maybe \"RULE: database migrations never run on Fridays, Saturdays or Sundays.\" and \"RULE: a migration may only run on a day when the on-call engineer is Ana (the only DBA-certified engineer).\" and \"RULE: 2026-03-16 is a datacenter maintenance day; no migrations.\" and \"RULE: the change freeze lasts through 2026-03-08 inclusive; no migrations during it.\" There is also \"RULE: 2026-03-16 is a datacenter maintenance day; no migrations.\" and \"RULE: the change freeze...\" yes. Earliest date after all constraints. If only Ana on-call day means any day in her on-call week. Tuesday.\n\nPotential issue: ONCALL roster weeks: \"week starting Monday 2026-03-16: Ana\" maybe on-call engineer for entire week, but if migration can run on a day when on-call engineer is Ana, and no migrations on maintenance day, Tuesday. Good.\n\nPotential issue: \"capacity\" maybe row copies total across all shards and replicas: if each shard holds 1,750,000 rows and split into 15 shards, total unique rows = 26,250,000. Replication factor 3 means each shard has 3 copies, so total copies = 78,750,000. If replication factor 3 means each shard replicated to 3 additional replicas (total 4)? Usually replication factor includes original. Comments: \"every shard ... is replicated with replication factor 3\" means 3 copies. Use 3.\n\nPotential issue: \"multihop\" maybe advisory affects svc-emn through dependencies: svc-emn links against libeh94 pinned 8.3.5, advisory SEC-3394. Yes.\n\nPotential issue: var_chain maybe cycle? Let's trace all aliases for knob_i2z:\n# ALIAS: knob_i2z = knob_cb9\n# ALIAS: knob_cb9 = knob_d6m\n# ALIAS: knob_d6m = knob_20y\n# ALIAS: knob_20y = knob_4ur\n# ALIAS: knob_4ur = knob_ihd\n# SET: knob_ihd = 3837\nYes.\n\nPotential issue: There is \"# SET: knob_faw = 9102\" and aliases maybe create cycle to knob_ihd? no.\n\nNeed final. But let's ensure no accidental inclusion of file with `lrr_z9kqh_dispatch_v2` if expected. Could challenge expect it? It says calls `lrr_z9kqh_dispatch(...)`, with ellipsis, likely exact function. The v2 is different. If they wanted any call to symbol containing? They would say lrr_z9kqh_dispatch. The inserted `_v2` may be distractor. Exclude.\n\nWhat about comment \"TODO: do not call lrr_z9kqh_dispatch( here until the queue is drained\" in default_epilogue_tensor_op.h. It contains `lrr_z9kqh_dispatch(` but no arguments. Not call. Exclude.\n\nNeed maybe include definition file? Excluding file that defines it. We exclude.\n\nLet's think if there is a call in `llama.cpp-lrr/ggml/src/ggml-sycl/fattn-mkl.cpp` line: `    _res = lrr_z9kqh_dispatch(job.payload, retries=2)` inside case, but there is no semicolon. It's still call. Count.\n\nNow final JSON. Ensure single object. No analysis.\n</think>\n\n{\n  \"ack\": \"RBFK5A5E\",\n  \"needle_start\": \"72796-N4\",\n  \"needle_mid\": \"40940-AA\",\n  \"needle_end\": \"40441-OC\",\n  \"distractor\": 22433,\n  \"multihop\": \"SEC-3394\",\n  \"contradiction\": [16, 18],\n  \"count\": 6,\n  \"var_chain\": 3837,\n  \"billing_fee\": 105627,\n  \"migration_date\": \"2026-03-17\",\n  \"capacity\": 78750000,\n  \"callers\": [\n    \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/deepseek_mtp.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py\",\n    \"llama.cpp-lrr/ggml/src/ggml-sycl/fattn-mkl.cpp\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/threadblock/depthwise_mma_core_with_lane_access_size.h\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/bert.py\",\n    \"vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/spec_decode/eagle/eagle3_utils.py\"\n  ]\n}"
+}

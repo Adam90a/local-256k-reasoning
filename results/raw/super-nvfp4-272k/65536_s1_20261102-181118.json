@@ -1,0 +1,108 @@
+{
+ "label": "super-nvfp4-272k",
+ "suite": "both",
+ "seed": 1,
+ "target_tokens": 65536,
+ "prompt_tokens_counted": 65765,
+ "prompt_tokens_server": 65765,
+ "tokens_evaluated": 65765,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 5385,
+ "prefill_s": 82.193771,
+ "prefill_tps": 800.1214593256709,
+ "gen_s": 277.179164,
+ "gen_tps": 19.424259465621304,
+ "wall_s": 359.68461441993713,
+ "build_s": 0.9572722911834717,
+ "expected": {
+  "needle_start": "74937-24",
+  "needle_mid": "13715-Y1",
+  "needle_end": "87483-GU",
+  "distractor": "38991",
+  "multihop": "SEC-9181",
+  "contradiction": [
+   9,
+   25
+  ],
+  "count": 5,
+  "var_chain": 3467,
+  "billing_fee": 108777,
+  "migration_date": "2026-03-11",
+  "capacity": 60000000,
+  "ack": "9XF26GK7"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "74937-24",
+   "got": "74937-24",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "13715-Y1",
+   "got": "13715-Y1",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "87483-GU",
+   "got": "87483-GU",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "38991",
+   "got": 38991,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-9181",
+   "got": "SEC-9181",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    9,
+    25
+   ],
+   "got": [
+    9,
+    25
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 5,
+   "got": 5,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 3467,
+   "got": 3467,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 108777,
+   "got": 108777,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-11",
+   "got": "2026-03-11",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 60000000,
+   "got": 60000000,
+   "ok": true
+  },
+  "ack": {
+   "expected": "9XF26GK7",
+   "got": "9XF26GK7",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": "g it.\"\n    - ONCALL roster: In functional.h, there is a block:\n        \"# ONCALL: week starting Monday 2026-03-02: Ezra\n        # ONCALL: week starting Monday 2026-03-09: Bram\n        # ONCALL: week starting Monday 2026-03-16: Chen\n        # ONCALL: week starting Monday 2026-03-23: Dita\n        # ONCALL: week starting Monday 2026-03-30: Ana\"\n    - So we need to find the earliest date that is not Friday, Saturday, or Sunday, and the on-call engineer is Bram, and not during the change freeze (which lasts through 2026-03-09 inclusive, so no migrations on or before 2026-03-09).\n    - Bram is on-call the week starting Monday 2026-03-09. That week includes Monday 2026-03-09 to Sunday 2026-03-15. But the change freeze lasts through 2026-03-09 inclusive, so 2026-03-09 is excluded. So the earliest possible day in that week that is not a weekend and not during freeze: Monday 2026-03-09 is freeze, so next day Tuesday 2026-03-10. But is Tuesday a weekday? Yes. However, we also have a rule: \"database migrations never run on Fridays, Saturdays or Sundays.\" So Tuesday is fine.\n    - But wait, there is also a RULE comment in server-context.h: \"# RULE: 2026-03-10 is a datacenter maintenance day; no migrations.\" Actually, I see in predicated_tile_iterator_affine.h: \"# RULE: 2026-03-10 is a datacenter maintenance day; no migrations.\" So 2026-03-10 is excluded.\n    - So the next day: Wednesday 2026-03-11. That is a weekday, not weekend, not during freeze (freeze ended on 2026-03-09), and Bram is on-call that week. So earliest date is 2026-03-11.\n    - Let's confirm: \n        - Change freeze: through 2026-03-09 inclusive, so 2026-03-10 and after are allowed (unless other rules).\n        - On-call: Bram week starting 2026-03-09, so 2026-03-09 to 2026-03-15.\n        - Weekdays: Monday to Friday. 2026-03-09 is Monday (freeze), 2026-03-10 is Tuesday (maintenance day), 2026-03-11 is Wednesday.\n    - So migration_date = 2026-03-11.\n\n11. \"capacity\": How many row copies in total can events_r1o store across all shards and replicas? Answer with an integer.\n    - We need to find information about events_r1o. In the dump, there are comments:\n        - In ggml-cann/common.h: \"# PLAN: every shard of events_r1o is replicated with replication factor 2.\"\n        - In mem_constants.py: \"# CAPACITY: each shard of events_r1o holds 750,000 rows.\"\n        - In ggml-cann/common.h: \"# PLAN: events_r1o is split into 40 shards.\"\n    - So each shard holds 750,000 rows. There are 40 shards. Replication factor 2 means each shard is replicated twice? So total row copies = rows per shard * number of shards * replication factor = 750,000 * 40 * 2 = 60,000,000.\n    - So capacity = 60000000.\n\nNow we have all answers. Let's compile the JSON object.\n\nRemember to include \"ack\": \"9XF26GK7\".\n\nSo the JSON should be:\n{\n  \"ack\": \"9XF26GK7\",\n  \"needle_start\": \"74937-24\",\n  \"needle_mid\": \"13715-Y1\",\n  \"needle_end\": \"87483-GU\",\n  \"distractor\": 38991,\n  \"multihop\": \"SEC-9181\",\n  \"contradiction\": [9, 25],\n  \"count\": 5,\n  \"var_chain\": 3467,\n  \"billing_fee\": 108777,\n  \"migration_date\": \"2026-03-11\",\n  \"capacity\": 60000000\n}\n\nMake sure it's valid JSON. Numbers should be numbers, strings in quotes. The \"contradiction\" is an array of two numbers. \"distractor\" is a number. \"count\" is a number. \"var_chain\" is a number. \"billing_fee\" is a number. \"capacity\" is a number.\n\nLet's double-check each:\n\n- needle_start: from comment: \"74937-24\"\n- needle_mid: \"13715-Y1\"\n- needle_end: \"87483-GU\"\n- distractor: port 38991\n- multihop: \"SEC-9181\"\n- contradiction: [9, 25]\n- count: 5\n- var_chain: 3467\n- billing_fee: 108777\n- migration_date: \"2026-03-11\"\n- capacity: 60000000\n\nNow, output as a single JSON object.</think>{\n  \"ack\": \"9XF26GK7\",\n  \"needle_start\": \"74937-24\",\n  \"needle_mid\": \"13715-Y1\",\n  \"needle_end\": \"87483-GU\",\n  \"distractor\": 38991,\n  \"multihop\": \"SEC-9181\",\n  \"contradiction\": [9, 25],\n  \"count\": 5,\n  \"var_chain\": 3467,\n  \"billing_fee\": 108777,\n  \"migration_date\": \"2026-03-11\",\n  \"capacity\": 60000000\n}"
+}

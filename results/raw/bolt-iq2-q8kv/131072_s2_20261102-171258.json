@@ -1,0 +1,81 @@
+{
+ "label": "bolt-iq2-q8kv",
+ "seed": 2,
+ "target_tokens": 131072,
+ "prompt_tokens_counted": 131201,
+ "prompt_tokens_server": 131201,
+ "tokens_evaluated": 131201,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 4174,
+ "prefill_s": 78.11345,
+ "prefill_tps": 1679.6211151856692,
+ "gen_s": 91.726621,
+ "gen_tps": 45.493881214702114,
+ "wall_s": 170.37246370315552,
+ "build_s": 1.9733355045318604,
+ "expected": {
+  "needle_start": "32162-TQ",
+  "needle_mid": "93685-Z6",
+  "needle_end": "45158-CB",
+  "distractor": "31917",
+  "multihop": "SEC-9160",
+  "contradiction": [
+   13,
+   16
+  ],
+  "count": 4,
+  "ack": "UKR4TT69"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "32162-TQ",
+   "got": "32162-TQ",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "93685-Z6",
+   "got": "93685-Z6",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "45158-CB",
+   "got": "45158-CB",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "31917",
+   "got": 31917,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-9160",
+   "got": "SEC-9160",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    13,
+    16
+   ],
+   "got": [
+    13,
+    16
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 4,
+   "got": 6,
+   "ok": false
+  },
+  "ack": {
+   "expected": "UKR4TT69",
+   "got": "UKR4TT69",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 0.875
+ },
+ "answer_tail": "llm-env/lib/python3.12/site-packages/vllm/model_executor/models/mellum.py:\n`# TODO-935: follow-up item 1 pending review.`\n\n2. In vllm-env/lib/python3.12/site-packages/vllm/v1/outputs.py:\n`# TODO-935: follow-up item 1 pending review.`\n\n3. In llama.cpp-lrr/ggml/src/ggml-et/et-kernels/src/mul_mat_Q4_0.c:\n`# TODO-935: follow-up item 2 pending review.`\n\n4. In vllm-env/lib/python3.12/site-packages/vllm/v1/metrics/stats.py:\n`# TODO-935: follow-up item 3 pending review.`\n\n5. In vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/gemm_with_fused_epilogue.h:\n`# TODO-935: follow-up item 3 pending review.`\n\n6. In vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/whisper.py:\n`# TODO-935: follow-up item 4 pending review.`\n\nSo there are 6 occurrences of TODO-935.\n\nLet me double-check by scanning the entire text for \"TODO-935\":\n\n1. `vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/mellum.py` - `# TODO-935: follow-up item 1 pending review.`\n2. `vllm-env/lib/python3.12/site-packages/vllm/v1/outputs.py` - `# TODO-935: follow-up item 1 pending review.`\n3. `llama.cpp-lrr/ggml/src/ggml-et/et-kernels/src/mul_mat_Q4_0.c` - `# TODO-935: follow-up item 2 pending review.`\n4. `vllm-env/lib/python3.12/site-packages/vllm/v1/metrics/stats.py` - `# TODO-935: follow-up item 3 pending review.`\n5. `vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/gemm_with_fused_epilogue.h` - `# TODO-935: follow-up item 3 pending review.`\n6. `vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/whisper.py` - `# TODO-935: follow-up item 4 pending review.`\n\nThat's 6 occurrences.\n\nNow let me compile the JSON:\n\n- \"needle_start\": \"32162-TQ\"\n- \"needle_mid\": \"93685-Z6\"\n- \"needle_end\": \"45158-CB\"\n- \"distractor\": 31917\n- \"multihop\": \"SEC-9160\"\n- \"contradiction\": [13, 16]\n- \"count\": 6\n\nAnd the ack key: \"UKR4TT69\"\n\nLet me verify each one once more:\n\nneedle_start: vault DFFX - found in default_multistage_trmm_complex.h: \"the vault access code for vault DFFX is 32162-TQ\" \u2713\nneedle_mid: vault NCK1 - found in stats.py: \"the vault access code for vault NCK1 is 93685-Z6\" \u2713\nneedle_end: vault X826 - found in llama_tool_parser.py: \"the vault access code for vault X826 is 45158-CB\" \u2713\ndistractor: db-9lp port - found in default_conv2d_dgrad.h: \"replica host db-9lp listens on port 31917\" \u2713\nmultihop: svc-xwx dependency - found in base_grouped.h: \"service svc-xwx links against lib2kz3\" and advisory in fused_allreduce_rms_norm.py: \"lib2kz3 version 5.7.4 is affected by advisory SEC-9160\" \u2713\ncontradiction: MAX_66W3_RETRIES - testing.py says 16, whisper.py says 13. [13, 16] \u2713\ncount: TODO-935 - I found 6 occurrences \u2713\n\nWait, let me recount the TODO-935 carefully by looking at the raw text again:\n\n1. `# TODO-935: follow-up item 1 pending review.` in vllm/model_executor/models/mellum.py\n2. `# TODO-935: follow-up item 1 pending review.` in vllm/v1/outputs.py\n3. `# TODO-935: follow-up item 2 pending review.` in llama.cpp-lrr/ggml/src/ggml-et/et-kernels/src/mul_mat_Q4_0.c\n4. `# TODO-935: follow-up item 3 pending review.` in vllm/v1/metrics/stats.py\n5. `# TODO-935: follow-up item 3 pending review.` in vllm/third_party/deep_gemm/include/cutlass/gemm/kernel/gemm_with_fused_epilogue.h\n6. `# TODO-935: follow-up item 4 pending review.` in vllm/model_executor/models/whisper.py\n\nYes, 6 occurrences.\n\nThe JSON should be:\n{\n  \"ack\": \"UKR4TT69\",\n  \"needle_start\": \"32162-TQ\",\n  \"needle_mid\": \"93685-Z6\",\n  \"needle_end\": \"45158-CB\",\n  \"distractor\": 31917,\n  \"multihop\": \"SEC-9160\",\n  \"contradiction\": [13, 16],\n  \"count\": 6\n}\n\nThe user said \"Return one JSON object with exactly these keys (plus \"ack\")\". So I need to include ack and the 7 keys.\n\nLet me make sure the JSON is valid and properly formatted.</think>{\n  \"ack\": \"UKR4TT69\",\n  \"needle_start\": \"32162-TQ\",\n  \"needle_mid\": \"93685-Z6\",\n  \"needle_end\": \"45158-CB\",\n  \"distractor\": 31917,\n  \"multihop\": \"SEC-9160\",\n  \"contradiction\": [13, 16],\n  \"count\": 6\n}"
+}

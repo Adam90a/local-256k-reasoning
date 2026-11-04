@@ -1,0 +1,15 @@
+[build] prompt_tokens=524446 target=524288 (6s)
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=524446 prefill=741s (707.7469082988596) gen=19206 tok @ 9.65499018446701
+   OK  needle_start: expected=35686-ZD got=35686-ZD
+   OK  needle_mid: expected=79177-UM got=79177-UM
+   OK  needle_end: expected=62726-U4 got=62726-U4
+   OK  distractor: expected=33216 got=33216
+   OK  multihop: expected=SEC-4970 got=SEC-4970
+   OK  contradiction: expected=[14, 18] got=[14, 18]
+   OK  count: expected=4 got=4
+   OK  var_chain: expected=8391 got=8391
+   OK  billing_fee: expected=63329 got=63329
+   OK  migration_date: expected=2026-03-16 got=2026-03-16
+   OK  capacity: expected=65000000 got=65000000
+   OK  callers: expected=['llama.cpp-lrr/conversion/muse_spark.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_deconv2d_with_broadcast.h', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/epilogue/threadblock/epilogue_visitor_with_softmax.h', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/reduction/kernel/tensor_reduce_affine_contiguous.h', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/transform/threadblock/ell_predicated_tile_access_iterator.h', 'vllm-env/lib/python3.12/site-packages/vllm/v1/attention/ops/triton_turboquant_decode.py'] got=['vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/conv/kernel/default_deconv2d_with_broadcast.h', 'llama.cpp-lrr/conversion/muse_spark.py', 'vllm-env/lib/python3.12/site-packages/vllm/v1/attention/ops/triton_turboquant_decode.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/reduction/kernel/tensor_reduce_affine_contiguous.h', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/epilogue/threadblock/epilogue_visitor_with_softmax.h', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/transform/threadblock/ell_predicated_tile_access_iterator.h']
+   OK  ack: expected=P9WWHMUA got=P9WWHMUA

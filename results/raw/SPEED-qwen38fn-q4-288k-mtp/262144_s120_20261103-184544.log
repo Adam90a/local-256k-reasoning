@@ -1,0 +1,15 @@
+[build] prompt_tokens=262351 target=262144 (3s)
+[done] score=1.00 easy=1.0 hard=1.0 json=True truncated=False prompt_n=262351 prefill=407s (645.0191968512189) gen=8168 tok @ 25.098832067783555
+   OK  needle_start: expected=21958-UN got=21958-UN
+   OK  needle_mid: expected=31102-GU got=31102-GU
+   OK  needle_end: expected=48223-NM got=48223-NM
+   OK  distractor: expected=34019 got=34019
+   OK  multihop: expected=SEC-5534 got=SEC-5534
+   OK  contradiction: expected=[12, 19] got=[12, 19]
+   OK  count: expected=5 got=5
+   OK  var_chain: expected=9679 got=9679
+   OK  billing_fee: expected=9580 got=9580
+   OK  migration_date: expected=2026-03-17 got=2026-03-17
+   OK  capacity: expected=70000000 got=70000000
+   OK  callers: expected=['llama.cpp-lrr/examples/embedding/embedding.cpp', 'llama.cpp-lrr/src/llama-model-loader.cpp', 'llama.cpp-lrr/src/llama-moe-cache.cpp', 'llama.cpp-lrr/src/models/qwen3next.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/online/moe_base.py', 'vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/step1.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/matrix.h'] got=['vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/quantization/online/moe_base.py', 'llama.cpp-lrr/src/models/qwen3next.cpp', 'llama.cpp-lrr/src/llama-moe-cache.cpp', 'llama.cpp-lrr/examples/embedding/embedding.cpp', 'vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/step1.py', 'vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/matrix.h', 'llama.cpp-lrr/src/llama-model-loader.cpp']
+   OK  ack: expected=V7SJ9FAV got=V7SJ9FAV

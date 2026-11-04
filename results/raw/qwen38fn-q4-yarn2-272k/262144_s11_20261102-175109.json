@@ -1,0 +1,108 @@
+{
+ "label": "qwen38fn-q4-yarn2-272k",
+ "suite": "both",
+ "seed": 11,
+ "target_tokens": 262144,
+ "prompt_tokens_counted": 262269,
+ "prompt_tokens_server": 262269,
+ "tokens_evaluated": 262269,
+ "truncated": false,
+ "stop_type": "eos",
+ "output_tokens": 5761,
+ "prefill_s": 343.34515999999996,
+ "prefill_tps": 763.8639787437226,
+ "gen_s": 193.933698,
+ "gen_tps": 29.700872305338084,
+ "wall_s": 541.1225001811981,
+ "build_s": 2.7422995567321777,
+ "expected": {
+  "needle_start": "76563-ML",
+  "needle_mid": "68535-TJ",
+  "needle_end": "69374-KA",
+  "distractor": "40662",
+  "multihop": "SEC-1276",
+  "contradiction": [
+   14,
+   17
+  ],
+  "count": 7,
+  "var_chain": 7027,
+  "billing_fee": 49595,
+  "migration_date": "2026-03-12",
+  "capacity": 276000000,
+  "ack": "MRVFTVA0"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "76563-ML",
+   "got": "76563-ML",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "68535-TJ",
+   "got": "68535-TJ",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "69374-KA",
+   "got": "69374-KA",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "40662",
+   "got": 40662,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-1276",
+   "got": "SEC-1276",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    14,
+    17
+   ],
+   "got": [
+    14,
+    17
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 7,
+   "got": 7,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 7027,
+   "got": 7027,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 49595,
+   "got": 49595,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-12",
+   "got": "2026-03-12",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 276000000,
+   "got": 276000000,
+   "ok": true
+  },
+  "ack": {
+   "expected": "MRVFTVA0",
+   "got": "MRVFTVA0",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ },
+ "answer_tail": ") 49595. If exact .5? no.\n\nMigration date: Need consider \"week starting Monday\" might mean Monday to Sunday. Ana week 2026-03-09 to 2026-03-15. Exclusions: freeze through 2026-03-10 inclusive, maintenance 2026-03-11, no Fri/Sat/Sun. Days:\n3/9 Mon excluded freeze\n3/10 Tue excluded freeze\n3/11 Wed excluded maintenance\n3/12 Thu allowed\nEarliest 2026-03-12. If week starts Monday and maybe on-call day only Monday? No roster says week starting Monday, likely full week. If only Monday? Then Ana Monday 3/9 freeze, no later Monday Ana until maybe? Roster only one Ana week. But rule \"day when on-call engineer is Ana\" means any day in her week. So 3/12.\n\nCapacity: row copies total across all shards and replicas. Each shard holds 2M rows. 46 shards. Replication factor 3. Are row copies per shard replicated? Yes total copies = rows per shard * shards * replicas = 276,000,000.\n\nNeed final JSON only. Ensure no markdown. Keys exactly. Values types: strings, int, array.\n\nLet's produce:\n{\n  \"ack\": \"MRVFTVA0\",\n  \"needle_start\": \"76563-ML\",\n  \"needle_mid\": \"68535-TJ\",\n  \"needle_end\": \"69374-KA\",\n  \"distractor\": 40662,\n  \"multihop\": \"SEC-1276\",\n  \"contradiction\": [14, 17],\n  \"count\": 7,\n  \"var_chain\": 7027,\n  \"billing_fee\": 49595,\n  \"migration_date\": \"2026-03-12\",\n  \"capacity\": 276000000\n}\n\nDouble-check vault codes: 76563-ML, 68535-TJ, 69374-KA. Yes.\n\nPotential issue: \"distractor\" asks port number, answer with number. Use integer 40662. Good.\n\nPotential issue: count TODO-Z0E maybe includes the prompt's own \"TODO-Z0E\"? It says in dump. The dump has 7. Good.\n\nPotential issue: multihop: service svc-6sb links against libegzg. Advisory: libegzg version 6.6.1 affected by SEC-1276. PIN libegzg pinned to 6.6.1. So yes.\n\nPotential issue: var_chain if aliases can be right-to-left? Suppose \"ALIAS: knob_tb4 = knob_3gt\" could mean knob_3gt is alias to knob_tb4? But phrase \"Following the SET/ALIAS comments, what integer value does knob_8d8 resolve to?\" Usually alias name = target. We traced. If reverse, knob_8d8 = knob_142 maybe knob_142 is alias target? Let's see if any chain could resolve to 6698 if different? Need validate. Comments include # ALIAS: knob_8d8 = knob_142. If left side alias for right side? To resolve knob_8d8, need value of knob_142. knob_142 = knob_tb4, etc. If reverse (right side alias for left) then knob_8d8 might be target of no set? Not likely. The chain deliberately connects to 7027. Good.\n\nPotential issue: There is also SET knob_hsp=9849 and alias knob_2m1=knob_hsp, knob_lhx=knob_2m1, knob_we1=knob_lhx, knob_i6t=knob_we1, knob_1en=knob_i6t. Another chain knob_v4q=knob_2fn=knob_af7=knob_5s3=knob_nvs=6698, knob_ja0=knob_v4q. This is distractor. knob_8d8 chain to 7027. Good.\n\nPotential issue: billing bug maybe FEE_RATE_BPS silver 60 is wrong? \"one arithmetic bug\" likely compute_fee division. Customer tier cust5cd silver. If bug is using /100, fix /10000. Good.\n\nPotential issue: migration_date: \"change freeze lasts through 2026-03-10 inclusive; no migrations during it.\" If freeze includes through 3/10, 3/11 maintenance, Ana week includes 3/12. Good.\n\nPotential issue: \"database migrations never run on Fridays, Saturdays or Sundays.\" 2026-03-12 is Thursday? Let's verify calendar. 2026-03-02 Monday given. Then 3/9 Monday. 3/10 Tue, 3/11 Wed, 3/12 Thu. Yes.\n\nPotential issue: capacity: \"row copies\" maybe each shard holds 2M rows, split into 46 shards, replicated with replication factor 3. If replication factor includes original copy, factor 3 means 3 copies each shard. Yes. 2M*46*3. If \"row copies\" could mean total rows stored = 92M unique? But copies = 276M. Good.\n\nNeed final JSON no explanation. Ensure ack included. Done.\n</think>\n\n{\n  \"ack\": \"MRVFTVA0\",\n  \"needle_start\": \"76563-ML\",\n  \"needle_mid\": \"68535-TJ\",\n  \"needle_end\": \"69374-KA\",\n  \"distractor\": 40662,\n  \"multihop\": \"SEC-1276\",\n  \"contradiction\": [\n    14,\n    17\n  ],\n  \"count\": 7,\n  \"var_chain\": 7027,\n  \"billing_fee\": 49595,\n  \"migration_date\": \"2026-03-12\",\n  \"capacity\": 276000000\n}"
+}

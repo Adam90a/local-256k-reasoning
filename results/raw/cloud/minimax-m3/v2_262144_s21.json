@@ -1,0 +1,132 @@
+{
+ "backend": "minimax",
+ "prompt_file": "results/prompts/v2/262144_s21.json",
+ "seed": 21,
+ "suite": "both",
+ "prompt_tokens_builder": 262398,
+ "expected": {
+  "needle_start": "72796-N4",
+  "needle_mid": "40940-AA",
+  "needle_end": "40441-OC",
+  "distractor": "22433",
+  "multihop": "SEC-3394",
+  "contradiction": [
+   16,
+   18
+  ],
+  "count": 6,
+  "var_chain": 3837,
+  "billing_fee": 105627,
+  "migration_date": "2026-03-17",
+  "capacity": 78750000,
+  "callers": [
+   "llama.cpp-lrr/ggml/src/ggml-sycl/fattn-mkl.cpp",
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/bert.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/deepseek_mtp.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/threadblock/depthwise_mma_core_with_lane_access_size.h",
+   "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/spec_decode/eagle/eagle3_utils.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py"
+  ],
+  "ack": "RBFK5A5E"
+ },
+ "wall_s": 35.47904634475708,
+ "model": "MiniMax-M3",
+ "usage": {
+  "input": 246985,
+  "output": 3605
+ },
+ "stop": "end_turn",
+ "thinking_chars": 11863,
+ "answer_tail": "{\"needle_start\":\"72796-N4\",\"needle_mid\":\"40940-AA\",\"needle_end\":\"40441-OC\",\"distractor\":22433,\"multihop\":\"SEC-3394\",\"contradiction\":[16,18],\"count\":6,\"var_chain\":3837,\"billing_fee\":105627,\"migration_date\":\"2026-03-17\",\"capacity\":78750000,\"callers\":[\"vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/deepseek_mtp.py\",\"vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py\",\"llama.cpp-lrr/ggml/src/ggml-sycl/fattn-mkl.cpp\",\"vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/bert.py\",\"vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/threadblock/depthwise_mma_core_with_lane_access_size.h\"],\"ack\":\"RBFK5A5E\"}",
+ "scores": {
+  "needle_start": {
+   "expected": "72796-N4",
+   "got": "72796-N4",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "40940-AA",
+   "got": "40940-AA",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "40441-OC",
+   "got": "40441-OC",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "22433",
+   "got": 22433,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-3394",
+   "got": "SEC-3394",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    16,
+    18
+   ],
+   "got": [
+    16,
+    18
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 6,
+   "got": 6,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 3837,
+   "got": 3837,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 105627,
+   "got": 105627,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-17",
+   "got": "2026-03-17",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 78750000,
+   "got": 78750000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/ggml/src/ggml-sycl/fattn-mkl.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/bert.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/deepseek_mtp.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/threadblock/depthwise_mma_core_with_lane_access_size.h",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu/spec_decode/eagle/eagle3_utils.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py"
+   ],
+   "got": [
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/deepseek_mtp.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py",
+    "llama.cpp-lrr/ggml/src/ggml-sycl/fattn-mkl.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/bert.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/threadblock/depthwise_mma_core_with_lane_access_size.h"
+   ],
+   "ok": true,
+   "f1": 0.909
+  },
+  "ack": {
+   "expected": "RBFK5A5E",
+   "got": "RBFK5A5E",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ }
+}

@@ -1,0 +1,129 @@
+{
+ "label": "STABILITY-qwen38fn-q4-yarn2-272k",
+ "suite": "both",
+ "seed": 102,
+ "prompt_file": null,
+ "target_tokens": 262144,
+ "prompt_tokens_counted": 262313,
+ "prompt_tokens_server": 262313,
+ "tokens_evaluated": 262313,
+ "truncated": true,
+ "stop_type": "limit",
+ "output_tokens": 16215,
+ "prefill_s": 343.508504,
+ "prefill_tps": 763.6288387201033,
+ "gen_s": 546.706907,
+ "gen_tps": 29.65757299276265,
+ "wall_s": 890.4853591918945,
+ "build_s": 2.752011775970459,
+ "expected": {
+  "needle_start": "96627-LY",
+  "needle_mid": "81170-7L",
+  "needle_end": "26783-FD",
+  "distractor": "43819",
+  "multihop": "SEC-8702",
+  "contradiction": [
+   9,
+   14
+  ],
+  "count": 7,
+  "var_chain": 1148,
+  "billing_fee": 136525,
+  "migration_date": "2026-03-23",
+  "capacity": 24750000,
+  "callers": [
+   "llama.cpp-lrr/ggml/src/ggml-metal/ggml-metal.cpp",
+   "llama.cpp-lrr/src/models/ernie4-5.cpp",
+   "llama.cpp-lrr/tools/server/server-models.cpp",
+   "llama.cpp-lrr/tools/server/server-task.cpp",
+   "vllm-env/lib/python3.12/site-packages/vllm/compilation/passes/fusion/qk_norm_rope_fusion.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/distributed/kv_transfer/kv_connector/v1/lmcache_integration/multi_process_adapter.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/threadblock/mma_planar_complex_multistage.h"
+  ],
+  "ack": "X7DZH4LT"
+ },
+ "scores": {
+  "needle_start": {
+   "expected": "96627-LY",
+   "got": null,
+   "ok": false
+  },
+  "needle_mid": {
+   "expected": "81170-7L",
+   "got": null,
+   "ok": false
+  },
+  "needle_end": {
+   "expected": "26783-FD",
+   "got": null,
+   "ok": false
+  },
+  "distractor": {
+   "expected": "43819",
+   "got": null,
+   "ok": false
+  },
+  "multihop": {
+   "expected": "SEC-8702",
+   "got": null,
+   "ok": false
+  },
+  "contradiction": {
+   "expected": [
+    9,
+    14
+   ],
+   "got": null,
+   "ok": false
+  },
+  "count": {
+   "expected": 7,
+   "got": null,
+   "ok": false
+  },
+  "var_chain": {
+   "expected": 1148,
+   "got": null,
+   "ok": false
+  },
+  "billing_fee": {
+   "expected": 136525,
+   "got": null,
+   "ok": false
+  },
+  "migration_date": {
+   "expected": "2026-03-23",
+   "got": null,
+   "ok": false
+  },
+  "capacity": {
+   "expected": 24750000,
+   "got": null,
+   "ok": false
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/ggml/src/ggml-metal/ggml-metal.cpp",
+    "llama.cpp-lrr/src/models/ernie4-5.cpp",
+    "llama.cpp-lrr/tools/server/server-models.cpp",
+    "llama.cpp-lrr/tools/server/server-task.cpp",
+    "vllm-env/lib/python3.12/site-packages/vllm/compilation/passes/fusion/qk_norm_rope_fusion.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/distributed/kv_transfer/kv_connector/v1/lmcache_integration/multi_process_adapter.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/threadblock/mma_planar_complex_multistage.h"
+   ],
+   "got": null,
+   "ok": false,
+   "f1": 0.0
+  },
+  "ack": {
+   "expected": "X7DZH4LT",
+   "got": null,
+   "ok": false
+  },
+  "_json_ok": true,
+  "_score": 0.0,
+  "_score_easy": 0.0,
+  "_score_hard": 0.0
+ },
+ "answer_tail": "etal/ggml-metal.cpp =====` after `vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/threadblock/conv3d_wgrad_output_gradient_tile_access_iterator_optimized.h`? Hmm.\nActually the metal file appears after `vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/threadblock/conv3d_wgrad_output_gradient_tile_access_iterator_optimized.h` in the original? Let's inspect the sequence in the user message as I pasted in analysis: It had `test-conv-1d.cpp`, `transform/schemes/__init__.py`, `laguna.py`, `conv3d_wgrad_output...`, `lookahead.cpp`, `sched/utils.py`, `regular_tile_access_iterator.h`, `weight_transfer/__init__.py`, `im2col.cu`, `predicate_vector.h`, `kimi_audio.py`, `nvfp4/base.py`, `xverse.py`, `ernie4-5.cpp`, `bert_with_rope.py`, `qwen3_omni_moe_thinker.py`, `cache/api_router.py`, `pooler.py`, `implicit_gemm...`, `lazy.py`, `weight_tying.py`, `deepseek_v4_encoding.py`, `flint.py`, `ec_transfer.py`, `mma_planar...`, `mma_softmax...`, `default_gemm_sparse...`, `nixl/pull_worker.py`, `decode_bench_connector.py`, `index_sequence.h`, `pydantic...`, `dsv4_topk.py`, `fwht.cpp`, `dots3...`, `machete.py`, `verify-checksum.py`, `llava_surgery_v2.py`, `kda/chunk.py`, `lmcache_integration/multi_process_adapter.py`, `gemm_universal_with_visitor.h`, `conv2d_wgrad_activation...`, `mma_tensor_op_fast_f32.h`, `ntk_scaling_rope.py`, `wmma_sm72.h`, `gguf_editor_gui.py`, `conv3d.cpp`, `nvfp4_utils.py`, `lfm2_moe.py`, `nomic-bert-moe.cpp`, `gemm_splitk_parallel.h`, `deepseek_v4_engine_reasoning_parser.py`, `unary-ops.h`, `jamba.py`, `flashinfer_utils.py`, `server-task.cpp`, `chat-auto-parser-generator.cpp`.\nBut I definitely saw metal and server-models in the prompt because they were long. Where did they go? Let's re-open the user message in my mind: After `vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/threadblock/conv3d_wgrad_output_gradient_tile_access_iterator_optimized.h` there is `// ===== FILE: llama.cpp-lrr/examples/lookahead/lookahead.cpp =====`. Then after `sched/utils.py` there is `// ===== FILE: vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/transform/threadblock/regular_tile_access_iterator.h =====`. Then after `weight_transfer/__init__.py` there is `// ===== FILE: llama.cpp-lrr/ggml/src/ggml-cuda/im2col.cu =====`. Then after `predicate_vector.h` there is `// ===== FILE: vllm-env/lib/python3.12/site-packages/vllm/transformers_utils/processors/kimi_audio.py =====`. Then after `nvfp4/base.py` there is `// ===== FILE: llama.cpp-lrr/conversion/xverse.py =====`. Then after `ernie4-5.cpp` there is `// ===== FILE: vllm-env/lib/python3.12/site-packages/vllm/model_executor/models/bert_with_rope.py =====`. Then after `qwen3_omni_moe_thinker.py` there is `// ===== FILE: vllm-env/lib/python3.12/site-packages/vllm/entrypoints/serve/dev/cache/api_router.py =====`. Then after `pooler.py` there is `// ===== FILE: vllm-env/lib/python3.12/site-packages/vllm/third_party/fmha_sm100/cutlass/include/cutlass/conv/kernel/implicit_gemm_convolution_with_fused_epilogue.h =====`. Then after `implicit...` there is `// ===== FILE: vllm-env/lib/python3.12/site-packages/vllm/logging_utils/lazy.py =====`. Then after `lazy.py` there is `// ===== FILE: vllm-env/lib/python3.12/site-packages/vllm/model_executor/model_loader/weight_tying.py =====`. Then after `weight_tying.py` there is `// ===== FILE: vllm-env/lib/python3.12/site-packages/vllm/tokenizers/deepseek_v4_encoding.py =====`. Then after `deepseek_v4_encoding.py` there is `// ===== FILE: llama.cpp-lrr/conversion/flint.py =====`. Then after `flint.py` there is `// ===== FILE: vllm-env/lib/python3.12/site-packages/vllm/config/ec_transfer.py =====`. Then after `ec_transfer.py` there is `// ===== FILE: vllm-env/lib/python3.12/site-packages/vllm/third_party/deep_gemm/include/cutlass/gemm/threadblock/mma_planar_complex_multistage.h =====`. Then after `mma"
+}

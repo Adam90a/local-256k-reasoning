@@ -1,0 +1,130 @@
+{
+ "backend": "minimax",
+ "prompt_file": "results/prompts/v2/262144_s22.json",
+ "seed": 22,
+ "suite": "both",
+ "prompt_tokens_builder": 262242,
+ "expected": {
+  "needle_start": "34150-HW",
+  "needle_mid": "51871-L9",
+  "needle_end": "50721-0M",
+  "distractor": "47484",
+  "multihop": "SEC-9898",
+  "contradiction": [
+   4,
+   16
+  ],
+  "count": 6,
+  "var_chain": 9040,
+  "billing_fee": 63007,
+  "migration_date": "2026-03-11",
+  "capacity": 110250000,
+  "callers": [
+   "llama.cpp-lrr/examples/lookahead/lookahead.cpp",
+   "llama.cpp-lrr/ggml/src/ggml-cpu/arch/arm/quants.c",
+   "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/prepare_finalize/deepep_ht.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/parser/glm47_moe.py",
+   "vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/mla/indexer.py"
+  ],
+  "ack": "DM6PZAG3"
+ },
+ "wall_s": 57.764777421951294,
+ "model": "MiniMax-M3",
+ "usage": {
+  "input": 247400,
+  "output": 5411
+ },
+ "stop": "end_turn",
+ "thinking_chars": 18393,
+ "answer_tail": "{\"ack\":\"DM6PZAG3\",\"needle_start\":\"34150-HW\",\"needle_mid\":\"51871-L9\",\"needle_end\":\"50721-0M\",\"distractor\":47484,\"multihop\":\"SEC-9898\",\"contradiction\":[4,16],\"count\":6,\"var_chain\":9040,\"billing_fee\":63007,\"migration_date\":\"2026-03-11\",\"capacity\":110250000,\"callers\":[\"llama.cpp-lrr/examples/lookahead/lookahead.cpp\",\"llama.cpp-lrr/ggml/src/ggml-cpu/arch/arm/quants.c\",\"vllm-env/lib/python3.12/site-packages/vllm/parser/glm47_moe.py\",\"vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/mla/indexer.py\",\"vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/prepare_finalize/deepep_ht.py\"]}",
+ "scores": {
+  "needle_start": {
+   "expected": "34150-HW",
+   "got": "34150-HW",
+   "ok": true
+  },
+  "needle_mid": {
+   "expected": "51871-L9",
+   "got": "51871-L9",
+   "ok": true
+  },
+  "needle_end": {
+   "expected": "50721-0M",
+   "got": "50721-0M",
+   "ok": true
+  },
+  "distractor": {
+   "expected": "47484",
+   "got": 47484,
+   "ok": true
+  },
+  "multihop": {
+   "expected": "SEC-9898",
+   "got": "SEC-9898",
+   "ok": true
+  },
+  "contradiction": {
+   "expected": [
+    4,
+    16
+   ],
+   "got": [
+    4,
+    16
+   ],
+   "ok": true
+  },
+  "count": {
+   "expected": 6,
+   "got": 6,
+   "ok": true
+  },
+  "var_chain": {
+   "expected": 9040,
+   "got": 9040,
+   "ok": true
+  },
+  "billing_fee": {
+   "expected": 63007,
+   "got": 63007,
+   "ok": true
+  },
+  "migration_date": {
+   "expected": "2026-03-11",
+   "got": "2026-03-11",
+   "ok": true
+  },
+  "capacity": {
+   "expected": 110250000,
+   "got": 110250000,
+   "ok": true
+  },
+  "callers": {
+   "expected": [
+    "llama.cpp-lrr/examples/lookahead/lookahead.cpp",
+    "llama.cpp-lrr/ggml/src/ggml-cpu/arch/arm/quants.c",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/prepare_finalize/deepep_ht.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/parser/glm47_moe.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/mla/indexer.py"
+   ],
+   "got": [
+    "llama.cpp-lrr/examples/lookahead/lookahead.cpp",
+    "llama.cpp-lrr/ggml/src/ggml-cpu/arch/arm/quants.c",
+    "vllm-env/lib/python3.12/site-packages/vllm/parser/glm47_moe.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/v1/attention/backends/mla/indexer.py",
+    "vllm-env/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/prepare_finalize/deepep_ht.py"
+   ],
+   "ok": true,
+   "f1": 1.0
+  },
+  "ack": {
+   "expected": "DM6PZAG3",
+   "got": "DM6PZAG3",
+   "ok": true
+  },
+  "_json_ok": true,
+  "_score": 1.0,
+  "_score_easy": 1.0,
+  "_score_hard": 1.0
+ }
+}

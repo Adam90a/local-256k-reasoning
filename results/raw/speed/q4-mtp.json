@@ -1,0 +1,32 @@
+{
+ "label": "q4-mtp",
+ "runs": [
+  {
+   "prompt_n": 3844,
+   "pp_tps": 17.641757684299193,
+   "tg_n": 1024,
+   "tg_tps": 27.556865666475456,
+   "draft_n": 1391,
+   "draft_accepted": 558
+  },
+  {
+   "prompt_n": 3844,
+   "pp_tps": 612.7838768336289,
+   "tg_n": 1024,
+   "tg_tps": 44.223781846634694,
+   "draft_n": 971,
+   "draft_accepted": 699
+  },
+  {
+   "prompt_n": 3844,
+   "pp_tps": 742.3687046399975,
+   "tg_n": 1024,
+   "tg_tps": 44.2031729927687,
+   "draft_n": 973,
+   "draft_accepted": 698
+  }
+ ],
+ "pp_tps_median": 612.7838768336289,
+ "tg_tps_median": 44.2031729927687,
+ "draft_accept_rate": 0.5862068965517241
+}

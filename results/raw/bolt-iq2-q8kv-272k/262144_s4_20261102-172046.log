@@ -1,0 +1,9 @@
+[build] prompt_tokens=262208 target=262144 (4s)
+Traceback (most recent call last):
+  File "/home/adam/local-reasoning-research/benchmarks/context/longctx.py", line 253, in <module>
+    main()
+  File "/home/adam/local-reasoning-research/benchmarks/context/longctx.py", line 227, in main
+    r.raise_for_status()
+  File "/home/adam/venv/lib/python3.12/site-packages/requests/models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://127.0.0.1:8090/completion
