@@ -1,0 +1,54 @@
+== 64 GB sim: cap 56G, sizes 4096,32768,131072 x 2 -> /home/adam/local-reasoning-research/results/64gb-sim/20261110-124745-cap56G
+mode: user
+== stopping live strata
+== dropping page cache + compacting RAM (fragmented RAM made loads take ~7 min)
+   skipped (no sudo)
+== starting strata-64g under MemoryMax=56G
+Running as unit: strata-64g.service; invocation ID: 4fa42c71b8b7483e86843e0973a57030
+== waiting for :8092 to answer (up to 15 min)
+ready after 59 s
+strata generate: expert cache 5562 slots, 14.32 GiB of VRAM; policy is
+strata generate: pre-filled 5562 of 5562 slots from the profile in 3.7 s (4105 MB/s); slot 0 verified
+strata generate: R4 hit path ON - resident experts are computed on the GPU
+strata generate: token graph hit path: 5562 resident experts, decided on the device
+FileExpertSource: RAM budget 48.00 GiB: 18641 of the 48.96 GiB of experts the GPU cache does not hold, by profile rank; the rest are read from the files
+FileExpertSource: the prompt path's lend region: 0 of its 4705 slots keep their experts in RAM too (0.00 GiB of the budget's remaining 0.00 GiB)
+FileExpertSource: allocating 48.00 GiB page-locked cache complement
+FileExpertSource: page-locking path 1 (one page-locked allocation): 48.00 of 48.00 GiB pinned
+FileExpertSource: copied cache complement through layer 8/48 (10.91 GiB, 6 s)
+FileExpertSource: copied cache complement through layer 16/48 (18.05 GiB, 10 s)
+FileExpertSource: copied cache complement through layer 24/48 (23.99 GiB, 13 s)
+FileExpertSource: copied cache complement through layer 32/48 (36.26 GiB, 17 s)
+FileExpertSource: copied cache complement through layer 40/48 (42.21 GiB, 20 s)
+FileExpertSource: copied cache complement through layer 48/48 (48.00 GiB, 22 s)
+FileExpertSource: mapped pinned cache complement ready: resident 48.00 GiB, pinned 48.00 GiB in 47 s; page-locked and mapped
+FileExpertSource: 0 of the prompt path's 4705 lendable slots keep their experts in RAM too (the others are read from the file when lent: not enough RAM for them)
+FileExpertSource: WARNING: 4705 of 4705 lendable slots (100%) will read their experts from the pack during a long prompt; expect a slower prompt read on 50K+ token prompts (one measurement: 18% uncovered cost 26%). Raise --resident-budget-gib (the lend region comes after the ranked experts) and restart; the line above should read N of N.
+strata generate: WARNING: a prompt chunk of 32768 tokens lends 4705 cache slots to the prompt path, but only 0 of their experts fit in RAM: the others are read from the SSD on every chunk, and prompts can read ~3x slower than with --prefill auto (#669). A larger --resident-budget-gib (the lend region comes after the ranked experts), or a smaller --prefill, keeps them all in RAM
+strata generate: resident RAM mode: 48.00 GiB of experts in RAM (page-locked), 5562 in the GPU cache; adaptive swaps exchange them with the GPU cache (no file reads)
+strata generate: the file tier reads through the file cache (re-checked with the RAM copy built (48.00 GiB): 54.2 GiB available, 0.0 GiB of it still to be taken by the RAM copy, 15.3 GiB of experts read from the files: the file cache can keep the ones that come back)
+strata: prefill plan: chunk 31488 -> 5632, ring 96 -> 96: today's choice has a 13.4 GiB file set against a 4.5 GiB page cache (about 28.8 GB read from the drive per 32768-token prompt, 41 s); this one 3.8 GiB, about 0.0 GB read, 33 s. --prefill N keeps your own chunk
+strata: prefill plan inputs: 63.3 GiB experts, 14.3 GiB in the GPU caches, 48.0 GiB RAM copy (0 lend slots kept), file tier 1.0 GiB; 4.5 GiB available for the page cache; PCIe 55.3 GB/s; drive 2.50 GB/s (nvme0n1 is NVMe); a 32768-token prompt
+strata serve: the prompt path borrows 4705 CUDA0 cache slots (12.12 GiB)
+strata serve: STRATA_ADAPT_FETCH is off (the resident RAM mode)
+strata serve: the adaptive tier's evictions reach the device's table before the next window (STRATA_ADAPT_EVICT_SYNC=0: when its copies land)
+== bench
+corpus: 305 documents
+4k_r1: prompt 4095 (local 4095) ttft 2.533s prefill 1639.8 tok/s decode 77.7 tok/s out 512 reused 0 vram 23765.0 temp 51.0 err None
+4k_r2: prompt 4095 (local 4095) ttft 2.937s prefill 1414.1 tok/s decode 82.2 tok/s out 512 reused 0 vram 23767.0 temp 57.0 err None
+32k_r1: prompt 32763 (local 32763) ttft 16.494s prefill 1993.6 tok/s decode 83.8 tok/s out 512 reused 0 vram 23767.0 temp 69.0 err None
+32k_r2: prompt 32766 (local 32766) ttft 15.929s prefill 2063.1 tok/s decode 80.3 tok/s out 512 reused 0 vram 23767.0 temp 75.0 err None
+128k_r1: prompt 131044 (local 131044) ttft 60.703s prefill 2164.6 tok/s decode 65.9 tok/s out 20 reused 0 vram 23767.0 temp 86.0 err None
+128k_r2: prompt 131052 (local 131052) ttft 61.07s prefill 2151.9 tok/s decode 62.2 tok/s out 12 reused 0 vram 23767.0 temp 89.0 err None
+matrix complete
+== summary
+| prompt | TTFT | prefill tok/s | decode tok/s | expert hit | 11-09 full-RAM TTFT / decode |
+|---|---|---|---|---|---|
+| 4k | 2.7 s | 1526.9 | 80.0 | 0.8 | 2.0 s / 109.8 |
+| 32k | 16.2 s | 2028.3 | 82.0 | 0.8 | 11.4 s / 107.5 |
+| 128k | 60.9 s | 2158.2 | 64.1 | 0.8 | 43.5 s / 100.2 |
+
+RAM peak 56.0 GiB, NVMe read total 161.4 GiB
+== done: /home/adam/local-reasoning-research/results/64gb-sim/20261110-124745-cap56G
+== restoring live strata
+strata starting again (watch: journalctl -u strata -f)

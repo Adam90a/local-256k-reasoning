@@ -26,6 +26,7 @@ Also on Hugging Face: [datasets/timmyGPT/local-256k-reasoning](https://huggingfa
 - **AIME 2026 (15 problems):** 14/15 (Opus 5.5: 15/15). Measured on llama.cpp.
 - **Claude Code / Hermes driving the local model:** all bug-fix tasks solved, tests untouched.
 - **Weakest area:** hard contest coding (LiveCodeBench v6 hard: 3/10 local vs 6/10 Opus).
+- **64 GB of RAM works (simulated):** about 80 tok/s decode vs about 108 with 128 GB, and about 40% slower prompt reading, in Strata's low-RAM mode ([research/low-ram-64gb.md](research/low-ram-64gb.md)).
 - **Caveat on Strata:** a young, single-maintainer project (Windows-first; built from source here). AIME and coding were not re-run on it.
 
 ### All candidates (llama.cpp unless noted)
@@ -41,7 +42,7 @@ Also on Hugging Face: [datasets/timmyGPT/local-256k-reasoning](https://huggingfa
 
 \* needed a GGUF context-length override (experimental).
 
-Full write-up: **[research/final-report.md](research/final-report.md)** and **[research/strata-trial.md](research/strata-trial.md)**. Also: [256K qualification](research/qualification-256k.md) · [quantization study](research/quantization-study.md) · [architecture notes, including HGA](research/architecture-research.md) · [fine-tuning assessment](research/fine-tuning-assessment.md) · [deployment](deployment/README.md).
+Full write-up: **[research/final-report.md](research/final-report.md)** and **[research/strata-trial.md](research/strata-trial.md)**. Also: [256K qualification](research/qualification-256k.md) · [quantization study](research/quantization-study.md) · [architecture notes, including HGA](research/architecture-research.md) · [fine-tuning assessment](research/fine-tuning-assessment.md) · [64 GB of RAM](research/low-ram-64gb.md) · [deployment](deployment/README.md).
 
 ## Practical findings
 
